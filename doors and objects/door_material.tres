@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://ckoekoupcurg2"]
+
+[ext_resource type="Texture2D" uid="uid://m6xkbevajbwk" path="res://meshes/house/textures/M_1024x1024_Dollhouse_Normals_baseColor.png" id="1_j8nur"]
+[ext_resource type="Texture2D" uid="uid://d1jf2ky6y2yu2" path="res://meshes/house/textures/M_1024x1024_Dollhouse_Normals_normal.png" id="2_nssch"]
+
+[resource]
+resource_name = "M_1024x1024_Dollhouse_Normals"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_j8nur")
+roughness = 0.939437
+normal_enabled = true
+normal_texture = ExtResource("2_nssch")
+texture_filter = 0

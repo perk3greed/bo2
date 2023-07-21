@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://dyu1i1mcwhm2e"]
+
+[ext_resource type="Script" path="res://scenes/player_physics.gd" id="1_pxgo1"]
+[ext_resource type="PackedScene" uid="uid://c1vhle00xj2b8" path="res://characters/player_hands/hands_camera_3d.tscn" id="2_2obeh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ipieo"]
+height = 3.0
+
+[sub_resource type="Environment" id="Environment_7q4ol"]
+background_mode = 2
+background_color = Color(0.72549, 0.588235, 0.866667, 1)
+background_energy_multiplier = 6.64
+ambient_light_source = 3
+ambient_light_color = Color(0.678431, 0.603922, 0.843137, 1)
+ambient_light_energy = 2.0
+reflected_light_source = 2
+
+[sub_resource type="World3D" id="World3D_ynrj3"]
+environment = SubResource("Environment_7q4ol")
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12469, 0)
+script = ExtResource("1_pxgo1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ipieo")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42526, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+cull_mask = 1048573
+
+[node name="hand_raycast" type="RayCast3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0521756, 0, -0.795762)
+target_position = Vector3(0, 0, -2.5)
+debug_shape_custom_color = Color(0.25098, 0.333333, 1, 1)
+
+[node name="gun_raycast" type="RayCast3D" parent="Head/Camera3D"]
+target_position = Vector3(0, 0, -200)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Head"]
+light_mask = 3
+visibility_layer = 3
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="Head/SubViewportContainer"]
+own_world_3d = true
+world_3d = SubResource("World3D_ynrj3")
+transparent_bg = true
+handle_input_locally = false
+canvas_cull_mask = 4293918722
+size = Vector2i(1600, 900)
+render_target_update_mode = 4
+
+[node name="hands_camera3D" parent="Head/SubViewportContainer/SubViewport" instance=ExtResource("2_2obeh")]
+current = true

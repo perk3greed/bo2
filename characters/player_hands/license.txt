@@ -1,0 +1,11 @@
+Model Information:
+* title:	Damaged hands
+* source:	https://sketchfab.com/3d-models/damaged-hands-57df95d1c6e746fd9c414948f71de937
+* author:	Coffeek (https://sketchfab.com/coffe0wolf)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Damaged hands" (https://sketchfab.com/3d-models/damaged-hands-57df95d1c6e746fd9c414948f71de937) by Coffeek (https://sketchfab.com/coffe0wolf) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
