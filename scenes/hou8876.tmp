@@ -1,0 +1,1842 @@
+[gd_scene load_steps=19 format=3 uid="uid://qs0wxfvm3kvo"]
+
+[ext_resource type="Script" path="res://scenes/main_node_script.gd" id="1_35nk4"]
+[ext_resource type="PackedScene" uid="uid://6d8bl06vu8dr" path="res://house_parts/floor_board_chocolate.tscn" id="1_iieej"]
+[ext_resource type="PackedScene" uid="uid://cpd1u8kq42pwg" path="res://house_parts/inside_wall_pink.tscn" id="2_5lpn3"]
+[ext_resource type="PackedScene" uid="uid://dyu1i1mcwhm2e" path="res://scenes/player.tscn" id="2_jsnde"]
+[ext_resource type="PackedScene" uid="uid://cc81xux5js8s3" path="res://house_parts/inside_wall_lightgreen.tscn" id="3_ssuia"]
+[ext_resource type="PackedScene" uid="uid://dihoyabee6enh" path="res://house_parts/table.tscn" id="4_yk18e"]
+[ext_resource type="PackedScene" uid="uid://bwyeyy6sw2ymc" path="res://doors and objects/door_interactable.tscn" id="5_drbe1"]
+[ext_resource type="Texture2D" uid="uid://b1pwoaxuvypr8" path="res://stuff/skyline.png" id="7_io7pm"]
+[ext_resource type="PackedScene" uid="uid://cm2qh70135bgs" path="res://characters/zombi_3d_enemy/zomby_enemy_3d.tscn" id="8_7yuq7"]
+[ext_resource type="PackedScene" uid="uid://dnnkyknfr0f2t" path="res://house_parts/couch.tscn" id="8_873lt"]
+[ext_resource type="PackedScene" uid="uid://dj3pj5wd0xjvd" path="res://house_parts/fireplace.tscn" id="9_iy351"]
+[ext_resource type="PackedScene" uid="uid://dqtf7tml84wbp" path="res://house_parts/inside_wall_deepgreen.tscn" id="10_f8f4p"]
+[ext_resource type="PackedScene" uid="uid://b21lobfvqq0xs" path="res://house_parts/picture.tscn" id="10_lntfh"]
+[ext_resource type="PackedScene" uid="uid://r3mnn4cyka37" path="res://house_parts/chair.tscn" id="11_rb7wf"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_mpyo3"]
+vertices = PackedVector3Array(2, 0.5, 2.20863, 2, 0.5, 1.60863, 1.6, 0.5, 1.50863, 1.6, 0.5, 2.30863, -0.2, 0.5, 4.80863, -0.2, 0.5, 6.20863, 1.2, 0.5, 6.20863, 1.2, 0.5, 4.50863, 1.6, 0.5, 2.30863, 1.6, 0.5, 1.50863, 1.3, 0.5, 1.20863, -0.2, 0.5, 0.80863, -0.2, 0.5, 2.10863, 1.2, 0.5, 2.80863, 1.3, 0.5, 1.20863, 1.2, 0.5, 0.80863, -0.2, 0.5, 0.80863, 1.2, 0.5, 2.80863, -0.2, 0.5, 2.10863, -0.2, 0.5, 3.50863, 1.2, 0.5, 4.50863, 1.2, 0.5, 2.80863, -0.2, 0.5, 3.50863, -0.2, 0.5, 4.80863, 2, 0.5, 1.60863, 2, 0.5, 2.20863, 2.4, 0.5, 2.30863, 2.4, 0.5, 1.50863, 4.2, 0.5, 0.80863, 2.8, 0.5, 0.80863, 2.7, 0.5, 1.20863, 2.7, 0.5, 2.60863, 4.2, 0.5, 2.10863, 2.7, 0.5, 1.20863, 2.4, 0.5, 1.50863, 2.4, 0.5, 2.30863, 2.7, 0.5, 2.60863, 2.7, 0.5, 2.60863, 2.7, 0.5, 3.60863, 4.2, 0.5, 3.50863, 4.2, 0.5, 2.10863, 5.8, 0.5, 4.00863, 7.3, 0.5, 4.10863, 7.4, 0.5, 3.80863, 6.8, 0.5, 0.80863, 5.7, 0.5, 0.80863, 5.7, 0.5, 2.30863, 5.7, 0.5, 2.30863, 5.8, 0.5, 4.00863, 7.4, 0.5, 3.80863, 8, 0.5, 3.40863, 8, 0.5, 0.80863, 6.8, 0.5, 0.80863, 9.2, 0.5, 4.00863, 9.2, 0.5, 4.40863, 10.2, 0.5, 4.40863, 8.8, 0.5, 3.50863, 9.2, 0.5, 4.00863, 10.2, 0.5, 4.40863, 10.2, 0.5, 2.60863, 8, 0.5, 3.40863, 8.8, 0.5, 3.50863, 10.2, 0.5, 2.60863, 9.1, 0.5, 0.80863, 8, 0.5, 0.80863, 10.2, 0.5, 2.60863, 10.2, 0.5, 0.80863, 9.1, 0.5, 0.80863, 2.8, 0.5, 4.90863, 2.7, 0.5, 6.20863, 3.8, 0.5, 6.20863, 5, 0.5, 6.20863, 5, 0.5, 4.70863, 4.6, 0.5, 4.60863, 4.3, 0.5, 4.30863, 4.2, 0.5, 3.50863, 2.7, 0.5, 3.60863, 2.8, 0.5, 4.90863, 3.8, 0.5, 6.20863, 5, 0.5, 6.20863, 4.6, 0.5, 4.60863, 4.3, 0.5, 4.30863, 2.8, 0.5, 4.90863, 8.6, 0.5, 5.60863, 8.2, 0.5, 5.60863, 8.2, 0.5, 6.20863, 11.8, 0.5, 7.80863, 12.1, 0.5, 7.80863, 12.2, 0.5, 7.20863, 11.8, 0.5, 6.80863, 10.6, 0.5, 5.40863, 10.3, 0.5, 5.10863, 9.1, 0.5, 5.20863, 9.7, 0.5, 6.20863, 11.2, 0.5, 6.20863, 12.1, 0.5, 4.40863, 12.4, 0.5, 3.80863, 11.7, 0.5, 3.80863, 11.7, 0.5, 4.90863, 12.8, 0.5, 6.80863, 12.9, 0.5, 5.50863, 12.5, 0.5, 5.30863, 12.1, 0.5, 4.80863, 12.1, 0.5, 4.40863, 11.7, 0.5, 4.90863, 12.5, 0.5, 5.30863, 12.1, 0.5, 4.80863, 11.7, 0.5, 4.90863, 11.1, 0.5, 5.50863, 11.2, 0.5, 6.20863, 11.8, 0.5, 6.80863, 12.8, 0.5, 6.80863, 11.8, 0.5, 6.80863, 12.2, 0.5, 7.20863, 12.8, 0.5, 6.80863, 8.6, 0.5, 5.60863, 8.2, 0.5, 6.20863, 9.7, 0.5, 6.20863, 9.1, 0.5, 5.20863, 11.1, 0.5, 5.50863, 10.6, 0.5, 5.40863, 11.2, 0.5, 6.20863, 10.3, 0.5, 5.10863, 10.2, 0.5, 4.40863, 9.2, 0.5, 4.40863, 9.1, 0.5, 5.20863, 15.6, 0.5, 5.60863, 15.6, 0.5, 5.90863, 16, 0.5, 6.10863, 16.1, 0.5, 5.50863, 16, 0.5, 5.00863, 16, 0.5, 4.50863, 16, 0.5, 5.00863, 16.1, 0.5, 5.50863, 16.1, 0.5, 3.80863, 16.1, 0.5, 3.80863, 15.3, 0.5, 3.80863, 16, 0.5, 4.50863, 8.2, 0.5, 6.20863, 8.2, 0.5, 5.60863, 7.7, 0.5, 5.50863, 8.2, 0.5, 6.20863, 7.7, 0.5, 5.50863, 7.4, 0.5, 5.20863, 6.6, 0.5, 6.20863, 7.3, 0.5, 4.10863, 5.8, 0.5, 4.00863, 5.4, 0.5, 4.60863, 5, 0.5, 6.20863, 6.6, 0.5, 6.20863, 7.4, 0.5, 5.20863, 5.4, 0.5, 4.60863, 5, 0.5, 4.70863, 5, 0.5, 6.20863, 12.1, 0.5, 8.20863, 12.1, 0.5, 7.80863, 11.8, 0.5, 7.80863, 11.8, 0.5, 9.00863, 15.8, 0.5, 12.8086, 16.1, 0.5, 13.4086, 16.1, 0.5, 12.3086, 12.5, 0.5, 8.70863, 12.1, 0.5, 8.20863, 11.8, 0.5, 9.00863, 13.4, 0.5, 9.00863, 13.2, 0.5, 8.80863, 12.5, 0.5, 8.70863, 11.8, 0.5, 9.00863, 11.8, 0.5, 10.2086, 13.5, 0.5, 10.2086, 15.7, 0.5, 9.70863, 15.7, 0.5, 8.00863, 15.5, 0.5, 8.60863, 15.7, 0.5, 9.70863, 15.5, 0.5, 8.60863, 15, 0.5, 9.00863, 15.8, 0.5, 18.9086, 16.1, 0.5, 18.9086, 16.1, 0.5, 17.8086, 15.8, 0.5, 17.8086, 15.2, 0.5, 10.2086, 15.8, 0.5, 10.8086, 16.1, 0.5, 10.1086, 15.7, 0.5, 9.70863, 15.8, 0.5, 16.8086, 15.8, 0.5, 17.8086, 16.1, 0.5, 17.8086, 16.1, 0.5, 16.7086, 15.8, 0.5, 10.8086, 16.1, 0.5, 11.2086, 16.1, 0.5, 10.1086, 15.8, 0.5, 16.8086, 16.1, 0.5, 16.7086, 16.1, 0.5, 15.6086, 15.8, 0.5, 14.8086, 15.2, 0.5, 10.2086, 15.7, 0.5, 9.70863, 15, 0.5, 9.00863, 13.4, 0.5, 9.00863, 13.5, 0.5, 10.2086, 15.8, 0.5, 14.8086, 16.1, 0.5, 15.6086, 16.1, 0.5, 14.5086, 15.8, 0.5, 14.8086, 16.1, 0.5, 14.5086, 16.1, 0.5, 13.4086, 15.8, 0.5, 12.8086, 15.8, 0.5, 10.8086, 15.8, 0.5, 12.8086, 16.1, 0.5, 12.3086, 16.1, 0.5, 11.2086, 16.1, 0.5, 18.9086, 15.8, 0.5, 18.9086, 15.7, 0.5, 19.4086, 16.1, 0.5, 20.5086, 12.3, 0.5, 22.2086, 14.2, 0.5, 22.2086, 13.5, 0.5, 19.8086, 11.9, 0.5, 19.8086, 16.1, 0.5, 20.5086, 15.7, 0.5, 19.4086, 15.2, 0.5, 19.8086, 14.2, 0.5, 22.2086, 16.1, 0.5, 22.2086, 16.1, 0.5, 20.5086, 15.2, 0.5, 19.8086, 13.5, 0.5, 19.8086, 8.6, 0.5, 22.2086, 10.4, 0.5, 22.2086, 10.2, 0.5, 19.8086, 8.6, 0.5, 19.8086, 10.4, 0.5, 22.2086, 12.3, 0.5, 22.2086, 11.9, 0.5, 19.8086, 10.2, 0.5, 19.8086, 5.8, 0.5, 22.9086, 7.2, 0.5, 22.9086, 7.6, 0.5, 22.3086, 5.7, 0.5, 21.3086, 7.1, 0.5, 19.8086, 5.7, 0.5, 19.8086, 5.7, 0.5, 21.3086, 7.1, 0.5, 19.8086, 5.7, 0.5, 21.3086, 7.6, 0.5, 22.3086, 8.6, 0.5, 22.2086, 8.6, 0.5, 19.8086, 7.2, 0.5, 24.5086, 7.2, 0.5, 22.9086, 5.8, 0.5, 22.9086, 5.7, 0.5, 24.6086, 5.7, 0.5, 24.6086, 5.7, 0.5, 26.2086, 7.2, 0.5, 26.2086, 7.2, 0.5, 24.5086)
+polygons = [PackedInt32Array(0, 3, 1), PackedInt32Array(1, 3, 2), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 13), PackedInt32Array(10, 13, 12), PackedInt32Array(10, 12, 11), PackedInt32Array(16, 15, 14), PackedInt32Array(19, 18, 17), PackedInt32Array(23, 22, 20), PackedInt32Array(20, 22, 21), PackedInt32Array(24, 27, 25), PackedInt32Array(25, 27, 26), PackedInt32Array(29, 28, 30), PackedInt32Array(30, 28, 32), PackedInt32Array(30, 32, 31), PackedInt32Array(34, 33, 35), PackedInt32Array(35, 33, 36), PackedInt32Array(38, 37, 39), PackedInt32Array(39, 37, 40), PackedInt32Array(43, 42, 41), PackedInt32Array(46, 45, 44), PackedInt32Array(49, 48, 50), PackedInt32Array(50, 48, 47), PackedInt32Array(50, 47, 52), PackedInt32Array(50, 52, 51), PackedInt32Array(55, 54, 53), PackedInt32Array(57, 56, 58), PackedInt32Array(58, 56, 59), PackedInt32Array(61, 60, 62), PackedInt32Array(62, 60, 63), PackedInt32Array(63, 60, 64), PackedInt32Array(67, 66, 65), PackedInt32Array(70, 69, 68), PackedInt32Array(73, 72, 71), PackedInt32Array(75, 74, 76), PackedInt32Array(76, 74, 77), PackedInt32Array(81, 80, 82), PackedInt32Array(82, 80, 78), PackedInt32Array(78, 80, 79), PackedInt32Array(85, 84, 83), PackedInt32Array(87, 86, 88), PackedInt32Array(88, 86, 89), PackedInt32Array(90, 94, 91), PackedInt32Array(91, 94, 93), PackedInt32Array(91, 93, 92), PackedInt32Array(96, 95, 97), PackedInt32Array(97, 95, 98), PackedInt32Array(101, 100, 99), PackedInt32Array(104, 103, 102), PackedInt32Array(106, 105, 107), PackedInt32Array(107, 105, 108), PackedInt32Array(108, 105, 109), PackedInt32Array(109, 105, 110), PackedInt32Array(110, 105, 111), PackedInt32Array(114, 113, 112), PackedInt32Array(115, 118, 116), PackedInt32Array(116, 118, 117), PackedInt32Array(121, 120, 119), PackedInt32Array(123, 122, 124), PackedInt32Array(124, 122, 125), PackedInt32Array(127, 126, 128), PackedInt32Array(128, 126, 129), PackedInt32Array(129, 126, 130), PackedInt32Array(132, 131, 133), PackedInt32Array(133, 131, 134), PackedInt32Array(137, 136, 135), PackedInt32Array(140, 139, 138), PackedInt32Array(142, 141, 143), PackedInt32Array(143, 141, 144), PackedInt32Array(146, 145, 147), PackedInt32Array(147, 145, 150), PackedInt32Array(147, 150, 149), PackedInt32Array(147, 149, 148), PackedInt32Array(153, 152, 151), PackedInt32Array(155, 154, 156), PackedInt32Array(156, 154, 157), PackedInt32Array(160, 159, 158), PackedInt32Array(163, 162, 161), PackedInt32Array(165, 164, 166), PackedInt32Array(166, 164, 167), PackedInt32Array(167, 164, 168), PackedInt32Array(168, 164, 169), PackedInt32Array(170, 172, 171), PackedInt32Array(175, 174, 173), PackedInt32Array(179, 178, 176), PackedInt32Array(176, 178, 177), PackedInt32Array(183, 182, 180), PackedInt32Array(180, 182, 181), PackedInt32Array(185, 184, 186), PackedInt32Array(186, 184, 187), PackedInt32Array(190, 189, 188), PackedInt32Array(192, 191, 193), PackedInt32Array(193, 191, 194), PackedInt32Array(196, 195, 197), PackedInt32Array(197, 195, 199), PackedInt32Array(197, 199, 198), PackedInt32Array(202, 201, 200), PackedInt32Array(204, 203, 205), PackedInt32Array(205, 203, 206), PackedInt32Array(210, 209, 207), PackedInt32Array(207, 209, 208), PackedInt32Array(212, 211, 213), PackedInt32Array(213, 211, 214), PackedInt32Array(218, 217, 215), PackedInt32Array(215, 217, 216), PackedInt32Array(221, 220, 219), PackedInt32Array(224, 223, 225), PackedInt32Array(225, 223, 222), PackedInt32Array(225, 222, 226), PackedInt32Array(230, 229, 227), PackedInt32Array(227, 229, 228), PackedInt32Array(234, 233, 231), PackedInt32Array(231, 233, 232), PackedInt32Array(236, 235, 237), PackedInt32Array(237, 235, 238), PackedInt32Array(241, 240, 239), PackedInt32Array(245, 244, 246), PackedInt32Array(246, 244, 242), PackedInt32Array(242, 244, 243), PackedInt32Array(248, 247, 249), PackedInt32Array(249, 247, 250), PackedInt32Array(252, 251, 253), PackedInt32Array(253, 251, 254)]
+cell_size = 0.1
+agent_height = 1.0
+agent_radius = 0.7
+edge_max_length = 2.0
+edge_max_error = 1.0
+vertices_per_polygon = 24.0
+detail_sample_distance = 12.0
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2s88h"]
+panorama = ExtResource("7_io7pm")
+
+[sub_resource type="Sky" id="Sky_tuu7m"]
+sky_material = SubResource("PanoramaSkyMaterial_2s88h")
+
+[sub_resource type="Environment" id="Environment_ymprv"]
+background_mode = 2
+background_color = Color(0.423529, 0.12549, 0.313726, 1)
+background_energy_multiplier = 1.17
+sky = SubResource("Sky_tuu7m")
+ambient_light_source = 3
+ambient_light_color = Color(0.54902, 0.431373, 0.447059, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 4.22
+
+[node name="main" type="Node"]
+script = ExtResource("1_35nk4")
+
+[node name="root_house2" type="Node3D" parent="."]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="root_house2"]
+navigation_mesh = SubResource("NavigationMesh_mpyo3")
+
+[node name="floor_one" type="Node3D" parent="root_house2/NavigationRegion3D"]
+
+[node name="first area" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one"]
+
+[node name="outside_walls" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/first area"]
+
+[node name="Doll_house_wall10" parent="root_house2/NavigationRegion3D/floor_one/first area/outside_walls" instance=ExtResource("2_5lpn3")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 1, -0.069103, 0)
+
+[node name="Doll_house_wall12" parent="root_house2/NavigationRegion3D/floor_one/first area/outside_walls" instance=ExtResource("2_5lpn3")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 5, -0.069103, 0)
+
+[node name="Doll_house_wall14" parent="root_house2/NavigationRegion3D/floor_one/first area/outside_walls" instance=ExtResource("2_5lpn3")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 7, -0.069103, 0)
+
+[node name="Doll_house_wall15" parent="root_house2/NavigationRegion3D/floor_one/first area/outside_walls" instance=ExtResource("2_5lpn3")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 9, -0.069103, 0)
+
+[node name="Doll_house_wall16" parent="root_house2/NavigationRegion3D/floor_one/first area/outside_walls" instance=ExtResource("2_5lpn3")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 11, -0.069103, -1.19137)
+
+[node name="Doll_house_wall17" parent="root_house2/NavigationRegion3D/floor_one/first area/outside_walls" instance=ExtResource("2_5lpn3")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 11, -0.069103, 0.80983)
+
+[node name="Doll_house_wall18" parent="root_house2/NavigationRegion3D/floor_one/first area/outside_walls" instance=ExtResource("2_5lpn3")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 11, -0.069103, 2.80468)
+
+[node name="Doll_house_wall20" parent="root_house2/NavigationRegion3D/floor_one/first area/outside_walls" instance=ExtResource("2_5lpn3")]
+transform = Transform3D(-2, 0, -8.74228e-08, 0, 2, 0, 1.74846e-07, 0, -1, 11, -0.069103, 7)
+
+[node name="Doll_house_wall21" parent="root_house2/NavigationRegion3D/floor_one/first area/outside_walls" instance=ExtResource("2_5lpn3")]
+transform = Transform3D(-2, 0, -8.74228e-08, 0, 2, 0, 1.74846e-07, 0, -1, 9, -0.069103, 7)
+
+[node name="Doll_house_wall22" parent="root_house2/NavigationRegion3D/floor_one/first area/outside_walls" instance=ExtResource("2_5lpn3")]
+transform = Transform3D(-2, 0, -8.74228e-08, 0, 2, 0, 1.74846e-07, 0, -1, 7, -0.069103, 7)
+
+[node name="Doll_house_wall23" parent="root_house2/NavigationRegion3D/floor_one/first area/outside_walls" instance=ExtResource("2_5lpn3")]
+transform = Transform3D(-2, 0, -8.74228e-08, 0, 2, 0, 1.74846e-07, 0, -1, 5, -0.069103, 7)
+
+[node name="Doll_house_wall24" parent="root_house2/NavigationRegion3D/floor_one/first area/outside_walls" instance=ExtResource("2_5lpn3")]
+transform = Transform3D(-2, 0, -8.74228e-08, 0, 2, 0, 1.74846e-07, 0, -1, 3, -0.069103, 7)
+
+[node name="Doll_house_wall25" parent="root_house2/NavigationRegion3D/floor_one/first area/outside_walls" instance=ExtResource("2_5lpn3")]
+transform = Transform3D(-2, 0, -8.74228e-08, 0, 2, 0, 1.74846e-07, 0, -1, 1, -0.069103, 7)
+
+[node name="Doll_house_wall26" parent="root_house2/NavigationRegion3D/floor_one/first area/outside_walls" instance=ExtResource("2_5lpn3")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, -1, -0.069103, 7)
+
+[node name="Doll_house_wall27" parent="root_house2/NavigationRegion3D/floor_one/first area/outside_walls" instance=ExtResource("2_5lpn3")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, -1, -0.069103, 5)
+
+[node name="Doll_house_wall28" parent="root_house2/NavigationRegion3D/floor_one/first area/outside_walls" instance=ExtResource("2_5lpn3")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, -1, -0.069103, 3)
+
+[node name="Doll_house_wall29" parent="root_house2/NavigationRegion3D/floor_one/first area/outside_walls" instance=ExtResource("2_5lpn3")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, -1, -0.069103, 1)
+
+[node name="Doll_house_wall13" parent="root_house2/NavigationRegion3D/floor_one/first area/outside_walls" instance=ExtResource("2_5lpn3")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 3, -0.069103, 0)
+
+[node name="Doll_house_wall11" parent="root_house2/NavigationRegion3D/floor_one/first area/outside_walls" instance=ExtResource("2_5lpn3")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, -1, -0.069103, 0)
+
+[node name="inside_walls" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/first area"]
+
+[node name="Doll_house_wall12" parent="root_house2/NavigationRegion3D/floor_one/first area/inside_walls" instance=ExtResource("3_ssuia")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 2, 0, 7)
+
+[node name="Doll_house_wall13" parent="root_house2/NavigationRegion3D/floor_one/first area/inside_walls" instance=ExtResource("3_ssuia")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 2, 0, 5)
+
+[node name="Doll_house_wall14" parent="root_house2/NavigationRegion3D/floor_one/first area/inside_walls" instance=ExtResource("3_ssuia")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 2, 0, 0.858259)
+
+[node name="Doll_house_wall16" parent="root_house2/NavigationRegion3D/floor_one/first area/inside_walls" instance=ExtResource("3_ssuia")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 5, 0, 4)
+
+[node name="Doll_house_wall17" parent="root_house2/NavigationRegion3D/floor_one/first area/inside_walls" instance=ExtResource("3_ssuia")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 5, 0, 2)
+
+[node name="objects" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/first area"]
+
+[node name="table_top_node" parent="root_house2/NavigationRegion3D/floor_one/first area/objects" instance=ExtResource("4_yk18e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.23905, 0.0500998, 4.2142)
+
+[node name="door" parent="root_house2/NavigationRegion3D/floor_one/first area/objects" instance=ExtResource("5_drbe1")]
+transform = Transform3D(-1.04907e-07, 0, 1, 0, 2.3, 0, -2.4, 0, -4.37114e-08, 2.02027, 1.86741, 1.27651)
+
+[node name="door3" parent="root_house2/NavigationRegion3D/floor_one/first area/objects" instance=ExtResource("5_drbe1")]
+transform = Transform3D(-1.04907e-07, 0, -2, 0, 2, 0, 2.4, 0, -8.74228e-08, 10.9874, 1.78049, 6.52717)
+
+[node name="floor_boards" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/first area"]
+
+[node name="floor_4" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_4" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_4" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_4" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_4" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_4" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_4" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_4" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_4" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_4" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_4" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_4" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_4" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_5" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 3)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_5" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_5" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_5" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_5" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_5" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_5" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_5" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_5" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_5" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_5" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_5" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_5" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_7" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 3)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_7" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_7" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_7" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_7" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_7" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_7" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_7" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_7" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_7" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_7" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_7" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_7" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_8" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_8" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_8" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_8" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_8" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_8" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_8" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_8" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_8" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_8" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_8" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_8" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_8" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_6" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_6" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_6" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_6" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_6" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_6" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_6" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_6" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_6" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_6" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_6" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_6" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_6" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_2" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_2" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_2" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_2" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_2" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_2" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_2" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_2" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_2" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_2" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_2" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_2" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_2" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_3" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_3" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_3" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_3" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_3" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_3" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_3" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_3" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_3" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_3" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_3" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_3" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_3" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_1" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards"]
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_1" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_1" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_1" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_1" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_1" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_1" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_1" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_1" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_1" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_1" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_1" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/first area/floor_boards/floor_1" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="second area" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one"]
+
+[node name="floors" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/second area"]
+
+[node name="floor_9" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/second area/floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0072, 0, 3)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_11" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/second area/floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.007, 0, 7)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(0.99995, 0, -0.010018, 0, 1, 0, 0.010018, 0, 0.99995, 2, 0, 3)
+
+[node name="floor_12" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/second area/floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 7)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_13" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/second area/floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 11)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_14" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/second area/floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 15)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_10" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/second area/floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 3)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/second area/floors/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="walls" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/second area"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, -0.217071, 0)
+
+[node name="Doll_house_wall11" parent="root_house2/NavigationRegion3D/floor_one/second area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 13, -0.041, 2)
+
+[node name="Doll_house_wall12" parent="root_house2/NavigationRegion3D/floor_one/second area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 15, -0.041, 2)
+
+[node name="Doll_house_wall13" parent="root_house2/NavigationRegion3D/floor_one/second area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 17, -0.041, 2)
+
+[node name="Doll_house_wall14" parent="root_house2/NavigationRegion3D/floor_one/second area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.9, 0, 5)
+
+[node name="Doll_house_wall15" parent="root_house2/NavigationRegion3D/floor_one/second area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.9, 0, 7)
+
+[node name="Doll_house_wall16" parent="root_house2/NavigationRegion3D/floor_one/second area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.9, 0, 9)
+
+[node name="Doll_house_wall17" parent="root_house2/NavigationRegion3D/floor_one/second area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.9, 0, 11)
+
+[node name="Doll_house_wall18" parent="root_house2/NavigationRegion3D/floor_one/second area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.915, 0, 13)
+
+[node name="Doll_house_wall23" parent="root_house2/NavigationRegion3D/floor_one/second area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.915, 0, 15)
+
+[node name="Doll_house_wall24" parent="root_house2/NavigationRegion3D/floor_one/second area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.915, 0, 17)
+
+[node name="Doll_house_wall25" parent="root_house2/NavigationRegion3D/floor_one/second area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.915, 0, 19)
+
+[node name="Doll_house_wall19" parent="root_house2/NavigationRegion3D/floor_one/second area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-2, 0, -8.74228e-08, 0, 2, 0, 1.74846e-07, 0, -1, 13, 0, 12)
+
+[node name="Doll_house_wall20" parent="root_house2/NavigationRegion3D/floor_one/second area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-2, 0, -8.74228e-08, 0, 2, 0, 1.74846e-07, 0, -1, 11, 0, 12)
+
+[node name="Doll_house_wall21" parent="root_house2/NavigationRegion3D/floor_one/second area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 10, 0, 9)
+
+[node name="Doll_house_wall26" parent="root_house2/NavigationRegion3D/floor_one/second area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14, 0, 11)
+
+[node name="Doll_house_wall27" parent="root_house2/NavigationRegion3D/floor_one/second area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14, 0, 13)
+
+[node name="Doll_house_wall28" parent="root_house2/NavigationRegion3D/floor_one/second area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14, 0, 15)
+
+[node name="Doll_house_wall29" parent="root_house2/NavigationRegion3D/floor_one/second area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14, 0, 17)
+
+[node name="Doll_house_wall22" parent="root_house2/NavigationRegion3D/floor_one/second area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 10, 0, 7)
+
+[node name="objects" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/second area"]
+
+[node name="Doll_house_couch" parent="root_house2/NavigationRegion3D/floor_one/second area/objects" instance=ExtResource("8_873lt")]
+transform = Transform3D(0.204098, 0, -2.99305, 0, 3, 0, 2.99305, 0, 0.204098, 8.09566, -0.0939717, 5.07176)
+
+[node name="Doll_house_fireplace" parent="root_house2/NavigationRegion3D/floor_one/second area/objects" instance=ExtResource("9_iy351")]
+transform = Transform3D(-2, 0, -2.62268e-07, 0, 2, 0, 1.74846e-07, 0, -3, 14.8765, 0.0114053, 0.935563)
+
+[node name="Doll_house_frame" parent="root_house2/NavigationRegion3D/floor_one/second area/objects" instance=ExtResource("10_lntfh")]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 3, 17.769, -0.668365, 7.81264)
+
+[node name="table_top_node" parent="root_house2/NavigationRegion3D/floor_one/second area/objects" instance=ExtResource("4_yk18e")]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 4, 14.1311, 0.0501001, 5.7959)
+
+[node name="table_top_node2" parent="root_house2/NavigationRegion3D/floor_one/second area/objects" instance=ExtResource("4_yk18e")]
+transform = Transform3D(-0.148659, -0.0176344, -3.99446, -0.432998, -0.989223, 0.0985221, -2.96486, 0.145353, 0.185895, 16.2509, 4.21073, 3.50263)
+
+[node name="Doll_house_chair" parent="root_house2/NavigationRegion3D/floor_one/second area/objects" instance=ExtResource("11_rb7wf")]
+transform = Transform3D(-1.57254, 0, 2.55482, 0, 3, 0, -2.55482, 0, -1.57254, 20.8808, -3.3849, 4.8944)
+
+[node name="Doll_house_chair2" parent="root_house2/NavigationRegion3D/floor_one/second area/objects" instance=ExtResource("11_rb7wf")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 13.8105, -3.30637, 15.0122)
+
+[node name="Doll_house_chair3" parent="root_house2/NavigationRegion3D/floor_one/second area/objects" instance=ExtResource("11_rb7wf")]
+transform = Transform3D(2.59303, -1.5087, 0, 1.5087, 2.59303, 0, 0, 0, 3, 17.0175, -1.76886, 13.4933)
+
+[node name="Doll_house_chair4" parent="root_house2/NavigationRegion3D/floor_one/second area/objects" instance=ExtResource("11_rb7wf")]
+transform = Transform3D(2.30472, 1.92049, 0, -1.92049, 2.30472, 0, 0, 0, 3, 12.6715, 1.0259, 12.648)
+
+[node name="third area" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one"]
+
+[node name="floors" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/third area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="floor_15" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/third area/floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 19)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_16" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/third area/floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.03006, 0, 19)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_17" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/third area/floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 19)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_18" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/third area/floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 19)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_19" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/third area/floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 23)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/third area/floors/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floors2" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/third area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3.7211, 0)
+
+[node name="floor_15" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 19)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_15" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_16" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.03006, 0, 19)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_16" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_17" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 19)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_17" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_18" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 19)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_18" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_19" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 23)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_one/third area/floors2/floor_19" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="walls" type="Node3D" parent="root_house2/NavigationRegion3D/floor_one/third area"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, -0.139577, 0)
+
+[node name="Doll_house_wall33" parent="root_house2/NavigationRegion3D/floor_one/third area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-2, 0, -8.74228e-08, 0, 2, 0, 1.74846e-07, 0, -1, 11, -0.0606, 24)
+
+[node name="Doll_house_wall36" parent="root_house2/NavigationRegion3D/floor_one/third area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-2, 0, -8.74228e-08, 0, 2, 0, 1.74846e-07, 0, -1, 9, -0.061, 24)
+
+[node name="Doll_house_wall37" parent="root_house2/NavigationRegion3D/floor_one/third area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-2, 0, -8.74228e-08, 0, 2, 0, 1.74846e-07, 0, -1, 8, -0.061, 24)
+
+[node name="Doll_house_wall43" parent="root_house2/NavigationRegion3D/floor_one/third area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-2, 0, -8.74228e-08, 0, 2, 0, 1.74846e-07, 0, -1, 5, -0.061, 28)
+
+[node name="Doll_house_wall44" parent="root_house2/NavigationRegion3D/floor_one/third area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-2, 0, -8.74228e-08, 0, 2, 0, 1.74846e-07, 0, -1, 5, -0.061, 28)
+
+[node name="Doll_house_wall45" parent="root_house2/NavigationRegion3D/floor_one/third area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-2, 0, -8.74228e-08, 0, 2, 0, 1.74846e-07, 0, -1, 6.99963, -0.061, 28)
+
+[node name="Doll_house_wall34" parent="root_house2/NavigationRegion3D/floor_one/third area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-2, 0, -8.74228e-08, 0, 2, 0, 1.74846e-07, 0, -1, 13, -0.061, 24)
+
+[node name="Doll_house_wall35" parent="root_house2/NavigationRegion3D/floor_one/third area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-2, 0, -8.74228e-08, 0, 2, 0, 1.74846e-07, 0, -1, 15, -0.061, 24)
+
+[node name="Doll_house_wall32" parent="root_house2/NavigationRegion3D/floor_one/third area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.915, -0.0498894, 23)
+
+[node name="Doll_house_wall38" parent="root_house2/NavigationRegion3D/floor_one/third area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 9, -0.076, 25)
+
+[node name="Doll_house_wall46" parent="root_house2/NavigationRegion3D/floor_one/third area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 9, -0.076, 26.9924)
+
+[node name="Doll_house_wall39" parent="root_house2/NavigationRegion3D/floor_one/third area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 4.02333, -0.076, 19.0082)
+
+[node name="Doll_house_wall40" parent="root_house2/NavigationRegion3D/floor_one/third area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 4, -0.076, 21.002)
+
+[node name="Doll_house_wall41" parent="root_house2/NavigationRegion3D/floor_one/third area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 4, -0.076, 22.996)
+
+[node name="Doll_house_wall42" parent="root_house2/NavigationRegion3D/floor_one/third area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 4, -0.076, 24.99)
+
+[node name="Doll_house_wall31" parent="root_house2/NavigationRegion3D/floor_one/third area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.915, -0.0438071, 21)
+
+[node name="Doll_house_wall30" parent="root_house2/NavigationRegion3D/floor_one/third area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 15, 0, 18)
+
+[node name="Doll_house_wall47" parent="root_house2/NavigationRegion3D/floor_one/third area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 13, 0, 18)
+
+[node name="Doll_house_wall48" parent="root_house2/NavigationRegion3D/floor_one/third area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 11, 0, 18)
+
+[node name="Doll_house_wall49" parent="root_house2/NavigationRegion3D/floor_one/third area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 9, 0, 18)
+
+[node name="Doll_house_wall50" parent="root_house2/NavigationRegion3D/floor_one/third area/walls" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 7, 0, 18)
+
+[node name="floor_two" type="Node3D" parent="root_house2/NavigationRegion3D"]
+
+[node name="second area" type="Node3D" parent="root_house2/NavigationRegion3D/floor_two"]
+
+[node name="floors2" type="Node3D" parent="root_house2/NavigationRegion3D/floor_two/second area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.88178, 3.8, -7.98948)
+
+[node name="floor_9" type="Node3D" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0072, 0, 3)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_11" type="Node3D" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.007, 0, 7)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(0.99995, 0, -0.010018, 0, 1, 0, 0.010018, 0, 0.99995, 2, 0, 3)
+
+[node name="floor_12" type="Node3D" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 7)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_13" type="Node3D" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 11)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_14" type="Node3D" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 15)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_10" type="Node3D" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 3)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floor_two/second area/floors2/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="walls3" type="Node3D" parent="root_house2/NavigationRegion3D/floor_two/second area"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 1.94829, 3.30131, -7.9232)
+
+[node name="Doll_house_wall11" parent="root_house2/NavigationRegion3D/floor_two/second area/walls3" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 13, -0.041, 2)
+
+[node name="Doll_house_wall12" parent="root_house2/NavigationRegion3D/floor_two/second area/walls3" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 15, -0.041, 2)
+
+[node name="Doll_house_wall13" parent="root_house2/NavigationRegion3D/floor_two/second area/walls3" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 17, -0.041, 2)
+
+[node name="Doll_house_wall14" parent="root_house2/NavigationRegion3D/floor_two/second area/walls3" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.9, 0, 5)
+
+[node name="Doll_house_wall15" parent="root_house2/NavigationRegion3D/floor_two/second area/walls3" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.9, 0, 7)
+
+[node name="Doll_house_wall16" parent="root_house2/NavigationRegion3D/floor_two/second area/walls3" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.9, 0, 9)
+
+[node name="Doll_house_wall17" parent="root_house2/NavigationRegion3D/floor_two/second area/walls3" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.9, 0, 11)
+
+[node name="Doll_house_wall18" parent="root_house2/NavigationRegion3D/floor_two/second area/walls3" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.915, 0, 13)
+
+[node name="Doll_house_wall23" parent="root_house2/NavigationRegion3D/floor_two/second area/walls3" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.915, 0, 15)
+
+[node name="Doll_house_wall24" parent="root_house2/NavigationRegion3D/floor_two/second area/walls3" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.915, 0, 17)
+
+[node name="Doll_house_wall25" parent="root_house2/NavigationRegion3D/floor_two/second area/walls3" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.915, 0, 19)
+
+[node name="Doll_house_wall21" parent="root_house2/NavigationRegion3D/floor_two/second area/walls3" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 11.0728, 0, 9)
+
+[node name="Doll_house_wall29" parent="root_house2/NavigationRegion3D/floor_two/second area/walls3" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14, 0, 17)
+
+[node name="Doll_house_wall22" parent="root_house2/NavigationRegion3D/floor_two/second area/walls3" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 11.0915, 0.0244036, 7)
+
+[node name="walls2" type="Node3D" parent="root_house2/NavigationRegion3D/floor_two/second area"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 3.50481, 0)
+
+[node name="Doll_house_wall11" parent="root_house2/NavigationRegion3D/floor_two/second area/walls2" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 13, -0.041, 2)
+
+[node name="Doll_house_wall12" parent="root_house2/NavigationRegion3D/floor_two/second area/walls2" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 14.0438, -0.041, 2)
+
+[node name="Doll_house_wall17" parent="root_house2/NavigationRegion3D/floor_two/second area/walls2" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.9, 0, 11)
+
+[node name="Doll_house_wall18" parent="root_house2/NavigationRegion3D/floor_two/second area/walls2" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.915, 0, 13)
+
+[node name="Doll_house_wall23" parent="root_house2/NavigationRegion3D/floor_two/second area/walls2" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.915, 0, 15)
+
+[node name="Doll_house_wall24" parent="root_house2/NavigationRegion3D/floor_two/second area/walls2" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.915, 0, 17)
+
+[node name="Doll_house_wall25" parent="root_house2/NavigationRegion3D/floor_two/second area/walls2" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 2, 0, 2, 0, -4.37114e-08, 17.915, 0, 19)
+
+[node name="Doll_house_wall19" parent="root_house2/NavigationRegion3D/floor_two/second area/walls2" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-2, 0, -8.74228e-08, 0, 2, 0, 1.74846e-07, 0, -1, 13, 0, 12)
+
+[node name="Doll_house_wall20" parent="root_house2/NavigationRegion3D/floor_two/second area/walls2" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-2, 0, -8.74228e-08, 0, 2, 0, 1.74846e-07, 0, -1, 11, 0, 12)
+
+[node name="Doll_house_wall21" parent="root_house2/NavigationRegion3D/floor_two/second area/walls2" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 10, 0, 9)
+
+[node name="Doll_house_wall26" parent="root_house2/NavigationRegion3D/floor_two/second area/walls2" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14, 0, 11)
+
+[node name="Doll_house_wall27" parent="root_house2/NavigationRegion3D/floor_two/second area/walls2" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14, 0, 13)
+
+[node name="Doll_house_wall28" parent="root_house2/NavigationRegion3D/floor_two/second area/walls2" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14, 0, 15)
+
+[node name="Doll_house_wall29" parent="root_house2/NavigationRegion3D/floor_two/second area/walls2" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 14, 0, 17)
+
+[node name="Doll_house_wall22" parent="root_house2/NavigationRegion3D/floor_two/second area/walls2" instance=ExtResource("10_f8f4p")]
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 2, 0, -2, 0, -4.37114e-08, 10, 0, 7)
+
+[node name="floors3" type="Node3D" parent="root_house2/NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0791435, 7.542, 0.0284178)
+
+[node name="floor_9" type="Node3D" parent="root_house2/NavigationRegion3D/floors3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0072, 0, 3)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floors3/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floors3/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floors3/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floors3/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floors3/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floors3/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floors3/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floors3/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floors3/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floors3/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floors3/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floors3/floor_9" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_11" type="Node3D" parent="root_house2/NavigationRegion3D/floors3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.007, 0, 7)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floors3/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floors3/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floors3/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floors3/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floors3/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floors3/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floors3/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floors3/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floors3/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floors3/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floors3/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floors3/floor_11" instance=ExtResource("1_iieej")]
+transform = Transform3D(0.99995, 0, -0.010018, 0, 1, 0, 0.010018, 0, 0.99995, 2, 0, 3)
+
+[node name="floor_12" type="Node3D" parent="root_house2/NavigationRegion3D/floors3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 7)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floors3/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floors3/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floors3/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floors3/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floors3/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floors3/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floors3/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floors3/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floors3/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floors3/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floors3/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floors3/floor_12" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_13" type="Node3D" parent="root_house2/NavigationRegion3D/floors3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 11)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floors3/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floors3/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floors3/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floors3/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floors3/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floors3/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floors3/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floors3/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floors3/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floors3/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floors3/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floors3/floor_13" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_14" type="Node3D" parent="root_house2/NavigationRegion3D/floors3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 15)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floors3/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floors3/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floors3/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floors3/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floors3/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floors3/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floors3/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floors3/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floors3/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floors3/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floors3/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floors3/floor_14" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="floor_10" type="Node3D" parent="root_house2/NavigationRegion3D/floors3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 3)
+
+[node name="Doll_house_floor01" parent="root_house2/NavigationRegion3D/floors3/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Doll_house_floor02" parent="root_house2/NavigationRegion3D/floors3/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="Doll_house_floor03" parent="root_house2/NavigationRegion3D/floors3/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="Doll_house_floor04" parent="root_house2/NavigationRegion3D/floors3/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="Doll_house_floor05" parent="root_house2/NavigationRegion3D/floors3/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="Doll_house_floor06" parent="root_house2/NavigationRegion3D/floors3/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Doll_house_floor07" parent="root_house2/NavigationRegion3D/floors3/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Doll_house_floor08" parent="root_house2/NavigationRegion3D/floors3/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="Doll_house_floor09" parent="root_house2/NavigationRegion3D/floors3/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="Doll_house_floor10" parent="root_house2/NavigationRegion3D/floors3/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Doll_house_floor11" parent="root_house2/NavigationRegion3D/floors3/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="Doll_house_floor12" parent="root_house2/NavigationRegion3D/floors3/floor_10" instance=ExtResource("1_iieej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="root_house2"]
+environment = SubResource("Environment_ymprv")
+
+[node name="player" parent="root_house2" instance=ExtResource("2_jsnde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5659, 0.772995, 2.42596)
+
+[node name="zomby_enemy_3d" parent="root_house2" instance=ExtResource("8_7yuq7")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 2.97943, 0.570631, 2.92341)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="score" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 60
+text = "fdsssssssssgdgdsgsdgs"

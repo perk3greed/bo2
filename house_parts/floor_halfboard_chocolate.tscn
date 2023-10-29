@@ -1,0 +1,165 @@
+[gd_scene load_steps=18 format=3 uid="uid://b1bw2q50hp8dg"]
+
+[ext_resource type="Texture2D" uid="uid://m6xkbevajbwk" path="res://meshes/house/textures/M_1024x1024_Dollhouse_Normals_baseColor.png" id="1_nyvv2"]
+[ext_resource type="Texture2D" uid="uid://ckxvyj3c62tc1" path="res://meshes/house/textures/M_Carpet_foor_baseColor.png" id="2_i3vkf"]
+[ext_resource type="Texture2D" uid="uid://dj6jif3nhav7t" path="res://meshes/house/textures/M_Carpet_foor_normal.png" id="3_a02s4"]
+[ext_resource type="Texture2D" uid="uid://cuq5ut80v1h7r" path="res://meshes/house/textures/M_ceiling_baseColor.png" id="4_cnf7s"]
+[ext_resource type="Texture2D" uid="uid://dpxrydjdipquu" path="res://meshes/house/textures/M_ceiling_metallicRoughness.png" id="5_qm4i7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5bes"]
+resource_name = "M_1024x1024_Dollhouse"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_nyvv2")
+roughness = 0.939437
+texture_filter = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_be1su"]
+_surfaces = [{
+"aabb": AABB(-0.5, 2, -1, 0.5, 0.0500638, 1.00001),
+"format": 4097,
+"index_count": 24,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0, 4, 0, 6, 0, 5, 0, 4, 0, 7, 0, 6, 0, 1, 0, 5, 0, 6, 0, 1, 0, 2, 0, 5, 0, 7, 0, 3, 0, 0, 0, 7, 0, 4, 0, 3, 0),
+"name": "M_1024x1024_Dollhouse",
+"primitive": 3,
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 64, 0, 0, 128, 179, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 128, 179, 0, 0, 0, 0, 63, 52, 3, 64, 0, 0, 128, 179, 0, 0, 0, 191, 63, 52, 3, 64, 0, 0, 128, 179, 0, 0, 0, 191, 63, 52, 3, 64, 0, 0, 128, 191, 0, 0, 0, 0, 63, 52, 3, 64, 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 128, 191, 0, 0, 0, 191, 0, 0, 0, 64, 0, 0, 128, 191)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_cag17"]
+resource_name = "Sketchfab_Scene_Doll_house_floor02_M_1024x1024_Dollhouse_0"
+_surfaces = [{
+"aabb": AABB(-0.5, 2, -1, 0.5, 0.0500638, 1.00001),
+"attribute_data": PackedByteArray(2, 0, 0, 63, 215, 63, 48, 63, 2, 0, 0, 63, 215, 63, 48, 63, 2, 0, 64, 63, 245, 83, 48, 63, 2, 0, 64, 63, 245, 83, 48, 63, 254, 255, 63, 63, 10, 236, 63, 63, 254, 255, 63, 63, 10, 236, 63, 63, 250, 255, 255, 62, 216, 255, 63, 63, 250, 255, 255, 62, 216, 255, 63, 63, 1, 0, 0, 63, 214, 63, 48, 63, 1, 0, 0, 63, 214, 63, 48, 63, 1, 0, 64, 63, 245, 83, 48, 63, 1, 0, 64, 63, 245, 83, 48, 63, 254, 255, 63, 63, 9, 236, 63, 63, 254, 255, 63, 63, 9, 236, 63, 63, 252, 255, 255, 62, 212, 255, 63, 63, 252, 255, 255, 62, 212, 255, 63, 63, 107, 0, 0, 63, 204, 83, 48, 63, 107, 0, 0, 63, 204, 83, 48, 63, 153, 255, 127, 63, 33, 84, 48, 63, 153, 255, 127, 63, 33, 84, 48, 63, 149, 255, 127, 63, 53, 236, 63, 63, 149, 255, 127, 63, 53, 236, 63, 63, 102, 0, 0, 63, 225, 235, 63, 63, 102, 0, 0, 63, 225, 235, 63, 63, 2, 0, 0, 63, 212, 63, 48, 63, 2, 0, 0, 63, 212, 63, 48, 63, 1, 0, 128, 63, 44, 64, 48, 63, 1, 0, 128, 63, 44, 64, 48, 63, 254, 255, 127, 63, 44, 0, 64, 63, 254, 255, 127, 63, 44, 0, 64, 63, 252, 255, 255, 62, 212, 255, 63, 63, 252, 255, 255, 62, 212, 255, 63, 63),
+"format": 4151,
+"index_count": 24,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0, 4, 0, 6, 0, 5, 0, 4, 0, 7, 0, 6, 0, 8, 0, 10, 0, 9, 0, 8, 0, 11, 0, 10, 0, 12, 0, 14, 0, 13, 0, 12, 0, 15, 0, 14, 0),
+"material": SubResource("StandardMaterial3D_a5bes"),
+"name": "M_1024x1024_Dollhouse",
+"primitive": 3,
+"vertex_count": 16,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 64, 0, 0, 128, 179, 255, 127, 255, 127, 240, 255, 248, 63, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 128, 179, 255, 127, 255, 127, 238, 255, 8, 64, 0, 0, 0, 0, 63, 52, 3, 64, 0, 0, 128, 179, 255, 127, 255, 127, 240, 255, 6, 64, 0, 0, 0, 191, 63, 52, 3, 64, 0, 0, 128, 179, 255, 127, 255, 127, 238, 255, 247, 63, 0, 0, 0, 191, 63, 52, 3, 64, 0, 0, 128, 191, 255, 255, 255, 255, 240, 255, 6, 64, 0, 0, 0, 0, 63, 52, 3, 64, 0, 0, 128, 191, 255, 255, 255, 255, 238, 255, 247, 63, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 128, 191, 255, 255, 255, 255, 240, 255, 248, 63, 0, 0, 0, 191, 0, 0, 0, 64, 0, 0, 128, 191, 255, 255, 255, 255, 238, 255, 7, 64, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 128, 179, 255, 255, 255, 127, 254, 255, 254, 127, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 128, 191, 255, 255, 255, 127, 254, 255, 254, 127, 0, 0, 0, 0, 63, 52, 3, 64, 0, 0, 128, 191, 255, 255, 255, 127, 254, 255, 254, 127, 0, 0, 0, 0, 63, 52, 3, 64, 0, 0, 128, 179, 255, 255, 255, 127, 254, 255, 254, 127, 0, 0, 0, 191, 0, 0, 0, 64, 0, 0, 128, 191, 0, 0, 255, 127, 255, 127, 255, 63, 0, 0, 0, 191, 0, 0, 0, 64, 0, 0, 128, 179, 0, 0, 255, 127, 255, 127, 255, 63, 0, 0, 0, 191, 63, 52, 3, 64, 0, 0, 128, 179, 0, 0, 255, 127, 255, 127, 255, 63, 0, 0, 0, 191, 63, 52, 3, 64, 0, 0, 128, 191, 0, 0, 255, 127, 255, 127, 255, 63)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_be1su")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_5spj3"]
+data = PackedVector3Array(-0.5, 2, 0, 0, 2.0501, 0, 0, 2, 0, -0.5, 2, 0, -0.5, 2.0501, 0, 0, 2.0501, 0, -0.5, 2.0501, -1, 0, 2, -1, 0, 2.0501, -1, -0.5, 2.0501, -1, -0.5, 2, -1, 0, 2, -1, 0, 2, 0, 0, 2.0501, -1, 0, 2, -1, 0, 2, 0, 0, 2.0501, 0, 0, 2.0501, -1, -0.5, 2, -1, -0.5, 2.0501, 0, -0.5, 2, 0, -0.5, 2, -1, -0.5, 2.0501, -1, -0.5, 2.0501, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hi8oq"]
+resource_name = "M_Carpet_foor"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_i3vkf")
+roughness = 0.939437
+normal_enabled = true
+normal_texture = ExtResource("3_a02s4")
+texture_filter = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_i38nk"]
+_surfaces = [{
+"aabb": AABB(-0.5, 2.05006, -1, 0.5, 1.00136e-05, 1.00001),
+"format": 4097,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0),
+"name": "M_Carpet_foor",
+"primitive": 3,
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 63, 52, 3, 64, 0, 0, 128, 179, 0, 0, 0, 0, 63, 52, 3, 64, 0, 0, 128, 179, 0, 0, 0, 0, 63, 52, 3, 64, 0, 0, 128, 191, 0, 0, 0, 191, 63, 52, 3, 64, 0, 0, 128, 191)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_luhao"]
+resource_name = "Sketchfab_Scene_Doll_house_floor02_M_Carpet_foor_0"
+_surfaces = [{
+"aabb": AABB(-0.5, 2.05006, -1, 0.5, 1.00136e-05, 1.00001),
+"attribute_data": PackedByteArray(0, 0, 128, 63, 13, 0, 128, 63, 0, 0, 128, 63, 13, 0, 128, 63, 0, 0, 0, 63, 230, 255, 127, 63, 0, 0, 0, 63, 230, 255, 127, 63, 0, 0, 0, 63, 193, 181, 81, 54, 0, 0, 0, 63, 193, 181, 81, 54, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0),
+"format": 4151,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0),
+"material": SubResource("StandardMaterial3D_hi8oq"),
+"name": "M_Carpet_foor",
+"primitive": 3,
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 63, 52, 3, 64, 0, 0, 128, 179, 255, 127, 255, 255, 0, 0, 255, 191, 0, 0, 0, 0, 63, 52, 3, 64, 0, 0, 128, 179, 255, 127, 255, 255, 0, 0, 255, 191, 0, 0, 0, 0, 63, 52, 3, 64, 0, 0, 128, 191, 255, 127, 255, 255, 0, 0, 255, 191, 0, 0, 0, 191, 63, 52, 3, 64, 0, 0, 128, 191, 255, 127, 255, 255, 0, 0, 255, 191)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_i38nk")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jteq1"]
+data = PackedVector3Array(-0.5, 2.0501, 0, 0, 2.0501, -1, 0, 2.0501, 0, -0.5, 2.0501, 0, -0.5, 2.0501, -1, 0, 2.0501, -1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofx8b"]
+resource_name = "M_ceiling"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_cnf7s")
+metallic_texture = ExtResource("5_qm4i7")
+metallic_texture_channel = 2
+roughness = 0.6
+roughness_texture = ExtResource("5_qm4i7")
+roughness_texture_channel = 1
+texture_filter = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3y231"]
+_surfaces = [{
+"aabb": AABB(-0.5, 2, -1, 0.5, 1.00136e-05, 1),
+"format": 4097,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0),
+"name": "M_ceiling",
+"primitive": 3,
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 64, 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 128, 179, 0, 0, 0, 191, 0, 0, 0, 64, 0, 0, 128, 179)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gftmh"]
+resource_name = "Sketchfab_Scene_Doll_house_floor02_M_ceiling_0"
+_surfaces = [{
+"aabb": AABB(-0.5, 2, -1, 0.5, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(0, 0, 128, 63, 13, 0, 128, 63, 0, 0, 128, 63, 13, 0, 128, 63, 0, 0, 0, 63, 230, 255, 127, 63, 0, 0, 0, 63, 230, 255, 127, 63, 0, 0, 0, 63, 193, 181, 81, 54, 0, 0, 0, 63, 193, 181, 81, 54, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0),
+"format": 4151,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0),
+"material": SubResource("StandardMaterial3D_ofx8b"),
+"name": "M_ceiling",
+"primitive": 3,
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 64, 0, 0, 128, 191, 255, 127, 0, 0, 0, 0, 255, 63, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 128, 191, 255, 127, 0, 0, 0, 0, 255, 63, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 128, 179, 255, 127, 0, 0, 0, 0, 255, 63, 0, 0, 0, 191, 0, 0, 0, 64, 0, 0, 128, 179, 255, 127, 0, 0, 0, 0, 255, 63)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_3y231")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8napy"]
+data = PackedVector3Array(-0.5, 2, -1, 0, 2, 0, 0, 2, -1, -0.5, 2, -1, -0.5, 2, 0, 0, 2, 0)
+
+[node name="Doll_house_floor02" type="Node3D"]
+
+[node name="Doll_house_floor02_M_1024x1024_Dollhouse_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_cag17")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Doll_house_floor02_M_1024x1024_Dollhouse_0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doll_house_floor02_M_1024x1024_Dollhouse_0/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_5spj3")
+
+[node name="Doll_house_floor02_M_Carpet_foor_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_luhao")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Doll_house_floor02_M_Carpet_foor_0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doll_house_floor02_M_Carpet_foor_0/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_jteq1")
+
+[node name="Doll_house_floor02_M_ceiling_0" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_gftmh")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Doll_house_floor02_M_ceiling_0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doll_house_floor02_M_ceiling_0/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8napy")

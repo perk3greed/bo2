@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b42t7sfv8oclm"]
+
+[ext_resource type="PackedScene" uid="uid://cc13fi0i3m2jc" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_broken.gltf.glb" id="1_ijj13"]
+
+[node name="wall_broken_gltf" instance=ExtResource("1_ijj13")]
