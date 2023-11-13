@@ -17,6 +17,9 @@ signal got_sword
 signal got_shotgun
 signal zombie_needs_to_drop_loot(position_of_death)
 signal give_player_money(how_much_money)
+signal shot_pb_from_hip
+signal pb_handgun_attack_finished
+
 
 
 var interacted_object 

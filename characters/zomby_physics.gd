@@ -137,9 +137,11 @@ func shot(gun):
 		health_points -= 15
 		$zombi_anim.play("damage_taken")
 		check_health()
-
-
-
+	
+	elif gun == "pb":
+		health_points -= 35
+		$zombi_anim.play("damage_taken")
+		check_health()
 
 func check_health():
 	if died == true:

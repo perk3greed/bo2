@@ -4964,11 +4964,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 8, 
 
 [node name="ENEMIES" type="Node3D" parent="DUNGEON_ROOT/NavigationRegion3D"]
 
-[node name="NavigationLink3D" type="NavigationLink3D" parent="DUNGEON_ROOT/NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75557, 4.1497, 46.179)
-bidirectional = false
-end_position = Vector3(0, -0.1, -0.5)
-
 [node name="player" parent="DUNGEON_ROOT" instance=ExtResource("3_jipii")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08933, 0.543212, 3.35383)
 
@@ -5008,6 +5003,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 17)
 gizmo_extents = 1.0
 
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

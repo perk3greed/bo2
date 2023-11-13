@@ -1,6 +1,7 @@
-[gd_scene load_steps=99 format=3 uid="uid://cm2qh70135bgs"]
+[gd_scene load_steps=100 format=3 uid="uid://cm2qh70135bgs"]
 
 [ext_resource type="Script" path="res://characters/zomby_physics.gd" id="1_wqxgp"]
+[ext_resource type="Script" path="res://characters/zombi_3d_enemy/zomby_head.gd" id="2_n64au"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58ghk"]
 resource_name = "Material"
@@ -1013,9 +1014,6 @@ _data = {
 "walking": SubResource("Animation_8eaym")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_bygfn"]
-size = Vector3(0.556238, 0.512817, 0.53361)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_5gii3"]
 size = Vector3(0.224273, 0.25583, 0.370885)
 
@@ -1093,6 +1091,9 @@ material = SubResource("StandardMaterial3D_ex78m")
 top_radius = 0.4
 bottom_radius = 0.4
 height = 0.75
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bygfn"]
+size = Vector3(0.556238, 0.512817, 0.53361)
 
 [node name="zomby_enemy_3d" type="CharacterBody3D" groups=["enemy"]]
 transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 1, 0)
@@ -1227,10 +1228,6 @@ libraries = {
 "": SubResource("AnimationLibrary_urada")
 }
 
-[node name="head_collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0.00039506, 0.818524, 0)
-shape = SubResource("BoxShape3D_bygfn")
-
 [node name="neck_collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(-1.96701e-08, 0, 0.45, 0, 0.45, 0, -0.45, 0, -1.96701e-08, 0, 0.647259, 0)
 shape = SubResource("BoxShape3D_5gii3")
@@ -1306,6 +1303,14 @@ skeleton = NodePath("../CollisionShape3D")
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." groups=["enemy"]]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0.00039506, 0.818524, 0)
+script = ExtResource("2_n64au")
+
+[node name="head_collision" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_bygfn")
 
 [connection signal="animation_finished" from="zombi_anim" to="." method="_on_zombi_anim_animation_finished"]
 [connection signal="path_changed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_path_changed"]

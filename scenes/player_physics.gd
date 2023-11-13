@@ -8,6 +8,11 @@ const SENSITIVITY = 0.01
 const sprint_time :float = 8
 var current_sprint :float = 0
 var shotgun_ammo :int = 15
+var current_recoil_active_pb : bool = false
+var current_recoil_active_shotgun : bool = false
+var shotgun_shot_active : bool = false
+var recoil_count : int = 0 
+var pb_shot_active : bool = false
 
 var sword_owned :bool = false
 var shotgun_owned :bool = false
@@ -51,7 +56,7 @@ signal play_sword_animation
 signal change_weapons(weapon)
 signal got_sword
 signal got_shotgun
-
+signal shot_pb_from_hip
 
 
 func _ready():
@@ -62,6 +67,8 @@ func _ready():
 	Events.connect("give_player_shotgun_ammo", give_player_ammo)
 	Events.connect("shotgun_attack_happened", do_a_shotgun_shot)
 	Events.connect("give_player_the_shotgun", give_me_the_shotgun)
+	Events.connect("pb_handgun_attack_finished", do_finish_of_pb_shot)
+	
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$Head/SubViewportContainer.size = DisplayServer.window_get_size()
@@ -93,7 +100,7 @@ func count_ammo():
 	for child in 9:
 		var current_shotgun_raycast = shotgun_raycast_list[child]
 		current_shotgun_raycast.enabled = true
-
+	shotgun_shot_active = false
 
 
 
@@ -102,7 +109,7 @@ func give_player_ammo(how_much_ammo):
 
 func do_a_shotgun_shot():
 	if current_weapon == "shotgun":
-#		var shot_hit_object = $Head/Camera3D/gun_raycast.get_collider()
+#		
 #		var shot_hit_normal = $Head/Camera3D/gun_raycast.get_collision_normal()
 		for child in 9:
 			var current_shotgun_raycast = shotgun_raycast_list[child] 
@@ -118,6 +125,11 @@ func do_a_shotgun_shot():
 
 
 func _physics_process(delta):
+	
+#	if $Head.rotation.x != 0:
+#		print("rotate")
+##		$Head.rotate_x(-1)
+#
 	
 	var csrht = shotgun_raycast1.get_collision_point()
 	$laser_pointer_master/laser_pointer2.position = csrht
@@ -191,6 +203,11 @@ func _physics_process(delta):
 		current_weapon = "shotgun" 
 		Events.emit_signal("change_weapons", current_weapon)
 	
+	if Input.is_action_just_pressed("3"): 
+		current_weapon = "pb_handgun" 
+		Events.emit_signal("change_weapons", current_weapon)
+		
+	
 	
 	
 	if Input.is_action_just_pressed("E"):
@@ -224,15 +241,61 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("lmb"):
 		if current_weapon == "shotgun" :
 			if shotgun_ammo > 0:
-				var gun = "shotgun"
-				Events.emit_signal("play_shot_animation")
-				
+				if shotgun_shot_active == false:
+					var gun = "shotgun"
+					Events.emit_signal("play_shot_animation")
+					shotgun_shot_active = true
+					current_recoil_active_shotgun = true
+					recoil_count = 0
+					
 		elif current_weapon == "sword":
 			Events.emit_signal("play_sword_animation")
 		
+		elif current_weapon == "pb_handgun":
+			if pb_shot_active == true:
+				return
+			Events.emit_signal("shot_pb_from_hip")
+			current_recoil_active_pb = true
+			recoil_count = 0
+			pb_shot_active = true
+			var shot_hit_object = $Head/Camera3D/gun_raycast.get_collider()
+			if shot_hit_object.is_in_group("enemy"):
+				shot_hit_object.shot("pb")
+				print(shot_hit_object)
+			
+	
+	if current_recoil_active_pb:
 		
-
+		if recoil_count < 7:
+			camera.rotate_x(-0.02)
+			recoil_count += 1
+		elif recoil_count >= 7 and recoil_count < 30:
+			camera.rotate_x(+0.0065)
+			recoil_count += 1
+		elif recoil_count >= 30:
+			current_recoil_active_pb = false
+			recoil_count = 0
+	
+	
+	if current_recoil_active_shotgun:
 		
+		if recoil_count < 12:
+			camera.rotate_x(-(12-recoil_count)*0.004)
+			recoil_count += 1
+		elif recoil_count >= 12 and recoil_count < 36:
+			camera.rotate_x(+0.012)
+			recoil_count += 1
+		elif recoil_count >= 36:
+			current_recoil_active_shotgun = false
+			recoil_count = 0
+	
+	
+	
+	
+	
+	
+	
+	
 	var input_dir = Input.get_vector("D", "A", "S", "W")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if is_on_floor():
@@ -274,3 +337,10 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
+
+
+func do_finish_of_pb_shot():
+	pb_shot_active = false
+
+
+

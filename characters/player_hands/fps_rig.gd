@@ -5,7 +5,7 @@ extends Node3D
 signal sword_attack_finished
 signal shotgun_attack_finished
 signal shotgun_attack_happened
-
+signal pb_handgun_attack_finished
 
 func _ready():
 	Events.connect("object_interacted_with", play_using_animation)
@@ -14,10 +14,10 @@ func _ready():
 	Events.connect("change_weapons", do_weapon_change)
 	Events.connect("got_shotgun", got_shotgun)
 	Events.connect("got_sword", got_sword)
-	
+	Events.connect("shot_pb_from_hip", play_hip_pb_animation)
 	
 	anim_tree_sm["parameters/conditions/start_walking"] = true
-
+	
 #func _process(delta):
 #	if $AnimationPlayer.is_playing() == false:
 #		$AnimationPlayer.play("walking with shotgun")
@@ -46,6 +46,11 @@ func _on_animation_tree_animation_finished(anim_name):
 		anim_tree_sm["parameters/conditions/start_using"] = false
 	if anim_name == "sword_attack":
 		anim_tree_sm["parameters/conditions/sword_attack_started"] = false
+	if anim_name == "shooting_pb_from_hip":
+		anim_tree_sm["parameters/conditions/start_pb_shooting_hip"] = false
+		Events.emit_signal("pb_handgun_attack_finished")
+	
+
 
 
 func sword_animation_hit():
@@ -56,9 +61,18 @@ func do_weapon_change(current_weapon):
 	if current_weapon == "sword":
 		anim_tree_sm["parameters/conditions/bring_out_the_sword"] = true
 		anim_tree_sm["parameters/conditions/Bring_back_the_shotgun"] = false
+		anim_tree_sm["parameters/conditions/start_pb_walking"] = false
 	if current_weapon == "shotgun":
 		anim_tree_sm["parameters/conditions/bring_out_the_sword"] = false
 		anim_tree_sm["parameters/conditions/Bring_back_the_shotgun"] = true
+		anim_tree_sm["parameters/conditions/start_pb_walking"] = false
+	if current_weapon == "pb_handgun":
+		anim_tree_sm["parameters/conditions/bring_out_the_sword"] = false
+		anim_tree_sm["parameters/conditions/Bring_back_the_shotgun"] = false
+		anim_tree_sm["parameters/conditions/start_pb_walking"] = true
+
+
+
 
 func got_shotgun():
 	anim_tree_sm["parameters/conditions/get_shotgun"] = true
@@ -67,6 +81,9 @@ func got_shotgun():
 func got_sword():
 	anim_tree_sm["parameters/conditions/get_sword"] = true
 
+func play_hip_pb_animation():
+	anim_tree_sm["parameters/conditions/start_pb_shooting_hip"] = true
+	
 
 
 func shoot_shotgun_shot():
