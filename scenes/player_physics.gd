@@ -29,7 +29,10 @@ const raycast_hit_point = preload("res://stuff/raycast_hit.tscn")
 var rng = RandomNumberGenerator.new()
 var gravity = 8
 
-
+var maxHorizontalOffset = 5
+var maxVerticalOffset = 5
+var target_pos
+var default_target_pos
 
 var current_weapon :String 
  
@@ -78,6 +81,8 @@ func _ready():
 	Events.connect("give_player_the_shotgun", give_me_the_shotgun)
 	Events.connect("pb_handgun_attack_finished", do_finish_of_pb_shot)
 	
+	default_target_pos=gun_raycast.target_position
+	target_pos = generate_target_pos()
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$Head/SubViewportContainer.size = DisplayServer.window_get_size()
@@ -132,7 +137,12 @@ func do_a_shotgun_shot():
 					current_hit_object.shot("shotgun")
 			
 
-
+func generate_target_pos():
+	var horizontalOffset = randf_range(-maxHorizontalOffset, maxHorizontalOffset)
+	var verticalOffset = randf_range(-maxVerticalOffset, maxVerticalOffset)
+	var aimOffset = Vector3(horizontalOffset,verticalOffset,0)
+	target_pos = gun_raycast.target_position + aimOffset
+	return target_pos
 
 
 func _physics_process(delta):
@@ -173,6 +183,21 @@ func _physics_process(delta):
 	
 	
 	var hand_touched_what = $Head/Camera3D/hand_raycast.get_collider()
+	
+	if gun_raycast.target_position.distance_to(target_pos) < 1:
+		target_pos = generate_target_pos()
+  
+	if velocity.length()>=1:
+		gun_raycast.target_position=gun_raycast.target_position.lerp(target_pos, velocity.length()*delta*0.8)
+	else :
+		gun_raycast.target_position=gun_raycast.target_position.lerp(target_pos, delta)
+	if gun_raycast.target_position.distance_to(target_pos) < 3.5:
+		target_pos = generate_target_pos()
+
+
+	if target_pos.distance_to(default_target_pos)>5:
+		target_pos=default_target_pos
+	
 	
 	if hand_touched_what != null:
 		if hand_touched_what.is_in_group("object"):
@@ -220,6 +245,7 @@ func _physics_process(delta):
 		
 	
 	if Input.is_action_pressed("rmb"):
+		gun_raycast.target_position=default_target_pos
 		bp_ads = true
 		Events.emit_signal("start_ads")
 	
