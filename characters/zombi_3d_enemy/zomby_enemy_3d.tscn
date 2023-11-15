@@ -1309,7 +1309,6 @@ transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0.00039506, 0.818524
 script = ExtResource("2_n64au")
 
 [node name="head_collision" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_bygfn")
 
 [connection signal="animation_finished" from="zombi_anim" to="." method="_on_zombi_anim_animation_finished"]

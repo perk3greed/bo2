@@ -20,6 +20,8 @@ signal give_player_money(how_much_money)
 signal shot_pb_from_hip
 signal pb_handgun_attack_finished
 
-
+signal start_ads
+signal stop_ads
+signal shot_bp_ads
 
 var interacted_object 

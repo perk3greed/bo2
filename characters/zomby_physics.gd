@@ -14,6 +14,8 @@ var target_pathfinding_position :Vector3
 var pathfinding_priority : int 
 var current_pathfinding_turn : int = 1
 
+
+
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var attack_area := $attack_area
@@ -43,6 +45,9 @@ func _ready():
 	
 
 func _physics_process(delta):
+	
+	
+	
 	
 	if current_pathfinding_turn == 6:
 		current_pathfinding_turn = 1

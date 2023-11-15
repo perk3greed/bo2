@@ -7,6 +7,8 @@ signal shotgun_attack_finished
 signal shotgun_attack_happened
 signal pb_handgun_attack_finished
 
+@onready var camera_parent = $".."
+
 func _ready():
 	Events.connect("object_interacted_with", play_using_animation)
 	Events.connect("play_shot_animation", play_shotgun_anim)
@@ -15,6 +17,9 @@ func _ready():
 	Events.connect("got_shotgun", got_shotgun)
 	Events.connect("got_sword", got_sword)
 	Events.connect("shot_pb_from_hip", play_hip_pb_animation)
+	Events.connect("start_ads", start_ads)
+	Events.connect("stop_ads", stop_ads)
+	Events.connect("shot_bp_ads", shoot_pb_ads)
 	
 	anim_tree_sm["parameters/conditions/start_walking"] = true
 	
@@ -49,7 +54,9 @@ func _on_animation_tree_animation_finished(anim_name):
 	if anim_name == "shooting_pb_from_hip":
 		anim_tree_sm["parameters/conditions/start_pb_shooting_hip"] = false
 		Events.emit_signal("pb_handgun_attack_finished")
-	
+	if anim_name == "ads_shooting":
+		anim_tree_sm["parameters/conditions/start_ads_shooting"] = false
+		Events.emit_signal("pb_handgun_attack_finished")
 
 
 
@@ -71,7 +78,20 @@ func do_weapon_change(current_weapon):
 		anim_tree_sm["parameters/conditions/Bring_back_the_shotgun"] = false
 		anim_tree_sm["parameters/conditions/start_pb_walking"] = true
 
+func start_ads():
+	anim_tree_sm["parameters/conditions/start_ads"] = true
+	anim_tree_sm["parameters/conditions/stop_ads"] = false
+#	camera_parent.fov = 25
+#	$"../SpotLight3D".light_energy = 0.5
 
+func stop_ads():
+	anim_tree_sm["parameters/conditions/start_ads"] = false
+	anim_tree_sm["parameters/conditions/stop_ads"] = true
+#	camera_parent.fov = 35
+#	$"../SpotLight3D".light_energy = 8
+
+func shoot_pb_ads():
+	anim_tree_sm["parameters/conditions/start_ads_shooting"] = true
 
 
 func got_shotgun():

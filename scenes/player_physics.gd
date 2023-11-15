@@ -14,6 +14,8 @@ var shotgun_shot_active : bool = false
 var recoil_count : int = 0 
 var pb_shot_active : bool = false
 
+var bp_ads : bool = false
+
 var sword_owned :bool = false
 var shotgun_owned :bool = false
 const BOB_FREQ = 2.4
@@ -24,8 +26,10 @@ const BASE_FOV = 75.0
 const FOV_CHANGE = 1.0
 
 const raycast_hit_point = preload("res://stuff/raycast_hit.tscn")
-
+var rng = RandomNumberGenerator.new()
 var gravity = 8
+
+
 
 var current_weapon :String 
  
@@ -57,9 +61,14 @@ signal change_weapons(weapon)
 signal got_sword
 signal got_shotgun
 signal shot_pb_from_hip
+signal start_ads
+signal stop_ads
+signal shot_bp_ads
 
 
 func _ready():
+	
+	
 #	Events.emit_signal("change_weapons", current_weapon)
 	Events.connect("shotgun_attack_finished", count_ammo)
 	Events.connect("sword_attack_finished",sword_attack_finished_function )
@@ -74,6 +83,8 @@ func _ready():
 	$Head/SubViewportContainer.size = DisplayServer.window_get_size()
 
 func _process(delta):
+	
+	
 	sprint_ui.value = 100 - (current_sprint *12.5)
 
 
@@ -208,7 +219,13 @@ func _physics_process(delta):
 		Events.emit_signal("change_weapons", current_weapon)
 		
 	
+	if Input.is_action_pressed("rmb"):
+		bp_ads = true
+		Events.emit_signal("start_ads")
 	
+	if Input.is_action_just_released("rmb"):
+		bp_ads = false
+		Events.emit_signal("stop_ads")
 	
 	if Input.is_action_just_pressed("E"):
 		
@@ -239,6 +256,7 @@ func _physics_process(delta):
 	
 	
 	if Input.is_action_just_pressed("lmb"):
+
 		if current_weapon == "shotgun" :
 			if shotgun_ammo > 0:
 				if shotgun_shot_active == false:
@@ -254,14 +272,25 @@ func _physics_process(delta):
 		elif current_weapon == "pb_handgun":
 			if pb_shot_active == true:
 				return
-			Events.emit_signal("shot_pb_from_hip")
-			current_recoil_active_pb = true
-			recoil_count = 0
-			pb_shot_active = true
-			var shot_hit_object = $Head/Camera3D/gun_raycast.get_collider()
-			if shot_hit_object.is_in_group("enemy"):
-				shot_hit_object.shot("pb")
-				print(shot_hit_object)
+			
+			if bp_ads == true:
+				Events.emit_signal("shot_bp_ads")
+				current_recoil_active_pb = true
+				recoil_count = 0
+				pb_shot_active = true
+				var shot_hit_object = $Head/Camera3D/gun_raycast.get_collider()
+				if shot_hit_object.is_in_group("enemy"):
+					shot_hit_object.shot("pb")
+					print(shot_hit_object)
+			else :
+				Events.emit_signal("shot_pb_from_hip")
+				current_recoil_active_pb = true
+				recoil_count = 0
+				pb_shot_active = true
+				var shot_hit_object = $Head/Camera3D/gun_raycast.get_collider()
+				if shot_hit_object.is_in_group("enemy"):
+					shot_hit_object.shot("pb")
+					print(shot_hit_object)
 			
 	
 	if current_recoil_active_pb:
