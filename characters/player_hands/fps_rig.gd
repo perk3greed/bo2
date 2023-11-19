@@ -6,6 +6,8 @@ signal sword_attack_finished
 signal shotgun_attack_finished
 signal shotgun_attack_happened
 signal pb_handgun_attack_finished
+signal pb_reload_finished
+
 
 @onready var camera_parent = $".."
 
@@ -20,6 +22,8 @@ func _ready():
 	Events.connect("start_ads", start_ads)
 	Events.connect("stop_ads", stop_ads)
 	Events.connect("shot_bp_ads", shoot_pb_ads)
+	Events.connect("reload_pb_start", reload_pb_start_func)
+	
 	
 	anim_tree_sm["parameters/conditions/start_walking"] = true
 	
@@ -57,7 +61,9 @@ func _on_animation_tree_animation_finished(anim_name):
 	if anim_name == "ads_shooting":
 		anim_tree_sm["parameters/conditions/start_ads_shooting"] = false
 		Events.emit_signal("pb_handgun_attack_finished")
-
+	if anim_name == "pb_reload":
+		anim_tree_sm["parameters/conditions/start_pb_reload"] = false
+		Events.emit_signal("pb_reload_finished")
 
 
 func sword_animation_hit():
@@ -104,6 +110,8 @@ func got_sword():
 func play_hip_pb_animation():
 	anim_tree_sm["parameters/conditions/start_pb_shooting_hip"] = true
 	
+func reload_pb_start_func():
+	anim_tree_sm["parameters/conditions/start_pb_reload"] = true
 
 
 func shoot_shotgun_shot():

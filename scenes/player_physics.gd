@@ -13,8 +13,11 @@ var current_recoil_active_shotgun : bool = false
 var shotgun_shot_active : bool = false
 var recoil_count : int = 0 
 var pb_shot_active : bool = false
-
-var bp_ads : bool = false
+var pb_magazine :int = 8
+var pb_ammo : int = 260
+var pb_ads : bool = false
+var bp_magazine_max_capacity : int = 8
+var pb_magazine_difference : int
 
 var sword_owned :bool = false
 var shotgun_owned :bool = false
@@ -67,11 +70,11 @@ signal shot_pb_from_hip
 signal start_ads
 signal stop_ads
 signal shot_bp_ads
-
+signal reload_pb_start
 
 func _ready():
 	
-	
+	$Head/Camera3D/gun_raycast.add_exception($".")
 #	Events.emit_signal("change_weapons", current_weapon)
 	Events.connect("shotgun_attack_finished", count_ammo)
 	Events.connect("sword_attack_finished",sword_attack_finished_function )
@@ -80,7 +83,7 @@ func _ready():
 	Events.connect("shotgun_attack_happened", do_a_shotgun_shot)
 	Events.connect("give_player_the_shotgun", give_me_the_shotgun)
 	Events.connect("pb_handgun_attack_finished", do_finish_of_pb_shot)
-	
+	Events.connect("pb_reload_finished", do_finish_reload_pb)
 	default_target_pos=gun_raycast.target_position
 	target_pos = generate_target_pos()
 	
@@ -89,8 +92,11 @@ func _ready():
 
 func _process(delta):
 	
-	
 	sprint_ui.value = 100 - (current_sprint *12.5)
+	Events.current_pb_magazin = pb_magazine
+	Events.current_pb_ammo = pb_ammo
+	Events.current_weapon_in_hands = current_weapon
+
 
 
 func _unhandled_input(event):
@@ -246,11 +252,11 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("rmb"):
 		gun_raycast.target_position=default_target_pos
-		bp_ads = true
+		pb_ads = true
 		Events.emit_signal("start_ads")
 	
 	if Input.is_action_just_released("rmb"):
-		bp_ads = false
+		pb_ads = false
 		Events.emit_signal("stop_ads")
 	
 	if Input.is_action_just_pressed("E"):
@@ -278,7 +284,10 @@ func _physics_process(delta):
 	$laser_pointer.position = shot_position
 	
 	
-	
+	if Input.is_action_just_pressed("r"):
+		pb_magazine_difference = bp_magazine_max_capacity - pb_magazine 
+		if pb_magazine_difference > 0:
+			Events.emit_signal("reload_pb_start")
 	
 	
 	if Input.is_action_just_pressed("lmb"):
@@ -299,24 +308,28 @@ func _physics_process(delta):
 			if pb_shot_active == true:
 				return
 			
-			if bp_ads == true:
-				Events.emit_signal("shot_bp_ads")
-				current_recoil_active_pb = true
-				recoil_count = 0
-				pb_shot_active = true
-				var shot_hit_object = $Head/Camera3D/gun_raycast.get_collider()
-				if shot_hit_object.is_in_group("enemy"):
-					shot_hit_object.shot("pb")
-					print(shot_hit_object)
+			if pb_ads == true:
+				if pb_magazine > 0:
+					pb_magazine -= 1 
+					Events.emit_signal("shot_bp_ads")
+					current_recoil_active_pb = true
+					recoil_count = 0
+					pb_shot_active = true
+					var shot_hit_object = $Head/Camera3D/gun_raycast.get_collider()
+					if shot_hit_object.is_in_group("enemy"):
+						shot_hit_object.shot("pb")
+						print(shot_hit_object)
 			else :
-				Events.emit_signal("shot_pb_from_hip")
-				current_recoil_active_pb = true
-				recoil_count = 0
-				pb_shot_active = true
-				var shot_hit_object = $Head/Camera3D/gun_raycast.get_collider()
-				if shot_hit_object.is_in_group("enemy"):
-					shot_hit_object.shot("pb")
-					print(shot_hit_object)
+				if pb_magazine > 0:
+					pb_magazine -= 1
+					Events.emit_signal("shot_pb_from_hip")
+					current_recoil_active_pb = true
+					recoil_count = 0
+					pb_shot_active = true
+					var shot_hit_object = $Head/Camera3D/gun_raycast.get_collider()
+					if shot_hit_object.is_in_group("enemy"):
+						shot_hit_object.shot("pb")
+						print(shot_hit_object)
 			
 	
 	if current_recoil_active_pb:
@@ -385,7 +398,7 @@ func sword_attack_finished_function():
 		if bodies_hit_by_sword[i].is_in_group("enemy"):
 			bodies_hit_by_sword[i].shot("sword")
 			print("enemy hit", i)
-
+#
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
@@ -397,5 +410,7 @@ func _headbob(time) -> Vector3:
 func do_finish_of_pb_shot():
 	pb_shot_active = false
 
-
+func do_finish_reload_pb():
+	pb_magazine = bp_magazine_max_capacity
+	pb_ammo -= pb_magazine_difference
 

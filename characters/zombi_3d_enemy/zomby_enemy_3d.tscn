@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://cm2qh70135bgs"]
+[gd_scene load_steps=101 format=3 uid="uid://cm2qh70135bgs"]
 
 [ext_resource type="Script" path="res://characters/zomby_physics.gd" id="1_wqxgp"]
 [ext_resource type="Script" path="res://characters/zombi_3d_enemy/zomby_head.gd" id="2_n64au"]
@@ -41,6 +41,12 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_dssuo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g0cp7"]
+albedo_color = Color(0.984314, 0.0941176, 0.337255, 1)
+metallic = 0.52
+metallic_specular = 0.0
+roughness = 0.18
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cxt8h"]
 resource_name = "Material.003"
@@ -896,6 +902,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2nqrw")
 
+[sub_resource type="Animation" id="Animation_2iuqp"]
+resource_name = "RESET"
+
 [sub_resource type="Animation" id="Animation_ma0xt"]
 resource_name = "attack"
 length = 0.7
@@ -913,12 +922,6 @@ tracks/1/path = NodePath("body_meshes/hand_right")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.707, 0, 0.707, 0.6, 1, 0.147, 0.696, -0.149, 0.687, 0.7, 1, 0, 0.707, 0, 0.707)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g0cp7"]
-albedo_color = Color(0.984314, 0.0941176, 0.337255, 1)
-metallic = 0.52
-metallic_specular = 0.0
-roughness = 0.18
 
 [sub_resource type="Animation" id="Animation_tpant"]
 resource_name = "damage_taken"
@@ -1007,6 +1010,7 @@ tracks/3/keys = PackedFloat32Array(0, 1, 0, -0.707, 0, 0.707, 1, 1, 0, -0.719, 0
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_urada"]
 _data = {
+"RESET": SubResource("Animation_2iuqp"),
 "attack": SubResource("Animation_ma0xt"),
 "damage_taken": SubResource("Animation_tpant"),
 "idle_hands": SubResource("Animation_f4gou"),
@@ -1110,6 +1114,7 @@ transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 3.27299, 0)
 [node name="Object_4" type="MeshInstance3D" parent="body_meshes/head"]
 mesh = SubResource("ArrayMesh_uc3qb")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_g0cp7")
 
 [node name="Object_5" type="MeshInstance3D" parent="body_meshes/head"]
 mesh = SubResource("ArrayMesh_81kmd")
@@ -1320,5 +1325,4 @@ shape = SubResource("BoxShape3D_bygfn")
 [connection signal="body_entered" from="hit_player" to="." method="_on_hit_player_body_entered"]
 [connection signal="body_exited" from="hit_player" to="." method="_on_hit_player_body_exited"]
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
-[connection signal="animation_started" from="AnimationTree" to="." method="_on_animation_tree_animation_started"]
 [connection signal="body_entered" from="attack_area" to="." method="_on_attack_area_body_entered"]

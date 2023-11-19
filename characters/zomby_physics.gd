@@ -133,10 +133,12 @@ func shot(gun):
 	if current_mode == "idle":
 		current_mode = "follow"
 		animation_tree["parameters/conditions/start_walking"] = true
+		
 	if gun == "shotgun":
 		health_points -= 15
 		$zombi_anim.play("damage_taken")
 		check_health()
+		print("shotgun_hit_body")
 		
 	elif gun == "sword":
 		health_points -= 15
@@ -203,9 +205,6 @@ func _on_animation_tree_animation_finished(anim_name):
 				
 	
 
-
-func _on_animation_tree_animation_started():
-	pass
 
 func _on_attack_area_body_entered(body):
 	if body.is_in_group("player"):

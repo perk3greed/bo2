@@ -8,3 +8,4 @@ func shot(gun):
 	elif gun == "shotgun":
 		$"..".health_points -= 50
 		$"..".check_health()
+		print("shotgun_hit_head")

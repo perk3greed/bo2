@@ -27,6 +27,10 @@ agent_max_slope = 85.0
 [node name="DUNGEON_MAIN" type="Node3D"]
 script = ExtResource("1_gopc6")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [node name="DUNGEON_ROOT" type="Node3D" parent="."]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="DUNGEON_ROOT"]
@@ -1369,6 +1373,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 6)
 
 [node name="wall_gltf30" parent="DUNGEON_ROOT/NavigationRegion3D/FIRST_FLOOR/WALLSS" instance=ExtResource("4_06y8l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 30)
+
+[node name="wall_gltf280" parent="DUNGEON_ROOT/NavigationRegion3D/FIRST_FLOOR/WALLSS" instance=ExtResource("4_06y8l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 30)
 
 [node name="wall_gltf37" parent="DUNGEON_ROOT/NavigationRegion3D/FIRST_FLOOR/WALLSS" instance=ExtResource("4_06y8l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 38)
@@ -4972,6 +4979,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08933, 0.543212, 3.35383)
 [node name="wall_doorway" parent="DUNGEON_ROOT/DUNGEON_UNNAV_OBJ" instance=ExtResource("5_xxb6y")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 0, 24)
 
+[node name="wall_doorway9" parent="DUNGEON_ROOT/DUNGEON_UNNAV_OBJ" instance=ExtResource("5_xxb6y")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 0, 11.7)
+what_area_opens = "red_room_1"
+
+[node name="wall_doorway10" parent="DUNGEON_ROOT/DUNGEON_UNNAV_OBJ" instance=ExtResource("5_xxb6y")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 0, 16)
+what_area_opens = "purple_room_2"
+
 [node name="wall_doorway7" parent="DUNGEON_ROOT/DUNGEON_UNNAV_OBJ" instance=ExtResource("5_xxb6y")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14, 0, 62)
 
@@ -4989,6 +5004,11 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 16, 0,
 
 [node name="wall_doorway3" parent="DUNGEON_ROOT/DUNGEON_UNNAV_OBJ" instance=ExtResource("5_xxb6y")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 30, 0, 6)
+what_area_opens = "backside"
+
+[node name="wall_doorway11" parent="DUNGEON_ROOT/DUNGEON_UNNAV_OBJ" instance=ExtResource("5_xxb6y")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 30, 0, 30)
+what_area_opens = "pink_room_3"
 
 [node name="wall_doorway8" parent="DUNGEON_ROOT/DUNGEON_UNNAV_OBJ" instance=ExtResource("5_xxb6y")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 60, 4, 96)
@@ -4998,12 +5018,75 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 0,
 
 [node name="SPAWN_POINTS" type="Node3D" parent="DUNGEON_ROOT"]
 
-[node name="spawner_room_minus" type="Marker3D" parent="DUNGEON_ROOT/SPAWN_POINTS"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 17)
+[node name="red_room_1" type="Marker3D" parent="DUNGEON_ROOT/SPAWN_POINTS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11634, 1, 21.9434)
+gizmo_extents = 1.0
+
+[node name="red_room_2" type="Marker3D" parent="DUNGEON_ROOT/SPAWN_POINTS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.93219, 1, 21.9434)
+gizmo_extents = 1.0
+
+[node name="red_room_3" type="Marker3D" parent="DUNGEON_ROOT/SPAWN_POINTS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.93219, 1, 13.4915)
+gizmo_extents = 1.0
+
+[node name="red_room_4" type="Marker3D" parent="DUNGEON_ROOT/SPAWN_POINTS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.07936, 1, 13.4915)
+gizmo_extents = 1.0
+
+[node name="purple_room_1" type="Marker3D" parent="DUNGEON_ROOT/SPAWN_POINTS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.8871, 1, 8.612)
+gizmo_extents = 1.0
+
+[node name="purple_room_2" type="Marker3D" parent="DUNGEON_ROOT/SPAWN_POINTS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.5294, 1, 8.612)
+gizmo_extents = 1.0
+
+[node name="purple_room_3" type="Marker3D" parent="DUNGEON_ROOT/SPAWN_POINTS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.5087, 1.02403, 27.7826)
+gizmo_extents = 1.0
+
+[node name="purple_room_4" type="Marker3D" parent="DUNGEON_ROOT/SPAWN_POINTS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.1294, 1.02403, 27.7826)
+gizmo_extents = 1.0
+
+[node name="pink_room_1" type="Marker3D" parent="DUNGEON_ROOT/SPAWN_POINTS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.1294, 1.02403, 40.1573)
+gizmo_extents = 1.0
+
+[node name="pink_room_2" type="Marker3D" parent="DUNGEON_ROOT/SPAWN_POINTS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.1294, 1.02403, 47.713)
+gizmo_extents = 1.0
+
+[node name="pink_room_3" type="Marker3D" parent="DUNGEON_ROOT/SPAWN_POINTS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8817, 1.02403, 43.1515)
+gizmo_extents = 1.0
+
+[node name="backside_room_1" type="Marker3D" parent="DUNGEON_ROOT/SPAWN_POINTS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.3066, 1.02403, -3.86092)
+gizmo_extents = 1.0
+
+[node name="backside_room_2" type="Marker3D" parent="DUNGEON_ROOT/SPAWN_POINTS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.73931, 1.02403, -3.86092)
+gizmo_extents = 1.0
+
+[node name="backside_room_3" type="Marker3D" parent="DUNGEON_ROOT/SPAWN_POINTS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.55043, 1.02403, -8.13765)
+gizmo_extents = 1.0
+
+[node name="backside_room_4" type="Marker3D" parent="DUNGEON_ROOT/SPAWN_POINTS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.63036, 1.02403, -11.507)
+gizmo_extents = 1.0
+
+[node name="backside_room_5" type="Marker3D" parent="DUNGEON_ROOT/SPAWN_POINTS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1951, 1.02403, -8.29675)
+gizmo_extents = 1.0
+
+[node name="backside_room_6" type="Marker3D" parent="DUNGEON_ROOT/SPAWN_POINTS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.72252, 5.75062, 35.5858)
 gizmo_extents = 1.0
 
 [node name="Control" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -5024,17 +5107,17 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 36.0
-offset_top = -125.0
-offset_right = 337.0
-offset_bottom = -38.0
+offset_left = 66.0
+offset_top = -135.0
+offset_right = 404.0
+offset_bottom = -63.0
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.843137, 0.0156863, 0.545098, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 1
 theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 45
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control"]
 visible = false
@@ -5258,3 +5341,5 @@ light_color = Color(0.643137, 0.384314, 0.796078, 1)
 light_energy = 3.0
 omni_range = 11.0
 omni_attenuation = 0.406126
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

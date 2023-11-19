@@ -52,10 +52,12 @@ debug_shape_custom_color = Color(0.878431, 0, 0.337255, 1)
 
 [node name="sword_are3d" type="Area3D" parent="Head/Camera3D"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -0.326011, 0)
+visible = false
 
 [node name="sword_collision_shape" type="CollisionShape3D" parent="Head/Camera3D/sword_are3d"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.330127, 0.491628)
 shape = SubResource("CylinderShape3D_0knsi")
+disabled = true
 
 [node name="shotgun_raycast" type="Node3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22584e-08, 0.0106788, -0.368992)
@@ -133,6 +135,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.960557, 0)
 top_level = true
 
 [node name="laser_pointer_master" type="Node3D" parent="."]
+visible = false
 
 [node name="laser_pointer2" parent="laser_pointer_master" instance=ExtResource("3_niyui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.960557, 0)

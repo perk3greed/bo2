@@ -23,5 +23,31 @@ signal pb_handgun_attack_finished
 signal start_ads
 signal stop_ads
 signal shot_bp_ads
+signal pb_reload_finished
+signal reload_pb_start
+
+signal new_location_unlocked
+signal ghost_died
+
+
 
 var interacted_object 
+var current_pb_magazin 
+var current_pb_ammo 
+var current_weapon_in_hands 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
