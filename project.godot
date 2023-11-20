@@ -149,6 +149,7 @@ r={
 
 3d/physics_engine="JoltPhysics3D"
 3d/main_scene="res://meshes/house/house_ver1.tscn"
+jolt_3d/collisions/areas_detect_static_bodies=true
 
 [rendering]
 

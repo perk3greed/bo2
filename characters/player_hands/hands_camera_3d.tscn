@@ -12142,7 +12142,7 @@ visible = false
 visible = false
 
 [node name="gun_pb" parent="fps_rig" instance=ExtResource("5_ttdsx")]
-transform = Transform3D(0.0125634, 0.0891188, 3.89551e-09, 0, -3.93403e-09, 0.09, 0.0891188, -0.0125634, -5.49166e-10, -0.204, 1.531, 0.944)
+transform = Transform3D(0.0125634, 0.0891188, 3.89551e-09, 0, -3.93402e-09, 0.09, 0.0891188, -0.0125634, -5.49166e-10, -0.204, 1.531, 0.944)
 visible = false
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

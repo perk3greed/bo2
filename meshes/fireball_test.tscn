@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdc60ig4d1pcl"]
+[gd_scene load_steps=5 format=3 uid="uid://bdc60ig4d1pcl"]
 
 [ext_resource type="Script" path="res://meshes/fireball_test.gd" id="1_n3f3t"]
 
@@ -10,14 +10,26 @@ emission_energy_multiplier = 2.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_isntl"]
 material = SubResource("StandardMaterial3D_7fjc7")
-height = 0.7
-radial_segments = 8
-rings = 8
+radial_segments = 12
+rings = 12
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ddlcy"]
 
 [node name="Node3D" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 top_level = true
 script = ExtResource("1_n3f3t")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("SphereMesh_isntl")
+skeleton = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 3
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_ddlcy")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
