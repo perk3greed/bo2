@@ -12,6 +12,7 @@ data = PackedVector3Array(-1.0894, 2.1643, 0.25, -1.0898, 0.5, 0.25, -2, 0.5, 0.
 
 [node name="wall_doorway" instance=ExtResource("1_7ibpy")]
 script = ExtResource("2_sy3xd")
+door_cost = 100
 
 [node name="StaticBody3D" type="StaticBody3D" parent="wall_doorway2/wall_doorway_door" index="0" groups=["object"]]
 collision_layer = 3

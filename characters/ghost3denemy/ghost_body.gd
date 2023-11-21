@@ -28,7 +28,7 @@ var health_points : int = 80
 var fireball = preload("res://meshes/fireball_test.tscn")
 
 
-signal ghost_died
+signal ghost_died(position_of_death)
 
 
 
@@ -76,14 +76,6 @@ func _physics_process(delta):
 		if pathfinding_priority == current_pathfinding_turn:
 			do_pathfinding()
 
-#
-#	if is_on_floor():
-#		velocity.y = 0
-#
-#	else :
-#		velocity.y -= 0.3
-#		move_and_slide()
-#
 
 	
 	Direction = Direction.normalized()
@@ -123,11 +115,21 @@ func shot(gun):
 	if gun == "pb":
 		health_points -= 35
 		check_health()
+	if gun == "shotgun":
+		health_points -= 100
+		check_health()
+
+
+
 
 func check_health():
 	if health_points <= 0:
-		Events.emit_signal("ghost_died")
-		self.queue_free()
+		if died == false:
+			var position_of_death = position
+			Events.emit_signal("ghost_died", position_of_death)
+			died = true
+			self.queue_free()
+		
 
 
 

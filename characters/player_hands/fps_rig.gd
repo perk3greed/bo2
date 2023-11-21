@@ -27,10 +27,6 @@ func _ready():
 	
 	anim_tree_sm["parameters/conditions/start_walking"] = true
 	
-#func _process(delta):
-#	if $AnimationPlayer.is_playing() == false:
-#		$AnimationPlayer.play("walking with shotgun")
-#
 
 func play_using_animation(owner_of_a_node):
 	anim_tree_sm["parameters/conditions/start_using"] = true
@@ -73,16 +69,18 @@ func sword_animation_hit():
 func do_weapon_change(current_weapon):
 	if current_weapon == "sword":
 		anim_tree_sm["parameters/conditions/bring_out_the_sword"] = true
-		anim_tree_sm["parameters/conditions/Bring_back_the_shotgun"] = false
+		anim_tree_sm["parameters/conditions/get_shotgun"] = false
 		anim_tree_sm["parameters/conditions/start_pb_walking"] = false
 	if current_weapon == "shotgun":
 		anim_tree_sm["parameters/conditions/bring_out_the_sword"] = false
-		anim_tree_sm["parameters/conditions/Bring_back_the_shotgun"] = true
+		anim_tree_sm["parameters/conditions/get_shotgun"] = true
 		anim_tree_sm["parameters/conditions/start_pb_walking"] = false
 	if current_weapon == "pb_handgun":
 		anim_tree_sm["parameters/conditions/bring_out_the_sword"] = false
-		anim_tree_sm["parameters/conditions/Bring_back_the_shotgun"] = false
+		anim_tree_sm["parameters/conditions/get_shotgun"] = false
 		anim_tree_sm["parameters/conditions/start_pb_walking"] = true
+
+
 
 func start_ads():
 	anim_tree_sm["parameters/conditions/start_ads"] = true

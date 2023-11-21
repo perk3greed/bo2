@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://c1vhle00xj2b8"]
+[gd_scene load_steps=58 format=3 uid="uid://c1vhle00xj2b8"]
 
 [ext_resource type="Script" path="res://characters/player_hands/fps_rig.gd" id="1_e63o5"]
 [ext_resource type="Material" uid="uid://bxvupdv1tid6b" path="res://characters/player_hands/hands_materal.tres" id="2_dc8lr"]
@@ -11685,7 +11685,7 @@ advance_condition = &"bring_out_the_sword"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t2r17"]
 advance_mode = 2
-advance_condition = &"Bring_back_the_shotgun"
+advance_condition = &"get_shotgun"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mrsj0"]
 advance_mode = 2
@@ -11751,6 +11751,10 @@ advance_condition = &"start_pb_reload"
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pvp2u"]
+advance_mode = 2
+advance_condition = &"start_pb_walking"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2lk6h"]
 states/Start/position = Vector2(-396.855, 14)
 states/ads/node = SubResource("AnimationNodeAnimation_vg3nw")
@@ -11775,7 +11779,7 @@ states/use/position = Vector2(673, 185)
 "states/walking with shotgun/position" = Vector2(364, -23)
 states/walking_with_pb/node = SubResource("AnimationNodeAnimation_5ddu8")
 states/walking_with_pb/position = Vector2(52.39, 212)
-transitions = ["walking with shotgun", "shoot", SubResource("AnimationNodeStateMachineTransition_ygx6m"), "shoot", "walking with shotgun", SubResource("AnimationNodeStateMachineTransition_27vp3"), "walking with shotgun", "use", SubResource("AnimationNodeStateMachineTransition_cnpeq"), "use", "walking with shotgun", SubResource("AnimationNodeStateMachineTransition_cd3sr"), "walking with shotgun", "walkin with sword", SubResource("AnimationNodeStateMachineTransition_gbmua"), "walkin with sword", "walking with shotgun", SubResource("AnimationNodeStateMachineTransition_t2r17"), "walkin with sword", "sword_attack", SubResource("AnimationNodeStateMachineTransition_mrsj0"), "sword_attack", "walkin with sword", SubResource("AnimationNodeStateMachineTransition_feeev"), "Start", "idle_walking", SubResource("AnimationNodeStateMachineTransition_wwxws"), "idle_walking", "walking with shotgun", SubResource("AnimationNodeStateMachineTransition_3hxlq"), "idle_walking", "walkin with sword", SubResource("AnimationNodeStateMachineTransition_bk6mw"), "walking_with_pb", "walkin with sword", SubResource("AnimationNodeStateMachineTransition_ddm05"), "walking_with_pb", "walking with shotgun", SubResource("AnimationNodeStateMachineTransition_p0q7r"), "idle_walking", "walking_with_pb", SubResource("AnimationNodeStateMachineTransition_6m73m"), "walking_with_pb", "shooting_pb_from_hip", SubResource("AnimationNodeStateMachineTransition_gv6yv"), "shooting_pb_from_hip", "walking_with_pb", SubResource("AnimationNodeStateMachineTransition_r8bhc"), "walking_with_pb", "ads", SubResource("AnimationNodeStateMachineTransition_clcew"), "ads", "walking_with_pb", SubResource("AnimationNodeStateMachineTransition_n30em"), "ads", "ads_shooting", SubResource("AnimationNodeStateMachineTransition_foi7q"), "ads_shooting", "ads", SubResource("AnimationNodeStateMachineTransition_dvtrj"), "walking_with_pb", "pb_reload", SubResource("AnimationNodeStateMachineTransition_ueps3"), "pb_reload", "walking_with_pb", SubResource("AnimationNodeStateMachineTransition_adcjx")]
+transitions = ["walking with shotgun", "shoot", SubResource("AnimationNodeStateMachineTransition_ygx6m"), "shoot", "walking with shotgun", SubResource("AnimationNodeStateMachineTransition_27vp3"), "walking with shotgun", "use", SubResource("AnimationNodeStateMachineTransition_cnpeq"), "use", "walking with shotgun", SubResource("AnimationNodeStateMachineTransition_cd3sr"), "walking with shotgun", "walkin with sword", SubResource("AnimationNodeStateMachineTransition_gbmua"), "walkin with sword", "walking with shotgun", SubResource("AnimationNodeStateMachineTransition_t2r17"), "walkin with sword", "sword_attack", SubResource("AnimationNodeStateMachineTransition_mrsj0"), "sword_attack", "walkin with sword", SubResource("AnimationNodeStateMachineTransition_feeev"), "Start", "idle_walking", SubResource("AnimationNodeStateMachineTransition_wwxws"), "idle_walking", "walking with shotgun", SubResource("AnimationNodeStateMachineTransition_3hxlq"), "idle_walking", "walkin with sword", SubResource("AnimationNodeStateMachineTransition_bk6mw"), "walking_with_pb", "walkin with sword", SubResource("AnimationNodeStateMachineTransition_ddm05"), "walking_with_pb", "walking with shotgun", SubResource("AnimationNodeStateMachineTransition_p0q7r"), "idle_walking", "walking_with_pb", SubResource("AnimationNodeStateMachineTransition_6m73m"), "walking_with_pb", "shooting_pb_from_hip", SubResource("AnimationNodeStateMachineTransition_gv6yv"), "shooting_pb_from_hip", "walking_with_pb", SubResource("AnimationNodeStateMachineTransition_r8bhc"), "walking_with_pb", "ads", SubResource("AnimationNodeStateMachineTransition_clcew"), "ads", "walking_with_pb", SubResource("AnimationNodeStateMachineTransition_n30em"), "ads", "ads_shooting", SubResource("AnimationNodeStateMachineTransition_foi7q"), "ads_shooting", "ads", SubResource("AnimationNodeStateMachineTransition_dvtrj"), "walking_with_pb", "pb_reload", SubResource("AnimationNodeStateMachineTransition_ueps3"), "pb_reload", "walking_with_pb", SubResource("AnimationNodeStateMachineTransition_adcjx"), "walking with shotgun", "walking_with_pb", SubResource("AnimationNodeStateMachineTransition_pvp2u")]
 graph_offset = Vector2(-444.659, -109.05)
 
 [node name="hands_camera3D" type="Camera3D"]
@@ -12149,7 +12153,6 @@ visible = false
 tree_root = SubResource("AnimationNodeStateMachine_2lk6h")
 anim_player = NodePath("../fps_rig/hands_camera_animation")
 active = true
-parameters/conditions/Bring_back_the_shotgun = false
 parameters/conditions/bring_out_the_sword = false
 parameters/conditions/get_shotgun = false
 parameters/conditions/get_sword = false

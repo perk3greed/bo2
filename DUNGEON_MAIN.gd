@@ -11,7 +11,7 @@ var player_hp
 var rng = RandomNumberGenerator.new()
 @onready var shotgun_ammo_loot = load("res://loot_itmes/shotgun_ammo_pack.tscn")
 @onready var money_pack_loot = load("res://loot_itmes/money_pack_loot.tscn")
-var player_current_money :int = 0
+#var player_current_money :int = 1000
 var amount_of_enemies_spawning :int = 1
 var current_round : int = 0
 var enemies_to_kill_for_round_to_end : int 
@@ -70,28 +70,41 @@ func iniciate_round_start():
 	spawn_a_wave_of_zombies(amount_of_enemies_spawning)
 	enemies_to_kill_for_round_to_end = amount_of_enemies_spawning
 	
-	print("round starts now!    ", current_round)
+	print("round starts now!    ", enemies_to_kill_for_round_to_end)
 
 
 
 func spawn_a_wave_of_zombies(number_of_monsters):
-	
+	print(spawning_coordinates)
+	var actual_copy_spawns : Array = spawning_coordinates.duplicate(true)
 	spawn_points_number = amount_of_enemies_spawning
+	actual_copy_spawns.shuffle()
 	for current_selection in spawn_points_number:
-		var current_spawning_spot = spawning_coordinates.pick_random()
+		if actual_copy_spawns.is_empty() == true:
+			actual_copy_spawns = spawning_coordinates.duplicate(true)
+			actual_copy_spawns.shuffle()
+		
+		var current_spawning_spot = actual_copy_spawns.pop_back()
+
 		var ghost_instance = ghost_simple.instantiate() 
 		var zombie_instance = zombie.instantiate() 
-#		$DUNGEON_ROOT/NavigationRegion3D/ENEMIES.add_child(zombie_instance)
-#		zombie_instance.position = current_spawning_spot.position
+
 		
+
 		$DUNGEON_ROOT/NavigationRegion3D/ENEMIES.add_child(ghost_instance)
 		ghost_instance.position = current_spawning_spot.position
-		
+
+#
+#		$DUNGEON_ROOT/NavigationRegion3D/ENEMIES.add_child(zombie_instance)
+#		zombie_instance.position = current_spawning_spot.position
+#
 	
 
 
 
 func _process(delta):
+	
+	
 	player_current_weapon = Events.current_weapon_in_hands
 	player_current_ammo_pb = Events.current_pb_ammo
 	player_current_magazine_pb = Events.current_pb_magazin
@@ -100,7 +113,7 @@ func _process(delta):
 	player_current_ammo_shotgun = $DUNGEON_ROOT/player.shotgun_ammo
 	player_position = $DUNGEON_ROOT/player.global_position
 	
-	$Control/score.text = str(player_current_money)
+	$Control/score.text = str(Events.player_money)
 	$Control/current_hp.value = player_hp
 	
 	if player_current_weapon == "pb_handgun":
@@ -134,17 +147,28 @@ func drop_zombie_loot(position_of_death):
 
 
 
-func react_to_dead_ghosts():
+func react_to_dead_ghosts(position_of_death):
+	var loot_rng = rng.randi_range(0 , 100)
+	if loot_rng > 30 and loot_rng < 60:
+		var money_pack_drop = money_pack_loot.instantiate()
+		self.add_child(money_pack_drop)
+		money_pack_drop.position = position_of_death
+	
+	
+#	Events.player_money += 100
 	enemies_to_kill_for_round_to_end -= 1
 	if enemies_to_kill_for_round_to_end < 1:
 		round_ended()
+	
+	
+
 
 func round_ended():
 	print("round ended!!")
 	$Timer.start()
 
 func give_player_money_func(how_much_money):
-	player_current_money += how_much_money
+	Events.player_money += how_much_money
 
 
 func _on_timer_timeout():

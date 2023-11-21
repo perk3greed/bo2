@@ -1101,6 +1101,7 @@ size = Vector3(0.556238, 0.512817, 0.53361)
 
 [node name="zomby_enemy_3d" type="CharacterBody3D" groups=["enemy"]]
 transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 1, 0)
+collision_layer = 9
 collision_mask = 2
 floor_stop_on_slope = false
 script = ExtResource("1_wqxgp")
@@ -1311,6 +1312,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." groups=["enemy"]]
 transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0.00039506, 0.818524, 0)
+collision_layer = 9
 script = ExtResource("2_n64au")
 
 [node name="head_collision" type="CollisionShape3D" parent="CharacterBody3D"]

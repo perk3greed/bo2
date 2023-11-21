@@ -22,11 +22,10 @@ func _physics_process(delta):
 
 
 func _on_area_3d_body_entered(body):
-	print(body)
-#
-#	if body.is_in_group("player"):
-#		print("player_hit")
-#		self.queue_free()
-#	elif body.is_in_group("wall") :
-#		print("something_else_hit")
-#		self.queue_free()
+	if body.is_in_group("player"):
+		print("player_hit")
+		self.queue_free()
+	elif body.is_in_group("enemy"):
+		pass
+	else:
+		self.queue_free()

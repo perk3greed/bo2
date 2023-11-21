@@ -27,7 +27,7 @@ signal pb_reload_finished
 signal reload_pb_start
 
 signal new_location_unlocked
-signal ghost_died
+signal ghost_died(position_of_death)
 
 
 
@@ -35,7 +35,7 @@ var interacted_object
 var current_pb_magazin 
 var current_pb_ammo 
 var current_weapon_in_hands 
-
+var player_money : int = 100
 
 
 

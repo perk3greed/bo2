@@ -7,17 +7,21 @@ const JUMP_VELOCITY = 5
 const SENSITIVITY = 0.01
 const sprint_time :float = 8
 var current_sprint :float = 0
-var shotgun_ammo :int = 15
+var shotgun_ammo :int = 200
 var current_recoil_active_pb : bool = false
 var current_recoil_active_shotgun : bool = false
 var shotgun_shot_active : bool = false
 var recoil_count : int = 0 
+
 var pb_shot_active : bool = false
 var pb_magazine :int = 8
 var pb_ammo : int = 260
 var pb_ads : bool = false
 var bp_magazine_max_capacity : int = 8
 var pb_magazine_difference : int
+
+#место для вариабл на пп cнизу
+
 
 var sword_owned :bool = false
 var shotgun_owned :bool = false
@@ -75,7 +79,7 @@ signal reload_pb_start
 func _ready():
 	
 	$Head/Camera3D/gun_raycast.add_exception($".")
-#	Events.emit_signal("change_weapons", current_weapon)
+	Events.emit_signal("change_weapons", current_weapon)
 	Events.connect("shotgun_attack_finished", count_ammo)
 	Events.connect("sword_attack_finished",sword_attack_finished_function )
 	Events.connect("give_player_the_sword", give_me_the_sword)
@@ -116,10 +120,13 @@ func give_me_the_shotgun():
 	shotgun_owned = true
 	current_weapon = "shotgun" 
 	Events.emit_signal("got_shotgun")
+	$Head/Camera3D/hand_raycast.enabled = false
+
 
 func count_ammo():
+	
 	shotgun_ammo -= 1
-	for child in 9:
+	for child in 8:
 		var current_shotgun_raycast = shotgun_raycast_list[child]
 		current_shotgun_raycast.enabled = true
 	shotgun_shot_active = false
@@ -132,13 +139,13 @@ func give_player_ammo(how_much_ammo):
 func do_a_shotgun_shot():
 	if current_weapon == "shotgun":
 #		
-#		var shot_hit_normal = $Head/Camera3D/gun_raycast.get_collision_normal()
-		for child in 9:
+		for child in 8:
 			var current_shotgun_raycast = shotgun_raycast_list[child] 
 			current_shotgun_raycast.enabled = true
 			var current_hit_object = current_shotgun_raycast.get_collider()
 			var current_hit_point = current_shotgun_raycast.get_collision_point()
 			if current_hit_object != null:
+				print(current_hit_object)
 				if current_hit_object.is_in_group("enemy"):
 					current_hit_object.shot("shotgun")
 			
@@ -152,11 +159,6 @@ func generate_target_pos():
 
 
 func _physics_process(delta):
-	
-#	if $Head.rotation.x != 0:
-#		print("rotate")
-##		$Head.rotate_x(-1)
-#
 	
 	var csrht = shotgun_raycast1.get_collision_point()
 	$laser_pointer_master/laser_pointer2.position = csrht
