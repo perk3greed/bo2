@@ -54,7 +54,9 @@ var current_weapon :String
 @onready var shotgun_raycast9 = $Head/Camera3D/shotgun_raycast/shotgun9
 
 
-@onready var shotgun_raycast_list = [ shotgun_raycast1, shotgun_raycast2,shotgun_raycast3, shotgun_raycast4, shotgun_raycast5, shotgun_raycast6, shotgun_raycast7, shotgun_raycast8, shotgun_raycast9 ]
+@onready var shotgun_raycast_list = [ shotgun_raycast1, shotgun_raycast2,
+shotgun_raycast3, shotgun_raycast4, shotgun_raycast5, shotgun_raycast6,
+shotgun_raycast7, shotgun_raycast8, shotgun_raycast9 ]
 
 
 @onready var head = $Head
@@ -80,11 +82,12 @@ func _ready():
 	
 	$Head/Camera3D/gun_raycast.add_exception($".")
 	Events.emit_signal("change_weapons", current_weapon)
-	Events.connect("shotgun_attack_finished", count_ammo)
+	Events.connect("shotgun_attack_finished", reload_shotty)
 	Events.connect("sword_attack_finished",sword_attack_finished_function )
 	Events.connect("give_player_the_sword", give_me_the_sword)
 	Events.connect("give_player_shotgun_ammo", give_player_ammo)
 	Events.connect("shotgun_attack_happened", do_a_shotgun_shot)
+	Events.connect("shotgun_attack_happened", count_ammo)
 	Events.connect("give_player_the_shotgun", give_me_the_shotgun)
 	Events.connect("pb_handgun_attack_finished", do_finish_of_pb_shot)
 	Events.connect("pb_reload_finished", do_finish_reload_pb)
@@ -122,14 +125,14 @@ func give_me_the_shotgun():
 	Events.emit_signal("got_shotgun")
 	$Head/Camera3D/hand_raycast.enabled = false
 
-
-func count_ammo():
-	
-	shotgun_ammo -= 1
+func reload_shotty():
 	for child in 8:
 		var current_shotgun_raycast = shotgun_raycast_list[child]
 		current_shotgun_raycast.enabled = true
 	shotgun_shot_active = false
+
+func count_ammo():
+	shotgun_ammo -= 1
 
 
 
