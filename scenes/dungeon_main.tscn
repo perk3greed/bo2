@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://0pcb5g7x70ap"]
+[gd_scene load_steps=19 format=3 uid="uid://0pcb5g7x70ap"]
 
 [ext_resource type="Script" path="res://DUNGEON_MAIN.gd" id="1_gopc6"]
 [ext_resource type="PackedScene" uid="uid://bqxvqax32rbuq" path="res://dungeon_objects/floor_wood_large_dark.tscn" id="2_04mcq"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scenes/shotgun_presenter.gd" id="7_wyma2"]
 [ext_resource type="PackedScene" uid="uid://kc5gywajv4jk" path="res://dungeon_objects/barrier_corner.tscn" id="8_1vhi6"]
 [ext_resource type="PackedScene" uid="uid://6bmftqw6u31o" path="res://loot_itmes/shotgun_ammo_pack.tscn" id="9_8iy2f"]
+[ext_resource type="PackedScene" uid="uid://w31hs2ilyejr" path="res://dungeon_objects/hellowin_assets/bench_decorated.tscn" id="10_60uo4"]
 [ext_resource type="PackedScene" uid="uid://dlk8byco28fdv" path="res://dungeon_objects/wall_gated_gltf.tscn" id="10_ernkd"]
 [ext_resource type="PackedScene" uid="uid://cmewp44ic8l4k" path="res://dungeon_objects/wall_archedwindow_open.tscn" id="12_rqatv"]
 
@@ -2286,6 +2287,14 @@ omni_attenuation = 0.108819
 
 [node name="RigidBody3D" parent="DUNGEON_ROOT/NavigationRegion3D/FIRST_FLOOR/OBJECTS" instance=ExtResource("9_8iy2f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.20688, 0.718475, 16.4545)
+
+[node name="first_room_decor" type="Node3D" parent="DUNGEON_ROOT/NavigationRegion3D/FIRST_FLOOR/OBJECTS"]
+
+[node name="table_medium_tablecloth_gltf" parent="DUNGEON_ROOT/NavigationRegion3D/FIRST_FLOOR/OBJECTS/first_room_decor" instance=ExtResource("7_tl4po")]
+transform = Transform3D(0.859719, 0, 0.510768, 0, 1, 0, -0.510768, 0, 0.859719, 6.1038, 0, 22.165)
+
+[node name="bench_decorated" parent="DUNGEON_ROOT/NavigationRegion3D/FIRST_FLOOR/OBJECTS/first_room_decor/table_medium_tablecloth_gltf" instance=ExtResource("10_60uo4")]
+transform = Transform3D(-0.940549, 0, -0.339657, 0, 1, 0, 0.339657, 0, -0.940549, 0.105926, 1.00893, -0.0533371)
 
 [node name="SECOND_FLOOR" type="Node3D" parent="DUNGEON_ROOT/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
@@ -5023,7 +5032,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11634, 1, 21.9434)
 gizmo_extents = 1.0
 
 [node name="red_room_2" type="Marker3D" parent="DUNGEON_ROOT/SPAWN_POINTS"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.93219, 1, 21.9434)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.93219, 1, 19.8493)
 gizmo_extents = 1.0
 
 [node name="red_room_3" type="Marker3D" parent="DUNGEON_ROOT/SPAWN_POINTS"]

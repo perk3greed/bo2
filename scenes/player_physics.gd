@@ -290,6 +290,8 @@ func _physics_process(delta):
 		pb_magazine_difference = bp_magazine_max_capacity - pb_magazine 
 		if pb_magazine_difference > 0:
 			Events.emit_signal("reload_pb_start")
+			pb_shot_active = true
+	
 	
 	
 	if Input.is_action_just_pressed("lmb"):
@@ -320,7 +322,12 @@ func _physics_process(delta):
 					var shot_hit_object = $Head/Camera3D/gun_raycast.get_collider()
 					if shot_hit_object.is_in_group("enemy"):
 						shot_hit_object.shot("pb")
-						print(shot_hit_object)
+					elif shot_hit_object.is_in_group("decor"):
+						var sho_direction = shot_hit_object.global_position - self.global_position 
+						var sho_dir_normal = sho_direction.normalized()
+						shot_hit_object.apply_central_impulse(sho_dir_normal)
+						
+					
 			else :
 				if pb_magazine > 0:
 					pb_magazine -= 1
@@ -331,7 +338,11 @@ func _physics_process(delta):
 					var shot_hit_object = $Head/Camera3D/gun_raycast.get_collider()
 					if shot_hit_object.is_in_group("enemy"):
 						shot_hit_object.shot("pb")
-						print(shot_hit_object)
+					elif shot_hit_object.is_in_group("decor"):
+						var sho_direction = shot_hit_object.global_position - self.global_position 
+						var sho_dir_normal = sho_direction.normalized()
+						shot_hit_object.apply_central_impulse(sho_dir_normal)
+						
 			
 	
 	if current_recoil_active_pb:
@@ -415,4 +426,4 @@ func do_finish_of_pb_shot():
 func do_finish_reload_pb():
 	pb_magazine = bp_magazine_max_capacity
 	pb_ammo -= pb_magazine_difference
-
+	pb_shot_active = false
