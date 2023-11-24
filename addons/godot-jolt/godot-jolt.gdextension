@@ -16,6 +16,3 @@ linux.debug.x86_64 = "linux/godot-jolt_linux-x64_editor.so"
 
 linux.release.x86_32 = "linux/godot-jolt_linux-x86.so"
 linux.debug.x86_32 = "linux/godot-jolt_linux-x86_editor.so"
-
-macos.release = "macos/godot-jolt_macos.framework"
-macos.debug = "macos/godot-jolt_macos_editor.framework"

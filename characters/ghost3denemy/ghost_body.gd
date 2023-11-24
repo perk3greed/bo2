@@ -81,14 +81,15 @@ func _physics_process(delta):
 	Direction = Direction.normalized()
 	velocity = velocity.lerp(Direction*speed, accel*delta)
 	if target_reached == false:
+		var look_at_me = Vector3($"../../../player".global_position.x,
+			self.global_position.y, $"../../../player".global_position.z)
 		if current_mode == "follow_player":
 			move_and_slide()
-			look_at($"../../../player".global_position)
-		
+			look_at(look_at_me)
 		if current_mode ==  "cooling_down_from_firing_fireball":
 			Direction = -Direction
 			move_and_slide()
-			look_at($"../../../player".global_position)
+			look_at(look_at_me)
 			cooling_counter += 1
 
 
