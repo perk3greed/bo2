@@ -117,8 +117,10 @@ func _process(delta):
 	$Control/current_hp.value = player_hp
 	
 	if player_current_weapon == "pb_handgun":
-		$Control/ammo.text = "ammo=" +str(player_current_magazine_pb) +" / " + str(player_current_ammo_pb) 
-	
+		$Control/ammo.text = ("ammo=" + str(player_current_magazine_pb) +
+		" / " + str(player_current_ammo_pb))
+	elif player_current_weapon == "shotgun":
+		$Control/ammo.text = "ammo=" + str(player_current_ammo_shotgun)
 	
 #
 #	if Input.is_action_just_pressed("V"):
