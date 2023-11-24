@@ -153,7 +153,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.960557, 0)
 top_level = true
 
 [node name="laser_pointer_master" type="Node3D" parent="."]
-visible = false
 
 [node name="laser_pointer2" parent="laser_pointer_master" instance=ExtResource("3_niyui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.960557, 0)

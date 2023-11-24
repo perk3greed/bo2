@@ -145,6 +145,7 @@ func do_a_shotgun_shot():
 		for child in range(8):
 			var current_shotgun_raycast = shotgun_raycast_list[child] 
 			current_shotgun_raycast.enabled = true
+			print(current_shotgun_raycast.target_position)
 			current_shotgun_raycast.force_raycast_update()
 			var current_hit_object = current_shotgun_raycast.get_collider()
 			var current_hit_point = current_shotgun_raycast.get_collision_point()
