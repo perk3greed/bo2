@@ -140,18 +140,21 @@ func give_player_ammo(how_much_ammo):
 	shotgun_ammo += how_much_ammo
 
 func do_a_shotgun_shot():
+	print("\nDID A SHOTGUN SHOT")
 	if current_weapon == "shotgun":
-#		
-		for child in 8:
+		for child in range(8):
 			var current_shotgun_raycast = shotgun_raycast_list[child] 
 			current_shotgun_raycast.enabled = true
+			current_shotgun_raycast.force_raycast_update()
 			var current_hit_object = current_shotgun_raycast.get_collider()
 			var current_hit_point = current_shotgun_raycast.get_collision_point()
 			if current_hit_object != null:
-				print(current_hit_object)
+				print("shot " + str(child) + " hit ", current_hit_object)
 				if current_hit_object.is_in_group("enemy"):
 					current_hit_object.shot("shotgun")
-			
+			else:
+				print("shot " + str(child) + " missed")
+	print()
 
 func generate_target_pos():
 	var horizontalOffset = randf_range(-maxHorizontalOffset, maxHorizontalOffset)
