@@ -41,8 +41,8 @@ cull_mask = 1048573
 current = true
 
 [node name="hand_raycast" type="RayCast3D" parent="Head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0521756, -0.00353765, -0.476837)
 target_position = Vector3(0, 0, -2)
+collision_mask = 2
 hit_from_inside = true
 debug_shape_custom_color = Color(0.25098, 0.333333, 1, 1)
 

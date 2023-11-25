@@ -2277,6 +2277,7 @@ script = ExtResource("7_wyma2")
 
 [node name="shotgun_pickup" parent="DUNGEON_ROOT/NavigationRegion3D/FIRST_FLOOR/OBJECTS/shotgun_presenter" instance=ExtResource("7_p2n5m")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+collision_layer = 3
 gravity_scale = 0.0
 
 [node name="shotgun_presenter" type="OmniLight3D" parent="DUNGEON_ROOT/NavigationRegion3D/FIRST_FLOOR/OBJECTS/shotgun_presenter"]

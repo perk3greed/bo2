@@ -196,7 +196,7 @@ func _physics_process(delta):
 	
 	
 	
-	
+	$Head/Camera3D/hand_raycast.force_raycast_update()
 	var hand_touched_what = $Head/Camera3D/hand_raycast.get_collider()
 	
 	if gun_raycast.target_position.distance_to(target_pos) < 1:
@@ -215,6 +215,7 @@ func _physics_process(delta):
 	
 	
 	if hand_touched_what != null:
+#		print("currently colliding hand with ", hand_touched_what)
 		if hand_touched_what.is_in_group("object"):
 			interact_prompt.visible = true
 		else :
@@ -269,16 +270,12 @@ func _physics_process(delta):
 		Events.emit_signal("stop_ads")
 	
 	if Input.is_action_just_pressed("E"):
-		
-
-		Events.emit_signal("object_interacted_with")
 		var hand_touched = $Head/Camera3D/hand_raycast.get_collision_point()
-		
-		
-		
 		if hand_touched_what != null:
+			print(hand_touched_what.get_groups())
 			if hand_touched_what.is_in_group("object"):
 				hand_touched_what.interact()
+				Events.emit_signal("object_interacted_with", hand_touched_what)
 
 
 	if Input.is_action_just_pressed("L"):
