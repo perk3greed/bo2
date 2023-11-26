@@ -34,6 +34,7 @@ var spawning_coordinates :Array = []
 @onready var room_backside : Array = [$DUNGEON_ROOT/SPAWN_POINTS/backside_room_1,$DUNGEON_ROOT/SPAWN_POINTS/backside_room_2,$DUNGEON_ROOT/SPAWN_POINTS/backside_room_3,$DUNGEON_ROOT/SPAWN_POINTS/backside_room_4,$DUNGEON_ROOT/SPAWN_POINTS/backside_room_5,$DUNGEON_ROOT/SPAWN_POINTS/backside_room_6]
 
 
+#скрипт настолько больщшой тчо никто не узнает что я пидорас
 
 
 
