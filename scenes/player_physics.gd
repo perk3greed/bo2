@@ -247,13 +247,14 @@ func _physics_process(delta):
 #
 #
 	if Input.is_action_just_pressed("1"): 
-		if sword_owned == true:
+		if sword_owned:
 			current_weapon = "sword"
 			Events.emit_signal("change_weapons", current_weapon)
 		
 	if Input.is_action_just_pressed("2"): 
-		current_weapon = "shotgun" 
-		Events.emit_signal("change_weapons", current_weapon)
+		if shotgun_owned:
+			current_weapon = "shotgun" 
+			Events.emit_signal("change_weapons", current_weapon)
 	
 	if Input.is_action_just_pressed("3"): 
 		current_weapon = "pb_handgun" 
@@ -276,6 +277,9 @@ func _physics_process(delta):
 			if hand_touched_what.is_in_group("object"):
 				hand_touched_what.interact()
 				Events.emit_signal("object_interacted_with", hand_touched_what)
+				if hand_touched_what.name == "shotgun_pickup":
+					current_weapon = "shotgun" 
+					Events.emit_signal("change_weapons", current_weapon)
 
 
 	if Input.is_action_just_pressed("L"):

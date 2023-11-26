@@ -53,7 +53,6 @@ debug_shape_custom_color = Color(0.878431, 0, 0.337255, 1)
 
 [node name="sword_are3d" type="Area3D" parent="Head/Camera3D"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -0.326011, 0)
-visible = false
 
 [node name="sword_collision_shape" type="CollisionShape3D" parent="Head/Camera3D/sword_are3d"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.330127, 0.491628)
