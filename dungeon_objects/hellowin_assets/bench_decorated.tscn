@@ -44,7 +44,6 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hdrmp")
 
 [node name="RigidBody3D" type="RigidBody3D" groups=["decor"]]
-mass = 0.1
 contact_monitor = true
 can_sleep = false
 

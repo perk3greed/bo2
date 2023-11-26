@@ -215,7 +215,6 @@ func _physics_process(delta):
 	
 	
 	if hand_touched_what != null:
-#		print("currently colliding hand with ", hand_touched_what)
 		if hand_touched_what.is_in_group("object"):
 			interact_prompt.visible = true
 		else :
@@ -324,12 +323,14 @@ func _physics_process(delta):
 					recoil_count = 0
 					pb_shot_active = true
 					var shot_hit_object = $Head/Camera3D/gun_raycast.get_collider()
+					var shot_hit_position = $Head/Camera3D/gun_raycast.get_collision_point()
 					if shot_hit_object.is_in_group("enemy"):
 						shot_hit_object.shot("pb")
 					elif shot_hit_object.is_in_group("decor"):
 						var sho_direction = shot_hit_object.global_position - self.global_position 
-						var sho_dir_normal = sho_direction.normalized()
-						shot_hit_object.apply_central_impulse(sho_dir_normal)
+						var sho_dir_normal = sho_direction.normalized()*5
+						var shp = shot_hit_object.global_position - shot_hit_position
+						shot_hit_object.apply_impulse(sho_dir_normal,shp)
 						
 					
 			else :
@@ -344,7 +345,7 @@ func _physics_process(delta):
 						shot_hit_object.shot("pb")
 					elif shot_hit_object.is_in_group("decor"):
 						var sho_direction = shot_hit_object.global_position - self.global_position 
-						var sho_dir_normal = sho_direction.normalized()
+						var sho_dir_normal = sho_direction.normalized()*5
 						shot_hit_object.apply_central_impulse(sho_dir_normal)
 						
 			
@@ -404,8 +405,16 @@ func _physics_process(delta):
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	
 	move_and_slide()
-
-
+	
+	for index in get_slide_collision_count():
+		var collided_with_parent = get_slide_collision(index)
+		var collided_with = collided_with_parent.get_collider()
+		if collided_with.is_in_group("decor"):
+			var collision_point = - self.global_position + collided_with_parent.get_position()
+			var collsion_speed = - self.velocity + collided_with_parent.get_collider_velocity(index)
+			var csn = collsion_speed.normalized()*0.3
+			collided_with.apply_impulse(csn,collision_point)
+	
 
 func sword_attack_finished_function():
 	

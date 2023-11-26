@@ -48,9 +48,18 @@ func _ready():
 
 func _physics_process(delta):
 	
+	if is_on_floor():
+		velocity.y = 0
+	else :
+		velocity.y -= 0.05
+		move_and_slide()
+#
+#
+	
+	
 	current_pathfinding_turn += 1 
 	
-	if cooling_counter == 300:
+	if cooling_counter == 150:
 		current_mode = "follow_player"
 		cooling_counter = 0 
 	
