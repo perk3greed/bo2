@@ -111,6 +111,7 @@ func _unhandled_input(event):
 		head.rotate_y(-event.relative.x * SENSITIVITY*0.1)
 		camera.rotate_x(event.relative.y * SENSITIVITY*0.1)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(80))
+		print(head.rotation_degrees, "\n", camera.rotation_degrees)
 		
 
 func give_me_the_sword():
@@ -140,22 +141,22 @@ func give_player_ammo(how_much_ammo):
 	shotgun_ammo += how_much_ammo
 
 func do_a_shotgun_shot():
-	print("\nDID A SHOTGUN SHOT")
+#	print("\nDID A SHOTGUN SHOT")
 	if current_weapon == "shotgun":
 		for child in range(8):
 			var current_shotgun_raycast = shotgun_raycast_list[child] 
 			current_shotgun_raycast.enabled = true
-			print(current_shotgun_raycast.target_position)
+#			print(current_shotgun_raycast.target_position)
 			current_shotgun_raycast.force_raycast_update()
 			var current_hit_object = current_shotgun_raycast.get_collider()
 			var current_hit_point = current_shotgun_raycast.get_collision_point()
 			if current_hit_object != null:
-				print("shot " + str(child) + " hit ", current_hit_object)
+#				print("shot " + str(child) + " hit ", current_hit_object)
 				if current_hit_object.is_in_group("enemy"):
 					current_hit_object.shot("shotgun")
 			else:
 				print("shot " + str(child) + " missed")
-	print()
+#	print()
 
 func generate_target_pos():
 	var horizontalOffset = randf_range(-maxHorizontalOffset, maxHorizontalOffset)
@@ -273,7 +274,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("E"):
 		var hand_touched = $Head/Camera3D/hand_raycast.get_collision_point()
 		if hand_touched_what != null:
-			print(hand_touched_what.get_groups())
+#			print(hand_touched_what.get_groups())
 			if hand_touched_what.is_in_group("object"):
 				hand_touched_what.interact()
 				Events.emit_signal("object_interacted_with", hand_touched_what)
