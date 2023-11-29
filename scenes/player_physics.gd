@@ -110,8 +110,7 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY*0.1)
 		camera.rotate_x(event.relative.y * SENSITIVITY*0.1)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(80))
-		print(head.rotation_degrees, "\n", camera.rotation_degrees)
+		
 		
 
 func give_me_the_sword():
@@ -371,7 +370,7 @@ func _physics_process(delta):
 	if current_recoil_active_shotgun:
 		
 		if recoil_count < 12:
-			camera.rotate_x(-(12-recoil_count)*0.004)
+			camera.rotate_x(-0.04)
 			recoil_count += 1
 		elif recoil_count >= 12 and recoil_count < 36:
 			camera.rotate_x(+0.012)

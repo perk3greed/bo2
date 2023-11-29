@@ -36,7 +36,8 @@ shape = SubResource("CapsuleShape3D_ipieo")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.825654, -0.068)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.18, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.18, 0)
+rotation_order = 0
 cull_mask = 1048573
 current = true
 
@@ -191,4 +192,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.960557, 0)
 top_level = true
 
 [node name="Camera32" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, -3.67652e-08, 0.907272, 0.420545, 7.93162e-08, 0.420545, -0.907272, 0, 1.56195, -3.09326)
+transform = Transform3D(-0.97219, -0.0984882, 0.212476, -3.67652e-08, 0.907272, 0.420545, -0.234192, 0.40885, -0.882041, 0.726513, 1.56195, -2.33201)
