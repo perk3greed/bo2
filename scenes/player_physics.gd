@@ -112,7 +112,7 @@ func _unhandled_input(event):
 		camera.rotate_x(-event.relative.y * SENSITIVITY*0.1)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(80))
 
-		print(head.rotation_degrees, "\n", camera.rotation_degrees)
+#		print(head.rotation_degrees, "\n", camera.rotation_degrees)
 		
 
 func give_me_the_sword():
@@ -246,19 +246,19 @@ func _physics_process(delta):
 			current_sprint -= delta
 #
 #
-	if Input.is_action_just_pressed("1"): 
-		if sword_owned:
-			current_weapon = "sword"
-			Events.emit_signal("change_weapons", current_weapon)
+#	if Input.is_action_just_pressed("1"): 
+#		if sword_owned:
+#			current_weapon = "sword"
+#			Events.emit_signal("change_weapons", current_weapon)
 		
 	if Input.is_action_just_pressed("2"): 
 		if shotgun_owned:
 			current_weapon = "shotgun" 
 			Events.emit_signal("change_weapons", current_weapon)
 	
-	if Input.is_action_just_pressed("3"): 
-		current_weapon = "pb_handgun" 
-		Events.emit_signal("change_weapons", current_weapon)
+#	if Input.is_action_just_pressed("3"): 
+#		current_weapon = "pb_handgun" 
+#		Events.emit_signal("change_weapons", current_weapon)
 		
 	
 	if Input.is_action_pressed("rmb"):
@@ -369,16 +369,19 @@ func _physics_process(delta):
 	
 	
 	if current_recoil_active_shotgun:
-		
-		if recoil_count < 12:
-			camera.rotate_x(+(12-recoil_count)*0.004)
-			recoil_count += 1
-		elif recoil_count >= 12 and recoil_count < 36:
-			camera.rotate_x(-0.012)
-			recoil_count += 1
-		elif recoil_count >= 36:
-			current_recoil_active_shotgun = false
-			recoil_count = 0
+		var tween = create_tween()
+		tween.tween_callback(func(): current_recoil_active_shotgun = false)
+		tween.tween_property(camera, "rotation", Vector3(0.2, 0, 0), 0.1)
+		tween.tween_property(camera, "rotation", Vector3(0, 0, 0), 0.6)
+#		if recoil_count < 12:
+#			camera.rotate_x(+(12-recoil_count)*0.004)
+#			recoil_count += 1
+#		elif recoil_count >= 12 and recoil_count < 36:
+#			camera.rotate_x(-0.012)
+#			recoil_count += 1
+#		elif recoil_count >= 36:
+#			current_recoil_active_shotgun = false
+#			recoil_count = 0
 	
 	
 	
