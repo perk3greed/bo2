@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://DUNGEON_MAIN.gd" id="1_gopc6"]
 [ext_resource type="PackedScene" uid="uid://bqxvqax32rbuq" path="res://dungeon_objects/floor_wood_large_dark.tscn" id="2_04mcq"]
-[ext_resource type="PackedScene" uid="uid://dyu1i1mcwhm2e" path="res://scenes/player.tscn" id="3_jipii"]
+[ext_resource type="PackedScene" uid="uid://dyu1i1mcwhm2e" path="res://characters/player.tscn" id="3_jipii"]
 [ext_resource type="PackedScene" uid="uid://wlw6ukm23hnf" path="res://dungeon_objects/stairs_wood_decorated_gltf.tscn" id="3_p6u0x"]
 [ext_resource type="PackedScene" uid="uid://64qbxa8rj0sk" path="res://dungeon_objects/wall.tscn" id="4_06y8l"]
 [ext_resource type="PackedScene" uid="uid://b8damj5u26wkp" path="res://dungeon_objects/furniture/floor_kitchen.tscn" id="4_cs14k"]
