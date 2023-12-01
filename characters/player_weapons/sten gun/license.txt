@@ -1,0 +1,11 @@
+Model Information:
+* title:	Low-Poly Sten Gun
+* source:	https://sketchfab.com/3d-models/low-poly-sten-gun-51a9f6bc2cff4308af41bdde7c83d446
+* author:	TastyTony (https://sketchfab.com/TastyTony)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Low-Poly Sten Gun" (https://sketchfab.com/3d-models/low-poly-sten-gun-51a9f6bc2cff4308af41bdde7c83d446) by TastyTony (https://sketchfab.com/TastyTony) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvs5j3fnju0ms"]
+
+[ext_resource type="PackedScene" uid="uid://dhpeqnpqkuwwr" path="res://addons/kaykit_dungeon_remastered/Assets/gltf/wall_doorway_Tsplit.gltf.glb" id="1_08ty4"]
+
+[node name="wall_doorway_Tsplit_gltf" instance=ExtResource("1_08ty4")]

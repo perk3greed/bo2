@@ -1,0 +1,19 @@
+[gd_resource type="World3D" load_steps=5 format=3 uid="uid://bf7fi58kuagnd"]
+
+[ext_resource type="Texture2D" uid="uid://b1pwoaxuvypr8" path="res://stuff/skyline.png" id="1_hr1k1"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_oah75"]
+panorama = ExtResource("1_hr1k1")
+
+[sub_resource type="Sky" id="Sky_a311x"]
+sky_material = SubResource("PanoramaSkyMaterial_oah75")
+
+[sub_resource type="Environment" id="Environment_3pkrj"]
+background_color = Color(0.945098, 0.533333, 0.768627, 1)
+sky = SubResource("Sky_a311x")
+ambient_light_source = 3
+ambient_light_color = Color(0.815686, 0.815686, 0.815686, 1)
+ambient_light_energy = 13.65
+
+[resource]
+environment = SubResource("Environment_3pkrj")

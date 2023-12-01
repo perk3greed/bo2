@@ -1,0 +1,11 @@
+Model Information:
+* title:	Staff
+* source:	https://sketchfab.com/3d-models/staff-02491280b0a842418251b397241f6bdb
+* author:	Diego T. Yamaguchi (https://sketchfab.com/freshlybaked)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Staff" (https://sketchfab.com/3d-models/staff-02491280b0a842418251b397241f6bdb) by Diego T. Yamaguchi (https://sketchfab.com/freshlybaked) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

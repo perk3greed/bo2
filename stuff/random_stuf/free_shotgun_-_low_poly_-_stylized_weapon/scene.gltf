@@ -1,0 +1,407 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 126,
+      "max": [
+        0.0267622210085392,
+        0.02569500356912613,
+        0.08387865126132965
+      ],
+      "min": [
+        -0.09203615039587021,
+        -0.19688600301742554,
+        -0.046366121619939804
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 1512,
+      "componentType": 5126,
+      "count": 126,
+      "max": [
+        0.9999629259109497,
+        0.9996092319488525,
+        0.991131067276001
+      ],
+      "min": [
+        -0.9999988079071045,
+        -0.9996092915534973,
+        -0.999608039855957
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 126,
+      "max": [
+        0.9999629259109497,
+        0.5320231318473816,
+        0.9996081590652466,
+        1.0
+      ],
+      "min": [
+        -0.9999988079071045,
+        -0.9454365372657776,
+        -0.9996080994606018,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 126,
+      "max": [
+        0.23014751076698303,
+        0.6910388469696045
+      ],
+      "min": [
+        0.13434621691703796,
+        0.42163634300231934
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 396,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 3024,
+      "componentType": 5126,
+      "count": 1066,
+      "max": [
+        0.11045582592487335,
+        0.8340584635734558,
+        0.308978796005249
+      ],
+      "min": [
+        -0.08178849518299103,
+        -1.2609386444091797,
+        -0.13536755740642548
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 15816,
+      "componentType": 5126,
+      "count": 1066,
+      "max": [
+        0.9934439659118652,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 2016,
+      "componentType": 5126,
+      "count": 1066,
+      "max": [
+        1.0,
+        1.0,
+        0.9962337613105774,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -0.9998788237571716,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 1008,
+      "componentType": 5126,
+      "count": 1066,
+      "max": [
+        0.9771826863288879,
+        0.9896689653396606
+      ],
+      "min": [
+        0.019695281982421875,
+        0.0007443132344633341
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 1584,
+      "componentType": 5125,
+      "count": 3834,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "bubelrobert (https://sketchfab.com/bubelrobert)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/free-shotgun-low-poly-stylized-weapon-2a73eae938c64cd0a2c793c6d70e8eab",
+      "title": "[FREE} Shotgun - Low Poly - Stylized Weapon"
+    },
+    "generator": "Sketchfab-14.90.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 16920,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 9536,
+      "byteOffset": 16920,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 28608,
+      "byteOffset": 26456,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 19072,
+      "byteOffset": 55064,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 74136,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/weapon_shotgun_a_baseColor.png"
+    },
+    {
+      "uri": "textures/weapon_shotgun_a_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/weapon_shotgun_a_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "weapon_shotgun_a",
+      "normalTexture": {
+        "index": 2
+      },
+      "occlusionTexture": {
+        "index": 1
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "pellets_weapon_shotgun_a_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "weapon_shotgun_a_weapon_shotgun_a_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TANGENT": 7,
+            "TEXCOORD_0": 8
+          },
+          "indices": 9,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.8619613647460938,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        4.134384756207185e-16,
+        -1.8619613647460938,
+        0.0,
+        0.0,
+        1.8619613647460938,
+        4.134384756207185e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "6d3de13baf90442482b7d6eaae7d7a04.fbx"
+    },
+    {
+      "children": [
+        3,
+        5
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        -1.0036771718084754,
+        -99.99447665806105,
+        0.30942549414683146,
+        0.0,
+        94.54305764570985,
+        -1.0497307891025809,
+        -32.565423233723614,
+        0.0,
+        32.56687515338133,
+        -0.03431139821568728,
+        94.54837883112104,
+        0.0,
+        37.1391487121582,
+        -32.33267593383789,
+        76.28548431396484,
+        1.0
+      ],
+      "name": "pellets"
+    },
+    {
+      "mesh": 0,
+      "name": "pellets_weapon_shotgun_a_0"
+    },
+    {
+      "children": [
+        6
+      ],
+      "matrix": [
+        100.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.629206793918314e-05,
+        -99.99999999999868,
+        0.0,
+        0.0,
+        99.99999999999868,
+        -1.629206793918314e-05,
+        0.0,
+        4.792431127498276e-07,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "weapon_shotgun_a"
+    },
+    {
+      "mesh": 1,
+      "name": "weapon_shotgun_a_weapon_shotgun_a_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}

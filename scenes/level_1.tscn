@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8l0vissgjfqk"]
+
+[ext_resource type="Script" path="res://scenes/level_1.gd" id="1_o2wgj"]
+[ext_resource type="Texture2D" uid="uid://b1pwoaxuvypr8" path="res://stuff/skyline.png" id="2_sqs3c"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xlekl"]
+panorama = ExtResource("2_sqs3c")
+
+[sub_resource type="Sky" id="Sky_jrn4s"]
+sky_material = SubResource("PanoramaSkyMaterial_xlekl")
+
+[sub_resource type="Environment" id="Environment_drcsa"]
+background_mode = 2
+sky = SubResource("Sky_jrn4s")
+ambient_light_color = Color(0.886275, 0.486275, 0.729412, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3uj5j"]
+size = Vector3(100, 1, 100)
+
+[node name="level1" type="Node3D"]
+script = ExtResource("1_o2wgj")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_drcsa")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75766, 19.1213)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9133, 3.02069, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]
+size = Vector3(100, 1, 100)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_3uj5j")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9776, 5.4625, 12.6574)

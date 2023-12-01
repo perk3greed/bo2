@@ -1,0 +1,11 @@
+Model Information:
+* title:	low-poly Remington 870 shotgun
+* source:	https://sketchfab.com/3d-models/low-poly-remington-870-shotgun-2ed9680321eb4d11946184833281f495
+* author:	notcplkerry (https://sketchfab.com/notcplkerry)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "low-poly Remington 870 shotgun" (https://sketchfab.com/3d-models/low-poly-remington-870-shotgun-2ed9680321eb4d11946184833281f495) by notcplkerry (https://sketchfab.com/notcplkerry) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

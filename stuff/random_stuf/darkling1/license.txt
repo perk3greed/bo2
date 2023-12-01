@@ -1,0 +1,11 @@
+Model Information:
+* title:	Darkling1
+* source:	https://sketchfab.com/3d-models/darkling1-a9d489f685ff4b8a8574e12eb4cee7c5
+* author:	Diego T. Yamaguchi (https://sketchfab.com/freshlybaked)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Darkling1" (https://sketchfab.com/3d-models/darkling1-a9d489f685ff4b8a8574e12eb4cee7c5) by Diego T. Yamaguchi (https://sketchfab.com/freshlybaked) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

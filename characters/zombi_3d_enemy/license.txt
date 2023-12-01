@@ -1,0 +1,11 @@
+Model Information:
+* title:	Zombi
+* source:	https://sketchfab.com/3d-models/zombi-5fbb7d4a91c74dca8efe4d86a521096f
+* author:	jean.raynal007 (https://sketchfab.com/jean.raynal007)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Zombi" (https://sketchfab.com/3d-models/zombi-5fbb7d4a91c74dca8efe4d86a521096f) by jean.raynal007 (https://sketchfab.com/jean.raynal007) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

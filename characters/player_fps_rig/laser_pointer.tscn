@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3p3kc4406kia"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xvjy0"]
+albedo_color = Color(0.980392, 0, 0.333333, 1)
+
+[node name="laser_pointer" type="Node3D"]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+radius = 0.05
+radial_segments = 6
+rings = 3
+smooth_faces = false
+material = SubResource("StandardMaterial3D_xvjy0")
