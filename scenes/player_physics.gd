@@ -109,8 +109,10 @@ func _process(delta):
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY*0.1)
-		camera.rotate_x(event.relative.y * SENSITIVITY*0.1)
-		
+		camera.rotate_x(-event.relative.y * SENSITIVITY*0.1)
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(80))
+
+		print(head.rotation_degrees, "\n", camera.rotation_degrees)
 		
 
 func give_me_the_sword():
@@ -123,7 +125,7 @@ func give_me_the_shotgun():
 	shotgun_owned = true
 	current_weapon = "shotgun" 
 	Events.emit_signal("got_shotgun")
-	$Head/Camera3D/hand_raycast.enabled = false
+#	$Head/Camera3D/hand_raycast.enabled = false
 
 func reload_shotty():
 	for child in 8:
@@ -202,35 +204,35 @@ func _physics_process(delta):
 	if gun_raycast.target_position.distance_to(target_pos) < 1:
 		target_pos = generate_target_pos()
   
-	if velocity.length()>=1:
-		gun_raycast.target_position=gun_raycast.target_position.lerp(target_pos, velocity.length()*delta*0.8)
-	else :
-		gun_raycast.target_position=gun_raycast.target_position.lerp(target_pos, delta)
+	if velocity.length() >= 1:
+		gun_raycast.target_position = gun_raycast.target_position.lerp(
+			target_pos, velocity.length() * delta * 0.8)
+	else:
+		gun_raycast.target_position = gun_raycast.target_position.lerp(
+			target_pos, delta)
 	if gun_raycast.target_position.distance_to(target_pos) < 3.5:
 		target_pos = generate_target_pos()
 
 
-	if target_pos.distance_to(default_target_pos)>5:
-		target_pos=default_target_pos
+	if target_pos.distance_to(default_target_pos) > 5:
+		target_pos = default_target_pos
 	
 	
 	if hand_touched_what != null:
 		if hand_touched_what.is_in_group("object"):
 			interact_prompt.visible = true
-		else :
+		else:
 			interact_prompt.visible = false
 	else:
 		interact_prompt.visible = false
 	
 	$Head/SubViewportContainer/SubViewport/hands_camera3D.global_transform = camera.global_transform
-
 	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
 	
 	if Input.is_action_pressed("SHIFT"):
 		if sprint_time > current_sprint:
@@ -238,7 +240,6 @@ func _physics_process(delta):
 			speed = SPRINT_SPEED
 		else :
 			speed = WALK_SPEED
-
 	else:
 		speed = WALK_SPEED
 		if current_sprint > 0:
@@ -357,10 +358,10 @@ func _physics_process(delta):
 	if current_recoil_active_pb:
 		
 		if recoil_count < 7:
-			camera.rotate_x(-0.02)
+			camera.rotate_x(+0.02)
 			recoil_count += 1
 		elif recoil_count >= 7 and recoil_count < 30:
-			camera.rotate_x(+0.0065)
+			camera.rotate_x(-0.0065)
 			recoil_count += 1
 		elif recoil_count >= 30:
 			current_recoil_active_pb = false
@@ -370,10 +371,10 @@ func _physics_process(delta):
 	if current_recoil_active_shotgun:
 		
 		if recoil_count < 12:
-			camera.rotate_x(-0.04)
+			camera.rotate_x(+(12-recoil_count)*0.004)
 			recoil_count += 1
 		elif recoil_count >= 12 and recoil_count < 36:
-			camera.rotate_x(+0.012)
+			camera.rotate_x(-0.012)
 			recoil_count += 1
 		elif recoil_count >= 36:
 			current_recoil_active_shotgun = false
@@ -386,7 +387,7 @@ func _physics_process(delta):
 	
 	
 	
-	var input_dir = Input.get_vector("D", "A", "S", "W")
+	var input_dir = Input.get_vector("A", "D", "W", "S")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if is_on_floor():
 		if direction:
