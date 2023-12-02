@@ -25,7 +25,7 @@ var health_points : int = 80
 @export var patrol_point1 :Vector3
 @export var patrol_point2 :Vector3
 @onready var current_patrol_point :Vector3
-var fireball = preload("res://meshes/fireball_test.tscn")
+var fireball = preload("res://characters/ghost3denemy/fireball_test.tscn")
 
 
 signal ghost_died(position_of_death)

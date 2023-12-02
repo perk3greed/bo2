@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://duw0hxbe7ewv8"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="score" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 60
+text = "fdsssssssssgdgdsgsdgs"
+
+[node name="ammo" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = -125.0
+offset_right = 337.0
+offset_bottom = -38.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.843137, 0.0156863, 0.545098, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 60
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 204.0
+offset_top = -127.0
+offset_right = 775.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0.556863, 0.603922, 0.886275)
+theme_override_colors/font_shadow_color = Color(0.4, 0.313726, 0.913725, 0.462745)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 7
+theme_override_font_sizes/normal_font_size = 67
+text = "InteracT!!!"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+self_modulate = Color(0, 0.564706, 0.215686, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 56.0
+offset_top = 366.0
+offset_right = 746.0
+offset_bottom = 411.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.784314, 0.372549, 0.415686, 1)
+show_percentage = false
+
+[node name="you died" type="Label" parent="."]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 255.0
+offset_right = 1368.0
+offset_bottom = 676.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.8, 0, 0.192157, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 7
+theme_override_font_sizes/font_size = 80
+text = "YOU DIED! HAHAHA"
+
+[node name="current_hp" type="ProgressBar" parent="."]
+self_modulate = Color(0.835294, 0, 0.435294, 1)
+layout_mode = 0
+offset_left = 861.0
+offset_top = 746.0
+offset_right = 1538.0
+offset_bottom = 798.0
+mouse_filter = 2
+show_percentage = false

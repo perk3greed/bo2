@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://characters/player_hands/fps_rig.gd" id="1_e63o5"]
 [ext_resource type="Material" uid="uid://bxvupdv1tid6b" path="res://characters/player_hands/hands_materal.tres" id="2_dc8lr"]
-[ext_resource type="PackedScene" uid="uid://kfbxdj0ku8f2" path="res://meshes/shotgun.tscn" id="4_5im7y"]
+[ext_resource type="PackedScene" uid="uid://kfbxdj0ku8f2" path="res://characters/player_weapons/shotgun/shotgun.tscn" id="4_5im7y"]
 [ext_resource type="PackedScene" uid="uid://bap7qw2yel4y" path="res://characters/player_weapons/sword/sword_scene.tscn" id="4_judee"]
-[ext_resource type="PackedScene" uid="uid://dmy1gjn66iykl" path="res://scenes/pb_gun_s.tscn" id="5_ttdsx"]
+[ext_resource type="PackedScene" uid="uid://dmy1gjn66iykl" path="res://characters/player_weapons/pb/pb_gun_s.tscn" id="5_ttdsx"]
 
 [sub_resource type="Environment" id="Environment_w8aos"]
 background_color = Color(0.882353, 0, 0.34902, 0.0705882)

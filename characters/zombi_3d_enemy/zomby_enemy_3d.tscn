@@ -1,6 +1,6 @@
 [gd_scene load_steps=101 format=3 uid="uid://cm2qh70135bgs"]
 
-[ext_resource type="Script" path="res://characters/zomby_physics.gd" id="1_wqxgp"]
+[ext_resource type="Script" path="res://characters/zombi_3d_enemy/zomby_physics.gd" id="1_wqxgp"]
 [ext_resource type="Script" path="res://characters/zombi_3d_enemy/zomby_head.gd" id="2_n64au"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58ghk"]

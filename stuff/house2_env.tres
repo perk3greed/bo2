@@ -1,6 +1,0 @@
-[gd_resource type="Environment" format=3 uid="uid://bwexmbm1tnc1n"]
-
-[resource]
-background_mode = 1
-background_color = Color(0.0823529, 0.333333, 0.705882, 1)
-ambient_light_sky_contribution = 0.0

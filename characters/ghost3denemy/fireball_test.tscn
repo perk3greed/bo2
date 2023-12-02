@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdc60ig4d1pcl"]
+
+[ext_resource type="Script" path="res://characters/ghost3denemy/fireball_test.gd" id="1_yyvxx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7fjc7"]
+albedo_color = Color(0, 0.901961, 0.984314, 1)
+emission_enabled = true
+emission = Color(0.192157, 0.901961, 0, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_isntl"]
+material = SubResource("StandardMaterial3D_7fjc7")
+radial_segments = 12
+rings = 12
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ddlcy"]
+radius = 0.4
+
+[node name="Node3D" type="Node3D"]
+top_level = true
+script = ExtResource("1_yyvxx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("SphereMesh_isntl")
+skeleton = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 3
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_ddlcy")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
