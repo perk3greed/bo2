@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://kla3ao8jw3uq"]
+[gd_scene load_steps=7 format=3 uid="uid://c7e2hf67lbbd5"]
 
 [ext_resource type="Material" uid="uid://ckoekoupcurg2" path="res://doors and objects/door_material.tres" id="1_7316k"]
-[ext_resource type="PackedScene" uid="uid://dyu1i1mcwhm2e" path="res://scenes/player.tscn" id="2_0fij2"]
+[ext_resource type="PackedScene" uid="uid://dyu1i1mcwhm2e" path="res://characters/player/player.tscn" id="2_0fij2"]
 [ext_resource type="PackedScene" uid="uid://cm2qh70135bgs" path="res://characters/zombi_3d_enemy/zomby_enemy_3d.tscn" id="3_jdxay"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_jwus1"]

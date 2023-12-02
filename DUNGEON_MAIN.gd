@@ -50,7 +50,7 @@ func _ready():
 #	Events.connect("object_interacted_with", interact_this_stuff)
 	Events.connect("new_location_unlocked", unlock_new_location)
 	Events.connect("player_hit", player_hp_calculation)
-	
+	Events.connect("player_hit_with_fireball", player_hp_calculation_fireball)
 
 
 
@@ -128,6 +128,10 @@ func _process(delta):
 #		spawn_a_wave_of_zombies()
 #
 
+func player_hp_calculation_fireball():
+	player_hp -= 10
+	if player_hp < 1:
+		$"Control/you died".visible = true
 
 
 
