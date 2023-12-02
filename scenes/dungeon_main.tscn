@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b8damj5u26wkp" path="res://dungeon_objects/furniture/floor_kitchen.tscn" id="4_cs14k"]
 [ext_resource type="PackedScene" uid="uid://cp52evb41w0le" path="res://dungeon_objects/wall_doorway.tscn" id="5_xxb6y"]
 [ext_resource type="PackedScene" uid="uid://dyt51a6p7jvnb" path="res://dungeon_objects/table_long_broken_gltf.tscn" id="6_02503"]
-[ext_resource type="Environment" path="res://scenes/house2_env.tres" id="6_n81l4"]
+[ext_resource type="Environment" uid="uid://bwexmbm1tnc1n" path="res://scenes/house2_env.tres" id="6_n81l4"]
 [ext_resource type="PackedScene" uid="uid://dh7ll0r2jshlf" path="res://dungeon_objects/barrier.tscn" id="7_43gvk"]
 [ext_resource type="PackedScene" uid="uid://da7hqkqj0w6et" path="res://loot_itmes/shotgun_pickup.tscn" id="7_p2n5m"]
 [ext_resource type="PackedScene" uid="uid://dogip08rr5h0t" path="res://dungeon_objects/table_medium_tablecloth_gltf.tscn" id="7_tl4po"]
