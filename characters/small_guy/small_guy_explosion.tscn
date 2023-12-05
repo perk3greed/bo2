@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://cst3qf857121b"]
+
+[ext_resource type="Script" path="res://characters/small_guy/small_guy_explosion.gd" id="1_hk337"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5mi68"]
+radius = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rruun"]
+transparency = 1
+albedo_color = Color(0.866667, 0.0823529, 0.45098, 0.580392)
+roughness = 0.0
+emission_enabled = true
+emission = Color(0.121569, 0.486275, 0.552941, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_d6xm5"]
+material = SubResource("StandardMaterial3D_rruun")
+radius = 0.1
+height = 0.1
+radial_segments = 32
+rings = 16
+is_hemisphere = true
+
+[node name="small_guy_explosion" type="Node3D"]
+script = ExtResource("1_hk337")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_5mi68")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_d6xm5")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

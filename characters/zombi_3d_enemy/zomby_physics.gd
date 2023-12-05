@@ -25,10 +25,10 @@ var current_pathfinding_turn : int = 1
 @export var patrol_point2 :Vector3
 @onready var current_patrol_point :Vector3
 
-signal Enemy_died
-signal player_hit
-signal zombie_needs_to_drop_loot(position_of_death)
 
+signal player_hit
+
+signal react_to_enemy_death(position_of_death, type_of_enemy) 
 
 func _ready():
 	animation_tree["parameters/conditions/idle"] = true
@@ -155,7 +155,8 @@ func check_health():
 		return
 	if health_points < 1:
 		var position_of_death = position
-		Events.emit_signal("zombie_needs_to_drop_loot", position_of_death)
+		var type_of_enemy = "zomby"
+		Events.emit_signal("react_to_enemy_death", position_of_death, type_of_enemy)
 		died = true
 		self.queue_free()
 

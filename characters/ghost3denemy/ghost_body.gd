@@ -28,8 +28,8 @@ var health_points : int = 80
 var fireball = preload("res://characters/ghost3denemy/fireball_test.tscn")
 
 
-signal ghost_died(position_of_death)
 
+signal react_to_enemy_death(position_of_death, type_of_enemy) 
 
 
 
@@ -137,7 +137,8 @@ func check_health():
 	if health_points <= 0:
 		if died == false:
 			var position_of_death = position
-			Events.emit_signal("ghost_died", position_of_death)
+			var type_of_enemy = "ghost"
+			Events.emit_signal("react_to_enemy_death", position_of_death, type_of_enemy)
 			died = true
 			self.queue_free()
 		

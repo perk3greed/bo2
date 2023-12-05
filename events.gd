@@ -15,13 +15,15 @@ signal shotgun_attack_happened
 signal give_player_the_shotgun
 signal got_sword
 signal got_shotgun
-signal zombie_needs_to_drop_loot(position_of_death)
+
 signal give_player_money(how_much_money)
 signal shot_pb_from_hip
 signal pb_handgun_attack_finished
 signal player_hit_with_fireball
+signal player_damaged_by_small_guy_explosion
 
 
+signal react_to_enemy_death(position_of_death, type_of_enemy) 
 
 signal start_ads
 signal stop_ads
@@ -30,7 +32,7 @@ signal pb_reload_finished
 signal reload_pb_start
 
 signal new_location_unlocked
-signal ghost_died(position_of_death)
+
 
 
 

@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dawonmnnpriw8"]
+
+[ext_resource type="Script" path="res://characters/small_guy/small_duder.gd" id="1_r8ddl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfegg"]
+albedo_color = Color(0.192157, 0.635294, 0.780392, 0.654902)
+emission_enabled = true
+emission = Color(0.282353, 0.372549, 0.407843, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_dfshx"]
+material = SubResource("StandardMaterial3D_vfegg")
+radial_segments = 12
+rings = 12
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_chtoe"]
+
+[node name="small_duder" type="CharacterBody3D" groups=["enemy"]]
+script = ExtResource("1_r8ddl")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_max_distance = 0.51
+avoidance_enabled = true
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(0.831373, 0.0980392, 0.470588, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_dfshx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_chtoe")
+
+[connection signal="path_changed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_path_changed"]
+[connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
+[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]
