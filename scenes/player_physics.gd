@@ -365,6 +365,7 @@ func _physics_process(delta):
 		elif recoil_count >= 30:
 			current_recoil_active_pb = false
 			recoil_count = 0
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(80))
 	
 	
 	if current_recoil_active_shotgun:
@@ -378,6 +379,7 @@ func _physics_process(delta):
 		elif recoil_count >= 36:
 			current_recoil_active_shotgun = false
 			recoil_count = 0
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(80))
 	
 	
 	
