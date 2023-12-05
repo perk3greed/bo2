@@ -18,7 +18,7 @@ var health_points : int = 80
 
 
 @onready var nav: NavigationAgent3D = $"ghost 1/NavigationAgent3D"
-@onready var animation_tree : AnimationTree = $Armature/ghost_anim_tree
+@onready var animation_tree : AnimationTree = $"ghost 1/Armature/ghost_anim_tree"
 @onready var ghost_vision_raycast = $ghost_vision
 #@onready var player_body := $"../../../player"
 
