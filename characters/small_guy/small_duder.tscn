@@ -15,10 +15,11 @@ rings = 12
 [sub_resource type="SphereShape3D" id="SphereShape3D_chtoe"]
 
 [node name="small_duder" type="CharacterBody3D" groups=["enemy"]]
+collision_layer = 2
 script = ExtResource("1_r8ddl")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-path_max_distance = 0.51
+path_max_distance = 0.31
 avoidance_enabled = true
 debug_enabled = true
 debug_use_custom = true

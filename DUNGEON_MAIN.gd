@@ -106,7 +106,7 @@ func spawn_a_wave_of_zombies():
 			
 			
 			var bruh_spawner = rng.randi()%2
-			
+#			var bruh_spawner = 1
 			if bruh_spawner == 0:
 				$DUNGEON_ROOT/NavigationRegion3D/ENEMIES.add_child(ghost_instance)
 				ghost_instance.position = current_spawning_spot.position
@@ -144,9 +144,9 @@ func spawn_one_enemy():
 			var ghost_instance = ghost_simple.instantiate() 
 			var zombie_instance = zombie.instantiate() 
 			
-			
+#
 			var bruh_spawner = rng.randi()%2
-			
+#			var bruh_spawner = 1
 			if bruh_spawner == 0:
 				$DUNGEON_ROOT/NavigationRegion3D/ENEMIES.add_child(ghost_instance)
 				ghost_instance.position = current_spawning_spot.position

@@ -53,6 +53,12 @@ var current_weapon :String
 @onready var shotgun_raycast8 = $Head/Camera3D/shotgun_raycast/shotgun8
 @onready var shotgun_raycast9 = $Head/Camera3D/shotgun_raycast/shotgun9
 
+@onready var crshr_up = $"../../Control/crosshare/ColorRect"
+@onready var crshr_right = $"../../Control/crosshare/ColorRect2"
+@onready var crshr_left = $"../../Control/crosshare/ColorRect3"
+@onready var crshr_down = $"../../Control/crosshare/ColorRect4"
+
+
 
 @onready var shotgun_raycast_list = [ shotgun_raycast1, shotgun_raycast2,
 shotgun_raycast3, shotgun_raycast4, shotgun_raycast5, shotgun_raycast6,
@@ -103,6 +109,23 @@ func _process(delta):
 	Events.current_pb_magazin = pb_magazine
 	Events.current_pb_ammo = pb_ammo
 	Events.current_weapon_in_hands = current_weapon
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -193,6 +216,33 @@ func _physics_process(delta):
 	
 	var csrht9 = shotgun_raycast9.get_collision_point()
 	$laser_pointer_master/laser_pointer10.position = csrht9
+	
+	
+	
+	
+	var shot_hit_crsaim = $Head/Camera3D/gun_raycast.get_collider()
+	if shot_hit_crsaim != null:
+		if shot_hit_crsaim.is_in_group("enemy"):
+			crshr_up.color = "red"
+			crshr_right.color = "red"
+			crshr_down.color = "red"
+			crshr_left.color = "red"
+		else :
+			crshr_up.color = "white"
+			crshr_down.color = "white"
+			crshr_right.color = "white"
+			crshr_left.color = "white"
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -354,14 +404,31 @@ func _physics_process(delta):
 						
 			
 	
+
+	
 	if current_recoil_active_pb:
 		
-		if recoil_count < 7:
-			camera.rotate_x(0.02)
+		if recoil_count < 5:
+			camera.rotate_x(0.023)
 			recoil_count += 1
-		elif recoil_count >= 7 and recoil_count < 30:
+			
+			$"../../Control/crosshare/ColorRect".position.y -= 5
+			$"../../Control/crosshare/ColorRect2".position.x += 5
+			$"../../Control/crosshare/ColorRect3".position.y += 5
+			$"../../Control/crosshare/ColorRect4".position.x -= 5
+			
+		elif recoil_count >= 5 and recoil_count < 30:
 			camera.rotate_x(-0.0065)
 			recoil_count += 1
+			
+
+			
+			$"../../Control/crosshare/ColorRect".position.y += 1
+			$"../../Control/crosshare/ColorRect2".position.x -= 1
+			$"../../Control/crosshare/ColorRect3".position.y -= 1
+			$"../../Control/crosshare/ColorRect4".position.x += 1
+			
+			
 		elif recoil_count >= 30:
 			current_recoil_active_pb = false
 			recoil_count = 0
@@ -446,3 +513,6 @@ func do_finish_reload_pb():
 	pb_magazine = bp_magazine_max_capacity
 	pb_ammo -= pb_magazine_difference
 	pb_shot_active = false
+
+
+
