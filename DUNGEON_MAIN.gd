@@ -59,6 +59,8 @@ func _ready():
 	Events.connect("player_hit_with_fireball", player_hp_calculation_fireball)
 	
 	Events.connect("react_to_enemy_death",  react_to_enemy_death_func)
+	
+	Events.connect("upgrade_button_pressed", upgrade_button_pressed_func)
 
 
 func unlock_new_location(location):
@@ -81,7 +83,29 @@ func iniciate_round_start():
 	print("round starts now!    ", enemies_to_kill_for_round_to_end)
 
 
+func upgrade_button_pressed_func(upgrade_version, upgrade):
+	match upgrade:
+		"ammo":
+			upgradeAmmo(upgrade_version)
+		"health":
+			upgradeHealth(upgrade_version)
+		"speed":
+			upgradeSpeed(upgrade_version)
+		
+			
 
+
+func upgradeAmmo(version):
+	print("ammo upgrade used version: ", version)
+
+
+func upgradeHealth(version):
+	print("health upgrade used version: ", version)
+
+func upgradeSpeed(version):
+	print("speed upgrade used version: ", version)
+	
+	
 func spawn_a_wave_of_zombies():
 	
 	var actual_copy_spawns : Array = spawning_coordinates.duplicate(true)
