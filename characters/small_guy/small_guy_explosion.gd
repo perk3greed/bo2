@@ -11,9 +11,9 @@ func _ready():
 func _process(delta):
 
 	self.scale += scale_explosion*delta
-	lifetime += 1*delta
-
-	if lifetime >= 1:
+	lifetime += 1
+	
+	if lifetime >= 50:
 		self.queue_free()
 
 

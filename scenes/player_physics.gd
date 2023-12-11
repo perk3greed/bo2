@@ -11,7 +11,7 @@ var shotgun_ammo :int = 200
 var current_recoil_active_pb : bool = false
 var current_recoil_active_shotgun : bool = false
 var shotgun_shot_active : bool = false
-var recoil_count : int = 0 
+var recoil_count : float = 0 
 
 var pb_shot_active : bool = false
 var pb_magazine :int = 8
@@ -19,8 +19,6 @@ var pb_ammo : int = 260
 var pb_ads : bool = false
 var bp_magazine_max_capacity : int = 8
 var pb_magazine_difference : int
-
-#место для вариабл на пп cнизу
 
 
 var sword_owned :bool = false
@@ -53,10 +51,10 @@ var current_weapon :String
 @onready var shotgun_raycast8 = $Head/Camera3D/shotgun_raycast/shotgun8
 @onready var shotgun_raycast9 = $Head/Camera3D/shotgun_raycast/shotgun9
 
-@onready var crshr_up = $"../../Control/crosshare/ColorRect"
-@onready var crshr_right = $"../../Control/crosshare/ColorRect2"
-@onready var crshr_left = $"../../Control/crosshare/ColorRect3"
-@onready var crshr_down = $"../../Control/crosshare/ColorRect4"
+@onready var crshr_up = $"../../Control/crosshare/up"
+@onready var crshr_right = $"../../Control/crosshare/right"
+@onready var crshr_left = $"../../Control/crosshare/left"
+@onready var crshr_down = $"../../Control/crosshare/down"
 
 
 
@@ -375,6 +373,7 @@ func _physics_process(delta):
 					Events.emit_signal("shot_bp_ads")
 					current_recoil_active_pb = true
 					recoil_count = 0
+
 					pb_shot_active = true
 					var shot_hit_object = $Head/Camera3D/gun_raycast.get_collider()
 					var shot_hit_position = $Head/Camera3D/gun_raycast.get_collision_point()
@@ -393,6 +392,7 @@ func _physics_process(delta):
 					Events.emit_signal("shot_pb_from_hip")
 					current_recoil_active_pb = true
 					recoil_count = 0
+
 					pb_shot_active = true
 					var shot_hit_object = $Head/Camera3D/gun_raycast.get_collider()
 					if shot_hit_object.is_in_group("enemy"):
@@ -408,28 +408,46 @@ func _physics_process(delta):
 	
 	if current_recoil_active_pb:
 		
-		if recoil_count < 5:
-			camera.rotate_x(0.023)
+		var min_recoil_c = 8
+		var max_recoil_c = 60
+		var mid_recoil_c = 20
+		
+		if recoil_count < min_recoil_c:
+			camera.rotate_x(0.025)
 			recoil_count += 1
 			
-			$"../../Control/crosshare/ColorRect".position.y -= 5
-			$"../../Control/crosshare/ColorRect2".position.x += 5
-			$"../../Control/crosshare/ColorRect3".position.y += 5
-			$"../../Control/crosshare/ColorRect4".position.x -= 5
+			crshr_up.position.y -= 5
+			crshr_right.position.x += 5
+			crshr_down.position.y += 5
+			crshr_left.position.x -= 5
 			
-		elif recoil_count >= 5 and recoil_count < 30:
-			camera.rotate_x(-0.0065)
+		elif recoil_count >= min_recoil_c and recoil_count < mid_recoil_c:
+			
+			
+			camera.rotate_x(-0.004)
 			recoil_count += 1
 			
-
 			
-			$"../../Control/crosshare/ColorRect".position.y += 1
-			$"../../Control/crosshare/ColorRect2".position.x -= 1
-			$"../../Control/crosshare/ColorRect3".position.y -= 1
-			$"../../Control/crosshare/ColorRect4".position.x += 1
+		elif recoil_count >= mid_recoil_c and recoil_count < max_recoil_c:
+			
+			var crshr_up_start : float = -20
+			var crshr_right_start : float = 5
+			var crshr_down_start : float = 5
+			var crshr_left_start : float = -20
+			
+			crshr_up.position.y = lerp(crshr_up.position.y, crshr_up_start, recoil_count/max_recoil_c )
+			
+			crshr_right.position.x = lerp(crshr_right.position.x, crshr_right_start, recoil_count/max_recoil_c )
+			crshr_down.position.y = lerp(crshr_down.position.y, crshr_down_start, recoil_count/max_recoil_c )
+			crshr_left.position.x = lerp(crshr_left.position.x, crshr_left_start, recoil_count/max_recoil_c )
 			
 			
-		elif recoil_count >= 30:
+			
+			camera.rotate_x(-0.004)
+			recoil_count += 1
+			
+			
+		elif recoil_count >= max_recoil_c:
 			current_recoil_active_pb = false
 			recoil_count = 0
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(80))

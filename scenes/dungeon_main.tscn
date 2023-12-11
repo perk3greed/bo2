@@ -5284,28 +5284,28 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control/crosshare"]
+[node name="up" type="ColorRect" parent="Control/crosshare"]
 layout_mode = 0
 offset_left = -1.0
 offset_top = -20.0
 offset_right = 1.0
 offset_bottom = -5.0
 
-[node name="ColorRect2" type="ColorRect" parent="Control/crosshare"]
+[node name="right" type="ColorRect" parent="Control/crosshare"]
 layout_mode = 0
 offset_left = 5.0
 offset_top = -1.0
 offset_right = 20.0
 offset_bottom = 1.0
 
-[node name="ColorRect3" type="ColorRect" parent="Control/crosshare"]
+[node name="down" type="ColorRect" parent="Control/crosshare"]
 layout_mode = 0
 offset_left = -1.0
 offset_top = 5.0
 offset_right = 1.0
 offset_bottom = 20.0
 
-[node name="ColorRect4" type="ColorRect" parent="Control/crosshare"]
+[node name="left" type="ColorRect" parent="Control/crosshare"]
 layout_mode = 0
 offset_left = -20.0
 offset_top = -1.0
