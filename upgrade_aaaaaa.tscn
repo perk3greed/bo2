@@ -24,6 +24,7 @@ script = ExtResource("1_s24ia")
 
 [node name="CostLabel" type="Label" parent="Panel1"]
 z_index = 2
+layout_mode = 0
 offset_left = 18.0
 offset_top = 155.0
 offset_right = 238.0
@@ -41,6 +42,7 @@ border_color = Color(0, 0.529412, 0.984314, 1)
 border_width = 3.0
 
 [node name="DescriptionLabel" type="Label" parent="Panel1"]
+layout_mode = 0
 offset_left = 258.0
 offset_top = 15.0
 offset_right = 1083.0
@@ -78,6 +80,7 @@ border_width = 4.0
 
 [node name="Image" type="TextureRect" parent="Panel1"]
 z_index = 1
+layout_mode = 0
 offset_left = 10.0
 offset_top = 8.0
 offset_right = 246.0
@@ -92,12 +95,14 @@ border_color = Color(0.85098, 0, 0.890196, 1)
 border_width = 2.5
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Panel1"]
+layout_mode = 0
 offset_right = 1200.0
 offset_bottom = 250.0
 border_width = 5.0
 
 [node name="Button" type="Button" parent="Panel1"]
 z_index = -1
+layout_mode = 0
 offset_right = 1200.0
 offset_bottom = 250.0
 
@@ -111,6 +116,7 @@ script = ExtResource("1_s24ia")
 
 [node name="CostLabel" type="Label" parent="Panel2"]
 z_index = 2
+layout_mode = 0
 offset_left = 18.0
 offset_top = 155.0
 offset_right = 238.0
@@ -128,6 +134,7 @@ border_color = Color(0, 0.529412, 0.984314, 1)
 border_width = 3.0
 
 [node name="DescriptionLabel" type="Label" parent="Panel2"]
+layout_mode = 0
 offset_left = 258.0
 offset_top = 15.0
 offset_right = 1083.0
@@ -165,6 +172,7 @@ border_width = 4.0
 
 [node name="Image" type="TextureRect" parent="Panel2"]
 z_index = 1
+layout_mode = 0
 offset_left = 10.0
 offset_top = 8.0
 offset_right = 246.0
@@ -179,12 +187,14 @@ border_color = Color(0.85098, 0, 0.890196, 1)
 border_width = 2.5
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Panel2"]
+layout_mode = 0
 offset_right = 1200.0
 offset_bottom = 250.0
 border_width = 5.0
 
 [node name="Button" type="Button" parent="Panel2"]
 z_index = -1
+layout_mode = 0
 offset_right = 1200.0
 offset_bottom = 250.0
 
@@ -198,6 +208,7 @@ script = ExtResource("1_s24ia")
 
 [node name="CostLabel" type="Label" parent="Panel3"]
 z_index = 2
+layout_mode = 0
 offset_left = 18.0
 offset_top = 155.0
 offset_right = 238.0
@@ -215,6 +226,7 @@ border_color = Color(0, 0.529412, 0.984314, 1)
 border_width = 3.0
 
 [node name="DescriptionLabel" type="Label" parent="Panel3"]
+layout_mode = 0
 offset_left = 258.0
 offset_top = 15.0
 offset_right = 1083.0
@@ -252,6 +264,7 @@ border_width = 4.0
 
 [node name="Image" type="TextureRect" parent="Panel3"]
 z_index = 1
+layout_mode = 0
 offset_left = 10.0
 offset_top = 8.0
 offset_right = 246.0
@@ -266,12 +279,14 @@ border_color = Color(0.85098, 0, 0.890196, 1)
 border_width = 2.5
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Panel3"]
+layout_mode = 0
 offset_right = 1200.0
 offset_bottom = 250.0
 border_width = 5.0
 
 [node name="Button" type="Button" parent="Panel3"]
 z_index = -1
+layout_mode = 0
 offset_right = 1200.0
 offset_bottom = 250.0
 
