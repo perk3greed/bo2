@@ -33,6 +33,7 @@ signal reload_pb_start
 
 signal new_location_unlocked
 
+signal upgrade_button_pressed(upgrade_version,upgrade)
 
 
 
