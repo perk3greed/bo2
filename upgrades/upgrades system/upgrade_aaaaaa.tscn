@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ds3q66p2cg8eg"]
+[gd_scene load_steps=4 format=3 uid="uid://cyw23gjt1lseb"]
 
-[ext_resource type="Script" path="res://upgrade_panel_base.gd" id="1_1psyc"]
-[ext_resource type="Script" path="res://upgradik.gd" id="2_y7m6y"]
+[ext_resource type="Script" path="res://upgrades/upgrades system/upgrade_panel_base.gd" id="1_t7o7n"]
+[ext_resource type="Script" path="res://upgrades/upgrades system/generate_upgrade_list.gd" id="2_ha0a5"]
+[ext_resource type="Script" path="res://upgrades/upgrades system/upgradik.gd" id="3_je21k"]
 
 [node name="Upgrade Pnale" type="Control"]
 layout_mode = 3
@@ -19,10 +20,11 @@ offset_left = 200.0
 offset_top = 50.0
 offset_right = 1400.0
 offset_bottom = 305.0
-script = ExtResource("1_1psyc")
+script = ExtResource("1_t7o7n")
 
 [node name="CostLabel" type="Label" parent="Panel1"]
 z_index = 2
+layout_mode = 0
 offset_left = 18.0
 offset_top = 155.0
 offset_right = 238.0
@@ -40,6 +42,7 @@ border_color = Color(0, 0.529412, 0.984314, 1)
 border_width = 3.0
 
 [node name="DescriptionLabel" type="Label" parent="Panel1"]
+layout_mode = 0
 offset_left = 258.0
 offset_top = 15.0
 offset_right = 1083.0
@@ -77,6 +80,7 @@ border_width = 4.0
 
 [node name="Image" type="TextureRect" parent="Panel1"]
 z_index = 1
+layout_mode = 0
 offset_left = 10.0
 offset_top = 8.0
 offset_right = 246.0
@@ -91,12 +95,14 @@ border_color = Color(0.85098, 0, 0.890196, 1)
 border_width = 2.5
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Panel1"]
+layout_mode = 0
 offset_right = 1200.0
 offset_bottom = 250.0
 border_width = 5.0
 
 [node name="Button" type="Button" parent="Panel1"]
 z_index = -1
+layout_mode = 0
 offset_right = 1200.0
 offset_bottom = 250.0
 
@@ -106,10 +112,11 @@ offset_left = 200.0
 offset_top = 325.0
 offset_right = 1400.0
 offset_bottom = 580.0
-script = ExtResource("1_1psyc")
+script = ExtResource("1_t7o7n")
 
 [node name="CostLabel" type="Label" parent="Panel2"]
 z_index = 2
+layout_mode = 0
 offset_left = 18.0
 offset_top = 155.0
 offset_right = 238.0
@@ -127,6 +134,7 @@ border_color = Color(0, 0.529412, 0.984314, 1)
 border_width = 3.0
 
 [node name="DescriptionLabel" type="Label" parent="Panel2"]
+layout_mode = 0
 offset_left = 258.0
 offset_top = 15.0
 offset_right = 1083.0
@@ -164,6 +172,7 @@ border_width = 4.0
 
 [node name="Image" type="TextureRect" parent="Panel2"]
 z_index = 1
+layout_mode = 0
 offset_left = 10.0
 offset_top = 8.0
 offset_right = 246.0
@@ -178,12 +187,14 @@ border_color = Color(0.85098, 0, 0.890196, 1)
 border_width = 2.5
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Panel2"]
+layout_mode = 0
 offset_right = 1200.0
 offset_bottom = 250.0
 border_width = 5.0
 
 [node name="Button" type="Button" parent="Panel2"]
 z_index = -1
+layout_mode = 0
 offset_right = 1200.0
 offset_bottom = 250.0
 
@@ -193,10 +204,11 @@ offset_left = 200.0
 offset_top = 600.0
 offset_right = 1400.0
 offset_bottom = 855.0
-script = ExtResource("1_1psyc")
+script = ExtResource("1_t7o7n")
 
 [node name="CostLabel" type="Label" parent="Panel3"]
 z_index = 2
+layout_mode = 0
 offset_left = 18.0
 offset_top = 155.0
 offset_right = 238.0
@@ -214,6 +226,7 @@ border_color = Color(0, 0.529412, 0.984314, 1)
 border_width = 3.0
 
 [node name="DescriptionLabel" type="Label" parent="Panel3"]
+layout_mode = 0
 offset_left = 258.0
 offset_top = 15.0
 offset_right = 1083.0
@@ -251,6 +264,7 @@ border_width = 4.0
 
 [node name="Image" type="TextureRect" parent="Panel3"]
 z_index = 1
+layout_mode = 0
 offset_left = 10.0
 offset_top = 8.0
 offset_right = 246.0
@@ -265,26 +279,54 @@ border_color = Color(0.85098, 0, 0.890196, 1)
 border_width = 2.5
 
 [node name="ReferenceRect" type="ReferenceRect" parent="Panel3"]
+layout_mode = 0
 offset_right = 1200.0
 offset_bottom = 250.0
 border_width = 5.0
 
 [node name="Button" type="Button" parent="Panel3"]
 z_index = -1
+layout_mode = 0
 offset_right = 1200.0
 offset_bottom = 250.0
 
 [node name="Upgrades" type="Node" parent="."]
+script = ExtResource("2_ha0a5")
 
 [node name="upgradik_1" type="Node" parent="Upgrades"]
-script = ExtResource("2_y7m6y")
+script = ExtResource("3_je21k")
+description = "Я крутой"
+description_name = "сталактити"
+upgrade = "ammo"
 
 [node name="upgradik_2" type="Node" parent="Upgrades"]
+script = ExtResource("3_je21k")
+description = "old description"
+description_name = "new name"
+upgrade_version = 2
+upgrade = "health"
 
 [node name="upgradik_3" type="Node" parent="Upgrades"]
+script = ExtResource("3_je21k")
+description = "hehehe"
+description_name = "hahahaha"
+upgrade_version = 3
 
 [node name="upgradik_4" type="Node" parent="Upgrades"]
+script = ExtResource("3_je21k")
+cost = 590
+description = "upgr 4"
 
-[connection signal="pressed" from="Panel1/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Panel2/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Panel3/Button" to="." method="_on_button_pressed"]
+[node name="upgradik_5" type="Node" parent="Upgrades"]
+script = ExtResource("3_je21k")
+cost = 630
+description = "upgr 5"
+
+[node name="upgradik_6" type="Node" parent="Upgrades"]
+script = ExtResource("3_je21k")
+cost = -430
+description = "upgr 6 "
+
+[connection signal="pressed" from="Panel1/Button" to="Panel1" method="_on_button_pressed"]
+[connection signal="pressed" from="Panel2/Button" to="Panel2" method="_on_button_pressed"]
+[connection signal="pressed" from="Panel3/Button" to="Panel3" method="_on_button_pressed"]

@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Events="*res://events.gd"
+Events="*res://scenes/events.gd"
 
 [display]
 
