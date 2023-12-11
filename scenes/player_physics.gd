@@ -40,7 +40,9 @@ var target_pos
 var default_target_pos
 
 var current_weapon :String 
- 
+var upgrades_on_screen :bool = false 
+
+
 @onready var shotgun_raycast1 = $Head/Camera3D/shotgun_raycast/shotgun1
 @onready var shotgun_raycast2 = $Head/Camera3D/shotgun_raycast/shotgun2
 @onready var shotgun_raycast3 = $Head/Camera3D/shotgun_raycast/shotgun3
@@ -115,19 +117,9 @@ func _process(delta):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 func _unhandled_input(event):
+	if upgrades_on_screen == true:
+		return 
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY*0.1)
 		camera.rotate_x(-event.relative.y * SENSITIVITY*0.1)
@@ -161,22 +153,19 @@ func give_player_ammo(how_much_ammo):
 	shotgun_ammo += how_much_ammo
 
 func do_a_shotgun_shot():
-#	print("\nDID A SHOTGUN SHOT")
 	if current_weapon == "shotgun":
 		for child in range(8):
 			var current_shotgun_raycast = shotgun_raycast_list[child] 
 			current_shotgun_raycast.enabled = true
-#			print(current_shotgun_raycast.target_position)
 			current_shotgun_raycast.force_raycast_update()
 			var current_hit_object = current_shotgun_raycast.get_collider()
 			var current_hit_point = current_shotgun_raycast.get_collision_point()
 			if current_hit_object != null:
-#				print("shot " + str(child) + " hit ", current_hit_object)
 				if current_hit_object.is_in_group("enemy"):
 					current_hit_object.shot("shotgun")
 			else:
 				print("shot " + str(child) + " missed")
-#	print()
+
 
 func generate_target_pos():
 	var horizontalOffset = randf_range(-maxHorizontalOffset, maxHorizontalOffset)
@@ -187,6 +176,10 @@ func generate_target_pos():
 
 
 func _physics_process(delta):
+
+	if upgrades_on_screen == true:
+		return 
+	
 	
 	var csrht = shotgun_raycast1.get_collision_point()
 	$laser_pointer_master/laser_pointer2.position = csrht
@@ -230,17 +223,6 @@ func _physics_process(delta):
 			crshr_down.color = "white"
 			crshr_right.color = "white"
 			crshr_left.color = "white"
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

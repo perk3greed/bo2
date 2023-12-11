@@ -43,7 +43,10 @@ agent_max_slope = 75.0
 [node name="DUNGEON_MAIN" type="Node3D"]
 script = ExtResource("1_wqlqh")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="finish_round_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="start_round_timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 
@@ -5479,5 +5482,8 @@ omni_range = 11.0
 omni_attenuation = 0.406126
 
 [node name="Upgrade Pnale" parent="." instance=ExtResource("31_gtjyd")]
+offset_right = 0.0
+offset_bottom = 0.0
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="finish_round_timer" to="." method="_on_finish_round_timer_timeout"]
+[connection signal="timeout" from="start_round_timer" to="." method="_on_start_round_timer_timeout"]

@@ -6,9 +6,11 @@ var upgrades = [ "upgradik_1", "upgradik_2", "upgradik_3", "upgradik_4", "upgrad
 # Список выбранных апгрейдов
 var selectedUpgrades = []
 
+
+
 func _ready():
 	selectRandomUpgrades()
-
+	Events.connect("round_ended_signal", check_end_round_upgrades)
 
 
 func updateUI(selectedUpgrades):
@@ -22,6 +24,8 @@ func updateUI(selectedUpgrades):
 		upgradik.update_ui_func()
 		i += 1
 		
+
+
 func selectRandomUpgrades():
 
 	selectedUpgrades.clear()
@@ -36,3 +40,7 @@ func selectRandomUpgrades():
 
 	updateUI(selectedUpgrades)
 	print(selectedUpgrades)
+
+
+func check_end_round_upgrades():
+	selectRandomUpgrades()
