@@ -1,11 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdc60ig4d1pcl"]
+[gd_scene load_steps=6 format=3 uid="uid://bdc60ig4d1pcl"]
 
 [ext_resource type="Script" path="res://characters/ghost3denemy/fireball_test.gd" id="1_yyvxx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7fjc7"]
 transparency = 1
-albedo_color = Color(0.784314, 0.564706, 0.92549, 0.537255)
-emission_enabled = true
+albedo_color = Color(0.784314, 0.564706, 0.92549, 0.509804)
 emission = Color(0.192157, 0.901961, 0, 1)
 emission_energy_multiplier = 2.0
 
@@ -17,6 +16,10 @@ rings = 12
 [sub_resource type="SphereShape3D" id="SphereShape3D_ddlcy"]
 radius = 0.4
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_er1ix"]
+margin = 0.1
+radius = 0.15
+
 [node name="Node3D" type="Node3D"]
 top_level = true
 script = ExtResource("1_yyvxx")
@@ -26,12 +29,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("SphereMesh_isntl")
 skeleton = NodePath("")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="player_area" type="Area3D" parent="."]
 collision_layer = 3
 input_ray_pickable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player_area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_ddlcy")
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[node name="walls_collision" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls_collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_er1ix")
+
+[connection signal="body_entered" from="player_area" to="." method="_on_player_area_body_entered"]
+[connection signal="body_entered" from="walls_collision" to="." method="_on_walls_collision_body_entered"]

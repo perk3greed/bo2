@@ -1,7 +1,7 @@
 extends Node3D
 
 var lifetime :int = 0
-var scale_explosion : Vector3 = Vector3(8,8,8)
+var scale_explosion : Vector3 = Vector3(9,9,9)
 var player_damaged :bool = false
 signal player_damaged_by_small_guy_explosion
 
@@ -13,7 +13,7 @@ func _process(delta):
 	self.scale += scale_explosion*delta
 	lifetime += 1
 	
-	if lifetime >= 50:
+	if lifetime >= 90:
 		self.queue_free()
 
 

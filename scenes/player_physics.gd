@@ -85,7 +85,7 @@ signal shot_bp_ads
 signal reload_pb_start
 
 func _ready():
-	
+	$"../../Control/crosshare".visible = false
 	$Head/Camera3D/gun_raycast.add_exception($".")
 	Events.emit_signal("change_weapons", current_weapon)
 	Events.connect("shotgun_attack_finished", reload_shotty)
@@ -286,16 +286,19 @@ func _physics_process(delta):
 			Events.emit_signal("change_weapons", current_weapon)
 	
 	if Input.is_action_just_pressed("3"): 
+		$"../../Control/crosshare".visible = true
 		current_weapon = "pb_handgun" 
 		Events.emit_signal("change_weapons", current_weapon)
 		
 	
 	if Input.is_action_pressed("rmb"):
+		$"../../Control/crosshare".visible = false
 		gun_raycast.target_position=default_target_pos
 		pb_ads = true
 		Events.emit_signal("start_ads")
 	
 	if Input.is_action_just_released("rmb"):
+		$"../../Control/crosshare".visible = true
 		pb_ads = false
 		Events.emit_signal("stop_ads")
 	
@@ -350,11 +353,12 @@ func _physics_process(delta):
 				return
 			
 			if pb_ads == true:
+				
 				if pb_magazine > 0:
 					pb_magazine -= 1 
 					Events.emit_signal("shot_bp_ads")
 					current_recoil_active_pb = true
-					recoil_count = 0
+					recoil_count = 3
 
 					pb_shot_active = true
 					var shot_hit_object = $Head/Camera3D/gun_raycast.get_collider()
@@ -388,25 +392,26 @@ func _physics_process(delta):
 	
 
 	
+	
+#функция отвечающая за отдачу, состоит из трех частей несколько фреймов идущих вверх, несколько фреймов идущих вниз и третья фаза влияющая на прицел/перекрестие, можешь добавлять/убавлять фазы если ничего внешне не поменяется
 	if current_recoil_active_pb:
-		
-		var min_recoil_c = 8
+		var min_recoil_c = 6
 		var max_recoil_c = 60
-		var mid_recoil_c = 20
+		var mid_recoil_c = 15
 		
 		if recoil_count < min_recoil_c:
-			camera.rotate_x(0.025)
+			camera.rotate_x(0.017)
 			recoil_count += 1
 			
-			crshr_up.position.y -= 5
-			crshr_right.position.x += 5
-			crshr_down.position.y += 5
-			crshr_left.position.x -= 5
+			crshr_up.position.y -= 3
+			crshr_right.position.x += 3
+			crshr_down.position.y += 3
+			crshr_left.position.x -= 3
 			
 		elif recoil_count >= min_recoil_c and recoil_count < mid_recoil_c:
 			
 			
-			camera.rotate_x(-0.004)
+			camera.rotate_x(-0.003)
 			recoil_count += 1
 			
 			
@@ -423,11 +428,8 @@ func _physics_process(delta):
 			crshr_down.position.y = lerp(crshr_down.position.y, crshr_down_start, recoil_count/max_recoil_c )
 			crshr_left.position.x = lerp(crshr_left.position.x, crshr_left_start, recoil_count/max_recoil_c )
 			
-			
-			
-			camera.rotate_x(-0.004)
 			recoil_count += 1
-			
+			#
 			
 		elif recoil_count >= max_recoil_c:
 			current_recoil_active_pb = false

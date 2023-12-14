@@ -21,6 +21,7 @@ script = ExtResource("1_r8ddl")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_max_distance = 0.31
 avoidance_enabled = true
+radius = 0.7
 debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0.831373, 0.0980392, 0.470588, 1)

@@ -43,4 +43,5 @@ func selectRandomUpgrades():
 
 
 func check_end_round_upgrades():
-	selectRandomUpgrades()
+	pass
+	#selectRandomUpgrades()

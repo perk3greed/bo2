@@ -26,7 +26,7 @@ var health_points : int = 80
 @export var patrol_point2 :Vector3
 @onready var current_patrol_point :Vector3
 var fireball = preload("res://characters/ghost3denemy/fireball_test.tscn")
-
+var fireball_exploding = preload("res://characters/ghost3denemy/fireball_explosion_on_contact.tscn")
 
 
 signal react_to_enemy_death(position_of_death, type_of_enemy) 
@@ -113,11 +113,21 @@ func _physics_process(delta):
 #	var player_snapshot_for_fireball 
 	
 	if current_mode == "firing_fireball":
+		var fireball_rng = rng.randi()%2
 		var fireball_instance = fireball.instantiate()
-		self.add_child(fireball_instance)
-		fireball_instance.starting_pos = self.position
-		fireball_instance.player_pos = current_player_spot
-		
+		var fireball_exploding_instance = fireball_exploding.instantiate()
+		if fireball_rng == 0:
+			fireball_instance.position = self.position
+			fireball_instance.starting_pos = self.position
+			fireball_instance.player_pos = current_player_spot
+			fireball_instance.exploding_fireball = false
+			$"..".add_child(fireball_instance)
+		elif fireball_rng == 1:
+			fireball_instance.position = self.position
+			fireball_instance.starting_pos = self.position
+			fireball_instance.player_pos = current_player_spot
+			fireball_instance.exploding_fireball = true
+			$"..".add_child(fireball_instance)
 		current_mode = "cooling_down_from_firing_fireball"
 		
 
