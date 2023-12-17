@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckkpw8jj1k6bg"]
+
+[ext_resource type="Script" path="res://characters/ghost3denemy/fireball_explosion_on_contact.gd" id="1_buja8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3kshn"]
+transparency = 1
+albedo_color = Color(0.956863, 0, 0.207843, 1)
+metallic = 0.5
+metallic_specular = 1.0
+roughness = 0.5
+emission_enabled = true
+emission = Color(0.87451, 0.776471, 0.14902, 1)
+emission_energy_multiplier = 2.0
+emission_operator = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_45pbd"]
+material = SubResource("StandardMaterial3D_3kshn")
+radial_segments = 12
+rings = 12
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_k7foh"]
+radius = 0.3
+
+[node name="fireball_explosion_on_contact" type="Node3D"]
+script = ExtResource("1_buja8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_45pbd")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_k7foh")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

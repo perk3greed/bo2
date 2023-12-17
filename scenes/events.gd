@@ -21,7 +21,7 @@ signal shot_pb_from_hip
 signal pb_handgun_attack_finished
 signal player_hit_with_fireball
 signal player_damaged_by_small_guy_explosion
-
+signal round_ended_signal
 
 signal react_to_enemy_death(position_of_death, type_of_enemy) 
 

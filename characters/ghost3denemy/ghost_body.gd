@@ -7,14 +7,14 @@ var accel = 3
 
 var rng = RandomNumberGenerator.new()
 var target_reached : bool
-var died : bool = false
+#var died : bool = false
 var Direction = Vector3()
 var target_pathfinding_position :Vector3 
 var pathfinding_priority : int 
 var current_pathfinding_turn : int = 1
 var current_mode : String 
 var cooling_counter : int 
-var health_points : int = 80
+#var health_points : int = 80
 
 
 @onready var nav: NavigationAgent3D = $"ghost 1/NavigationAgent3D"
@@ -26,10 +26,10 @@ var health_points : int = 80
 @export var patrol_point2 :Vector3
 @onready var current_patrol_point :Vector3
 var fireball = preload("res://characters/ghost3denemy/fireball_test.tscn")
+var fireball_exploding = preload("res://characters/ghost3denemy/fireball_explosion_on_contact.tscn")
 
 
-
-signal react_to_enemy_death(position_of_death, type_of_enemy) 
+#signal react_to_enemy_death(position_of_death, type_of_enemy) 
 
 
 
@@ -113,35 +113,45 @@ func _physics_process(delta):
 #	var player_snapshot_for_fireball 
 	
 	if current_mode == "firing_fireball":
+		var fireball_rng = rng.randi()%2
 		var fireball_instance = fireball.instantiate()
-		self.add_child(fireball_instance)
-		fireball_instance.starting_pos = self.position
-		fireball_instance.player_pos = current_player_spot
-		
+		var fireball_exploding_instance = fireball_exploding.instantiate()
+		if fireball_rng == 0:
+			fireball_instance.position = self.position
+			fireball_instance.starting_pos = self.position
+			fireball_instance.player_pos = current_player_spot
+			fireball_instance.exploding_fireball = false
+			$"..".add_child(fireball_instance)
+		elif fireball_rng == 1:
+			fireball_instance.position = self.position
+			fireball_instance.starting_pos = self.position
+			fireball_instance.player_pos = current_player_spot
+			fireball_instance.exploding_fireball = true
+			$"..".add_child(fireball_instance)
 		current_mode = "cooling_down_from_firing_fireball"
 		
+#
+#
+#func shot(gun):
+	#if gun == "pb":
+		#health_points -= 35
+		#check_health()
+	#if gun == "shotgun":
+		#health_points -= 100
+		#check_health()
 
 
-func shot(gun):
-	if gun == "pb":
-		health_points -= 35
-		check_health()
-	if gun == "shotgun":
-		health_points -= 100
-		check_health()
 
-
-
-
-func check_health():
-	if health_points <= 0:
-		if died == false:
-			var position_of_death = position
-			var type_of_enemy = "ghost"
-			Events.emit_signal("react_to_enemy_death", position_of_death, type_of_enemy)
-			died = true
-			self.queue_free()
-		
+#
+#func check_health():
+	#if health_points <= 0:
+		#if died == false:
+			#var position_of_death = position
+			#var type_of_enemy = "ghost"
+			#Events.emit_signal("react_to_enemy_death", position_of_death, type_of_enemy)
+			#died = true
+			#self.queue_free()
+		#
 
 
 

@@ -15,7 +15,7 @@ script = ExtResource("2_sy3xd")
 door_cost = 100
 
 [node name="StaticBody3D" type="StaticBody3D" parent="wall_doorway2/wall_doorway_door" index="0" groups=["object"]]
-collision_layer = 3
+collision_layer = 19
 script = ExtResource("2_rj1em")
 
 [node name="door_collision" type="CollisionShape3D" parent="wall_doorway2/wall_doorway_door/StaticBody3D" index="0"]
@@ -23,7 +23,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85753, 1.35922, 0)
 shape = SubResource("BoxShape3D_svh6q")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="wall_doorway2" index="1"]
-collision_layer = 3
+collision_layer = 19
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="wall_doorway2/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_u8mru")

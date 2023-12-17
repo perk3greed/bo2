@@ -12,14 +12,14 @@ config_version=5
 
 config/name="zombi_bo1"
 run/main_scene="res://scenes/dungeon_main.tscn"
-config/features=PackedStringArray("4.1", "GL Compatibility")
+config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
 boot_splash/image="res://stuff/skyline.png"
 config/icon="res://icon.svg"
 
 [autoload]
 
-Events="*res://events.gd"
+Events="*res://scenes/events.gd"
 
 [display]
 

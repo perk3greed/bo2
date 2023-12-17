@@ -11,7 +11,7 @@ var shotgun_ammo :int = 200
 var current_recoil_active_pb : bool = false
 var current_recoil_active_shotgun : bool = false
 var shotgun_shot_active : bool = false
-var recoil_count : int = 0 
+var recoil_count : float = 0 
 
 var pb_shot_active : bool = false
 var pb_magazine :int = 8
@@ -19,8 +19,6 @@ var pb_ammo : int = 260
 var pb_ads : bool = false
 var bp_magazine_max_capacity : int = 8
 var pb_magazine_difference : int
-
-#место для вариабл на пп cнизу
 
 
 var sword_owned :bool = false
@@ -42,7 +40,9 @@ var target_pos
 var default_target_pos
 
 var current_weapon :String 
- 
+var upgrades_on_screen :bool = false 
+
+
 @onready var shotgun_raycast1 = $Head/Camera3D/shotgun_raycast/shotgun1
 @onready var shotgun_raycast2 = $Head/Camera3D/shotgun_raycast/shotgun2
 @onready var shotgun_raycast3 = $Head/Camera3D/shotgun_raycast/shotgun3
@@ -52,6 +52,12 @@ var current_weapon :String
 @onready var shotgun_raycast7 = $Head/Camera3D/shotgun_raycast/shotgun7
 @onready var shotgun_raycast8 = $Head/Camera3D/shotgun_raycast/shotgun8
 @onready var shotgun_raycast9 = $Head/Camera3D/shotgun_raycast/shotgun9
+
+@onready var crshr_up = $"../../Control/crosshare/up"
+@onready var crshr_right = $"../../Control/crosshare/right"
+@onready var crshr_left = $"../../Control/crosshare/left"
+@onready var crshr_down = $"../../Control/crosshare/down"
+
 
 
 @onready var shotgun_raycast_list = [ shotgun_raycast1, shotgun_raycast2,
@@ -79,7 +85,7 @@ signal shot_bp_ads
 signal reload_pb_start
 
 func _ready():
-	
+	$"../../Control/crosshare".visible = false
 	$Head/Camera3D/gun_raycast.add_exception($".")
 	Events.emit_signal("change_weapons", current_weapon)
 	Events.connect("shotgun_attack_finished", reload_shotty)
@@ -103,10 +109,17 @@ func _process(delta):
 	Events.current_pb_magazin = pb_magazine
 	Events.current_pb_ammo = pb_ammo
 	Events.current_weapon_in_hands = current_weapon
+	
+	
+	
+
+
 
 
 
 func _unhandled_input(event):
+	if upgrades_on_screen == true:
+		return 
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY*0.1)
 		camera.rotate_x(-event.relative.y * SENSITIVITY*0.1)
@@ -140,22 +153,19 @@ func give_player_ammo(how_much_ammo):
 	shotgun_ammo += how_much_ammo
 
 func do_a_shotgun_shot():
-#	print("\nDID A SHOTGUN SHOT")
 	if current_weapon == "shotgun":
 		for child in range(8):
 			var current_shotgun_raycast = shotgun_raycast_list[child] 
 			current_shotgun_raycast.enabled = true
-#			print(current_shotgun_raycast.target_position)
 			current_shotgun_raycast.force_raycast_update()
 			var current_hit_object = current_shotgun_raycast.get_collider()
 			var current_hit_point = current_shotgun_raycast.get_collision_point()
 			if current_hit_object != null:
-#				print("shot " + str(child) + " hit ", current_hit_object)
 				if current_hit_object.is_in_group("enemy"):
 					current_hit_object.shot("shotgun")
 			else:
 				print("shot " + str(child) + " missed")
-#	print()
+
 
 func generate_target_pos():
 	var horizontalOffset = randf_range(-maxHorizontalOffset, maxHorizontalOffset)
@@ -166,6 +176,10 @@ func generate_target_pos():
 
 
 func _physics_process(delta):
+
+	if upgrades_on_screen == true:
+		return 
+	
 	
 	var csrht = shotgun_raycast1.get_collision_point()
 	$laser_pointer_master/laser_pointer2.position = csrht
@@ -193,6 +207,22 @@ func _physics_process(delta):
 	
 	var csrht9 = shotgun_raycast9.get_collision_point()
 	$laser_pointer_master/laser_pointer10.position = csrht9
+	
+	
+	
+	
+	var shot_hit_crsaim = $Head/Camera3D/gun_raycast.get_collider()
+	if shot_hit_crsaim != null:
+		if shot_hit_crsaim.is_in_group("enemy"):
+			crshr_up.color = "red"
+			crshr_right.color = "red"
+			crshr_down.color = "red"
+			crshr_left.color = "red"
+		else :
+			crshr_up.color = "white"
+			crshr_down.color = "white"
+			crshr_right.color = "white"
+			crshr_left.color = "white"
 	
 	
 	
@@ -256,16 +286,19 @@ func _physics_process(delta):
 			Events.emit_signal("change_weapons", current_weapon)
 	
 	if Input.is_action_just_pressed("3"): 
+		$"../../Control/crosshare".visible = true
 		current_weapon = "pb_handgun" 
 		Events.emit_signal("change_weapons", current_weapon)
 		
 	
 	if Input.is_action_pressed("rmb"):
+		$"../../Control/crosshare".visible = false
 		gun_raycast.target_position=default_target_pos
 		pb_ads = true
 		Events.emit_signal("start_ads")
 	
 	if Input.is_action_just_released("rmb"):
+		$"../../Control/crosshare".visible = true
 		pb_ads = false
 		Events.emit_signal("stop_ads")
 	
@@ -320,11 +353,13 @@ func _physics_process(delta):
 				return
 			
 			if pb_ads == true:
+				
 				if pb_magazine > 0:
 					pb_magazine -= 1 
 					Events.emit_signal("shot_bp_ads")
 					current_recoil_active_pb = true
-					recoil_count = 0
+					recoil_count = 3
+
 					pb_shot_active = true
 					var shot_hit_object = $Head/Camera3D/gun_raycast.get_collider()
 					var shot_hit_position = $Head/Camera3D/gun_raycast.get_collision_point()
@@ -343,6 +378,7 @@ func _physics_process(delta):
 					Events.emit_signal("shot_pb_from_hip")
 					current_recoil_active_pb = true
 					recoil_count = 0
+
 					pb_shot_active = true
 					var shot_hit_object = $Head/Camera3D/gun_raycast.get_collider()
 					if shot_hit_object.is_in_group("enemy"):
@@ -354,15 +390,48 @@ func _physics_process(delta):
 						
 			
 	
+
+	
+	
+#функция отвечающая за отдачу, состоит из трех частей несколько фреймов идущих вверх, несколько фреймов идущих вниз и третья фаза влияющая на прицел/перекрестие, можешь добавлять/убавлять фазы если ничего внешне не поменяется
 	if current_recoil_active_pb:
+		var min_recoil_c = 6
+		var max_recoil_c = 60
+		var mid_recoil_c = 15
 		
-		if recoil_count < 7:
-			camera.rotate_x(0.02)
+		if recoil_count < min_recoil_c:
+			camera.rotate_x(0.017)
 			recoil_count += 1
-		elif recoil_count >= 7 and recoil_count < 30:
-			camera.rotate_x(-0.0065)
+			
+			crshr_up.position.y -= 3
+			crshr_right.position.x += 3
+			crshr_down.position.y += 3
+			crshr_left.position.x -= 3
+			
+		elif recoil_count >= min_recoil_c and recoil_count < mid_recoil_c:
+			
+			
+			camera.rotate_x(-0.003)
 			recoil_count += 1
-		elif recoil_count >= 30:
+			
+			
+		elif recoil_count >= mid_recoil_c and recoil_count < max_recoil_c:
+			
+			var crshr_up_start : float = -20
+			var crshr_right_start : float = 5
+			var crshr_down_start : float = 5
+			var crshr_left_start : float = -20
+			
+			crshr_up.position.y = lerp(crshr_up.position.y, crshr_up_start, recoil_count/max_recoil_c )
+			
+			crshr_right.position.x = lerp(crshr_right.position.x, crshr_right_start, recoil_count/max_recoil_c )
+			crshr_down.position.y = lerp(crshr_down.position.y, crshr_down_start, recoil_count/max_recoil_c )
+			crshr_left.position.x = lerp(crshr_left.position.x, crshr_left_start, recoil_count/max_recoil_c )
+			
+			recoil_count += 1
+			#
+			
+		elif recoil_count >= max_recoil_c:
 			current_recoil_active_pb = false
 			recoil_count = 0
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(80))
@@ -446,3 +515,6 @@ func do_finish_reload_pb():
 	pb_magazine = bp_magazine_max_capacity
 	pb_ammo -= pb_magazine_difference
 	pb_shot_active = false
+
+
+

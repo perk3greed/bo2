@@ -114,3 +114,9 @@ func reload_pb_start_func():
 
 func shoot_shotgun_shot():
 	Events.emit_signal("shotgun_attack_happened")
+
+func done_shooting_pb():
+	Events.emit_signal("pb_handgun_attack_finished")
+
+func done_shooting_pb_ads():
+	Events.emit_signal("pb_handgun_attack_finished")

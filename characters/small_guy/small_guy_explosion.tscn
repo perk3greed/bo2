@@ -15,10 +15,9 @@ emission = Color(0.121569, 0.486275, 0.552941, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_d6xm5"]
 material = SubResource("StandardMaterial3D_rruun")
 radius = 0.1
-height = 0.1
+height = 0.2
 radial_segments = 32
 rings = 16
-is_hemisphere = true
 
 [node name="small_guy_explosion" type="Node3D"]
 script = ExtResource("1_hk337")

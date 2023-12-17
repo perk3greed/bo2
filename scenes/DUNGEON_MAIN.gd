@@ -26,7 +26,7 @@ var player_current_weapon
 var spawn_points_number
 
 var spawning_coordinates :Array = []
-
+signal round_ended_signal
 
 
 #rooms arrays 
@@ -61,7 +61,11 @@ func _ready():
 	Events.connect("react_to_enemy_death",  react_to_enemy_death_func)
 	
 	Events.connect("upgrade_button_pressed", upgrade_button_pressed_func)
-
+	
+	
+	$"Upgrade Pnale".visible = false
+	
+	
 
 func unlock_new_location(location):
 	if location == "red_room_1":
@@ -84,28 +88,21 @@ func iniciate_round_start():
 
 
 func upgrade_button_pressed_func(upgrade_version, upgrade):
+	$"Upgrade Pnale".visible = false
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$start_round_timer.start()
 	match upgrade:
 		"ammo":
-			upgradeAmmo(upgrade_version)
+			var  upgradeAmmo
 		"health":
-			upgradeHealth(upgrade_version)
+			var upgradeHealth
 		"speed":
-			upgradeSpeed(upgrade_version)
+			var upgradeSpeed
 		
 			
+	$DUNGEON_ROOT/player.upgrades_on_screen = false
 
-
-func upgradeAmmo(version):
-	print("ammo upgrade used version: ", version)
-
-
-func upgradeHealth(version):
-	print("health upgrade used version: ", version)
-
-func upgradeSpeed(version):
-	print("speed upgrade used version: ", version)
-	
-	
 func spawn_a_wave_of_zombies():
 	
 	var actual_copy_spawns : Array = spawning_coordinates.duplicate(true)
@@ -130,7 +127,7 @@ func spawn_a_wave_of_zombies():
 			
 			
 			var bruh_spawner = rng.randi()%2
-			
+#			var bruh_spawner = 1
 			if bruh_spawner == 0:
 				$DUNGEON_ROOT/NavigationRegion3D/ENEMIES.add_child(ghost_instance)
 				ghost_instance.position = current_spawning_spot.position
@@ -168,9 +165,9 @@ func spawn_one_enemy():
 			var ghost_instance = ghost_simple.instantiate() 
 			var zombie_instance = zombie.instantiate() 
 			
-			
+#
 			var bruh_spawner = rng.randi()%2
-			
+#			var bruh_spawner = 1
 			if bruh_spawner == 0:
 				$DUNGEON_ROOT/NavigationRegion3D/ENEMIES.add_child(ghost_instance)
 				ghost_instance.position = current_spawning_spot.position
@@ -227,7 +224,7 @@ func react_to_enemy_death_func(position_of_death, type_of_enemy):
 	
 	enemies_to_kill_for_round_to_end -= 1
 	if enemies_to_kill_for_round_to_end < 1:
-		round_ended()
+		$finish_round_timer.start()
 	
 	if type_of_enemy == "zomby":
 		pass
@@ -262,12 +259,20 @@ func damage_player_by_explosion():
 
 
 func round_ended():
-	print("round ended!!")
-	$Timer.start()
+	$DUNGEON_ROOT/player.upgrades_on_screen = true
+	$"Upgrade Pnale".visible = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
 
 func give_player_money_func(how_much_money):
 	Events.player_money += how_much_money
 
 
-func _on_timer_timeout():
+func _on_start_round_timer_timeout():
 	iniciate_round_start()
+
+
+func _on_finish_round_timer_timeout():
+	Events.emit_signal("round_ended_signal")
+	round_ended()

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cyw23gjt1lseb"]
 
-[ext_resource type="Script" path="res://upgrade_panel_base.gd" id="1_s24ia"]
-[ext_resource type="Script" path="res://generate_upgrade_list.gd" id="2_jurag"]
-[ext_resource type="Script" path="res://upgradik.gd" id="2_nnuui"]
+[ext_resource type="Script" path="res://upgrades/upgrades system/upgrade_panel_base.gd" id="1_t7o7n"]
+[ext_resource type="Script" path="res://upgrades/upgrades system/generate_upgrade_list.gd" id="2_ha0a5"]
+[ext_resource type="Script" path="res://upgrades/upgrades system/upgradik.gd" id="3_je21k"]
 
 [node name="Upgrade Pnale" type="Control"]
 layout_mode = 3
@@ -20,7 +20,7 @@ offset_left = 200.0
 offset_top = 50.0
 offset_right = 1400.0
 offset_bottom = 305.0
-script = ExtResource("1_s24ia")
+script = ExtResource("1_t7o7n")
 
 [node name="CostLabel" type="Label" parent="Panel1"]
 z_index = 2
@@ -112,7 +112,7 @@ offset_left = 200.0
 offset_top = 325.0
 offset_right = 1400.0
 offset_bottom = 580.0
-script = ExtResource("1_s24ia")
+script = ExtResource("1_t7o7n")
 
 [node name="CostLabel" type="Label" parent="Panel2"]
 z_index = 2
@@ -204,7 +204,7 @@ offset_left = 200.0
 offset_top = 600.0
 offset_right = 1400.0
 offset_bottom = 855.0
-script = ExtResource("1_s24ia")
+script = ExtResource("1_t7o7n")
 
 [node name="CostLabel" type="Label" parent="Panel3"]
 z_index = 2
@@ -291,41 +291,43 @@ offset_right = 1200.0
 offset_bottom = 250.0
 
 [node name="Upgrades" type="Node" parent="."]
-script = ExtResource("2_jurag")
+script = ExtResource("2_ha0a5")
 
 [node name="upgradik_1" type="Node" parent="Upgrades"]
-script = ExtResource("2_nnuui")
+script = ExtResource("3_je21k")
 description = "Я крутой"
 description_name = "сталактити"
 upgrade = "ammo"
 
 [node name="upgradik_2" type="Node" parent="Upgrades"]
-script = ExtResource("2_nnuui")
+script = ExtResource("3_je21k")
+cost = 200
 description = "old description"
 description_name = "new name"
 upgrade_version = 2
 upgrade = "health"
 
 [node name="upgradik_3" type="Node" parent="Upgrades"]
-script = ExtResource("2_nnuui")
+script = ExtResource("3_je21k")
+cost = 300
 description = "hehehe"
 description_name = "hahahaha"
 upgrade_version = 3
 
 [node name="upgradik_4" type="Node" parent="Upgrades"]
-script = ExtResource("2_nnuui")
-cost = 590
+script = ExtResource("3_je21k")
+cost = 400
 description = "upgr 4"
 upgrade = "ammo"
 
 [node name="upgradik_5" type="Node" parent="Upgrades"]
-script = ExtResource("2_nnuui")
-cost = 630
+script = ExtResource("3_je21k")
+cost = 500
 description = "upgr 5"
 
 [node name="upgradik_6" type="Node" parent="Upgrades"]
-script = ExtResource("2_nnuui")
-cost = -430
+script = ExtResource("3_je21k")
+cost = 600
 description = "upgr 6 "
 upgrade = "health"
 
