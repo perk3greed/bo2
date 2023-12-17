@@ -14,9 +14,9 @@ signal player_hit_with_fireball
 func _ready():
 	print(exploding_fireball)
 	if exploding_fireball == true:
-		$MeshInstance3D.mesh.material.albedo_color = Color(255,0,0,130) 
+		$MeshInstance3D.mesh.material.albedo_color = Color(255,0,0,0.2) 
 	else :
-		$MeshInstance3D.mesh.material.albedo_color = Color(200,144,236,130) 
+		$MeshInstance3D.mesh.material.albedo_color = Color(200,144,236,0.3) 
 	
 	
 

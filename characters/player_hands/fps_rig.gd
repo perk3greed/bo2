@@ -118,3 +118,5 @@ func shoot_shotgun_shot():
 func done_shooting_pb():
 	Events.emit_signal("pb_handgun_attack_finished")
 
+func done_shooting_pb_ads():
+	Events.emit_signal("pb_handgun_attack_finished")

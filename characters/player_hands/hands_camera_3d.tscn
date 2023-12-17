@@ -2283,7 +2283,7 @@ tracks/145/keys = {
 
 [sub_resource type="Animation" id="Animation_2qy8k"]
 resource_name = "ads_shooting"
-length = 0.3
+length = 0.25
 tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -2297,7 +2297,7 @@ tracks/1/enabled = true
 tracks/1/path = NodePath("gun_pb")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.06, 1, -0.061, 0, 0, 0.998, 0.3, 1, 0, 0, 0, 1)
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.06, 1, -0.061, 0, 0, 0.998, 0.25, 1, 0, 0, 0, 1)
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
@@ -2333,6 +2333,20 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.0, 4.0]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"done_shooting_pb_ads"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_3evk6"]
@@ -5425,7 +5439,7 @@ tracks/143/keys = {
 
 [sub_resource type="Animation" id="Animation_kmjm5"]
 resource_name = "shooting_pb_from_hip"
-length = 0.2
+length = 0.18
 tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -6455,14 +6469,14 @@ tracks/144/enabled = true
 tracks/144/path = NodePath("gun_pb")
 tracks/144/interp = 1
 tracks/144/loop_wrap = true
-tracks/144/keys = PackedFloat32Array(0, 1, -0.09, 1.476, 0.77, 0.06, 1, -0.09, 1.476, 0.77, 0.2, 1, -0.09, 1.476, 0.77)
+tracks/144/keys = PackedFloat32Array(0, 1, -0.09, 1.476, 0.77, 0.06, 1, -0.09, 1.476, 0.77, 0.18, 1, -0.09, 1.476, 0.77)
 tracks/145/type = "rotation_3d"
 tracks/145/imported = false
 tracks/145/enabled = true
 tracks/145/path = NodePath("gun_pb")
 tracks/145/interp = 1
 tracks/145/loop_wrap = true
-tracks/145/keys = PackedFloat32Array(0, 1, 0.025, 0.036, -0.044, 0.998, 0.03, 1, -0.157, 0.019, -0.038, 0.987, 0.2, 1, 0.025, 0.036, -0.044, 0.998)
+tracks/145/keys = PackedFloat32Array(0, 1, 0.025, 0.036, -0.044, 0.998, 0.03, 1, -0.157, 0.019, -0.038, 0.987, 0.18, 1, 0.025, 0.036, -0.044, 0.998)
 tracks/146/type = "method"
 tracks/146/imported = false
 tracks/146/enabled = true

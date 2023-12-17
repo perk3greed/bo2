@@ -9,7 +9,7 @@ size = Vector3(3.98181, 0.164206, 4.01319)
 [node name="floor_wood_large_dark_gltf" instance=ExtResource("1_oqqyo")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="floor_wood_large_dark" index="0"]
-collision_layer = 2
+collision_layer = 18
 collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor_wood_large_dark/StaticBody3D" index="0"]

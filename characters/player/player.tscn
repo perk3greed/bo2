@@ -50,7 +50,7 @@ debug_shape_custom_color = Color(0.25098, 0.333333, 1, 1)
 [node name="gun_raycast" type="RayCast3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.384)
 target_position = Vector3(0, 0, -100)
-collision_mask = 3
+collision_mask = 19
 debug_shape_custom_color = Color(0.878431, 0, 0.337255, 1)
 
 [node name="sword_are3d" type="Area3D" parent="Head/Camera3D"]
