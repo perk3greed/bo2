@@ -87,7 +87,7 @@ func iniciate_round_start():
 	print("round starts now!    ", enemies_to_kill_for_round_to_end)
 
 
-func upgrade_button_pressed_func(upgrade_version, upgrade):
+func upgrade_button_pressed_func(upgrade_version, upgrade, name):
 	$"Upgrade Pnale".visible = false
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
