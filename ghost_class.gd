@@ -1,3 +1,4 @@
+class_name Ghost
 extends CharacterBody3D
 
 
@@ -15,9 +16,13 @@ var current_pathfinding_turn : int = 1
 var current_mode : String 
 var cooling_counter : int 
 #var health_points : int = 80
+var ghost_type : String
+var ghost_real_type : String
+var current_player_spot
 
 
-@onready var nav: NavigationAgent3D = $"ghost 1/NavigationAgent3D"
+
+@onready var nav : NavigationAgent3D = $"ghost 1/NavigationAgent3D"
 @onready var animation_tree : AnimationTree = $"ghost 1/Armature/ghost_anim_tree"
 @onready var ghost_vision_raycast = $ghost_vision
 #@onready var player_body := $"../../../player"
@@ -69,7 +74,7 @@ func _physics_process(delta):
 	
 	
 # new playersnapshot
-	var current_player_spot = $"../../../player".global_position
+	current_player_spot = $"../../../player".global_position
 #You use the function pow(a, b) which is equivalent to a ** b.
 #sqrt( (x1-x2)^2 + (y1-y2)^2 + (z1-z2)^2 )
 	var bruh_x = (current_player_spot.x - target_pathfinding_position.x)
@@ -113,24 +118,10 @@ func _physics_process(delta):
 #	var player_snapshot_for_fireball 
 	
 	if current_mode == "firing_fireball":
-		var fireball_rng = rng.randi()%2
-		var fireball_instance = fireball.instantiate()
-		var fireball_exploding_instance = fireball_exploding.instantiate()
-		if fireball_rng == 0:
-			fireball_instance.position = self.position
-			fireball_instance.starting_pos = self.position
-			fireball_instance.player_pos = current_player_spot
-			fireball_instance.exploding_fireball = false
-			$"..".add_child(fireball_instance)
-		elif fireball_rng == 1:
-			fireball_instance.position = self.position
-			fireball_instance.starting_pos = self.position
-			fireball_instance.player_pos = current_player_spot
-			fireball_instance.exploding_fireball = true
-			$"..".add_child(fireball_instance)
+
+		fire_fireball()
 		current_mode = "cooling_down_from_firing_fireball"
-		
-#
+
 #
 #func shot(gun):
 	#if gun == "pb":
@@ -185,4 +176,14 @@ func _on_navigation_agent_3d_velocity_computed(safe_velocity):
 func _on_navigation_agent_3d_path_changed():
 	target_reached = false
 
-	
+
+func fire_fireball():
+	#var fireball_instance = fireball.instantiate()
+	#var fireball_exploding_instance = fireball_exploding.instantiate()
+	#fireball_instance.position = self.position
+	#fireball_instance.starting_pos = self.position
+	#fireball_instance.player_pos = current_player_spot
+	#fireball_instance.exploding_fireball = true
+	#$"..".add_child(fireball_instance)
+	#current_mode = "cooling_down_from_firing_fireball"
+	pass

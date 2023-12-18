@@ -7,6 +7,7 @@ var player_current_ammo_pb
 var player_current_magazine_pb 
 var player_hp 
 @onready var ghost_simple = load("res://characters/ghost3denemy/ghost_body.tscn")
+@onready var ghost_exploding = load("res://characters/ghost3denemy/ghost_exploding.tscn")
 @onready var zombie = load("res://characters/zombi_3d_enemy/zomby_enemy_3d.tscn")
 @onready var small_guy = load("res://characters/small_guy/small_duder.tscn")
 @onready var small_guy_explosion = load("res://characters/small_guy/small_guy_explosion.tscn")
@@ -121,21 +122,25 @@ func spawn_a_wave_of_zombies():
 			
 			var current_spawning_spot = actual_copy_spawns.pop_back()
 			
-			var small_guy_inst = small_guy.instantiate() 
-			var ghost_instance = ghost_simple.instantiate() 
+
+
 			var zombie_instance = zombie.instantiate() 
+
 			
-			
-			var bruh_spawner = rng.randi()%2
+			var bruh_spawner = rng.randi()%3
 #			var bruh_spawner = 1
 			if bruh_spawner == 0:
+				var ghost_instance = ghost_simple.instantiate()
 				$DUNGEON_ROOT/NavigationRegion3D/ENEMIES.add_child(ghost_instance)
 				ghost_instance.position = current_spawning_spot.position
-			else :
-				$DUNGEON_ROOT/NavigationRegion3D/ENEMIES.add_child(small_guy_inst)
-				small_guy_inst.position = current_spawning_spot.position
-		
-			
+			elif bruh_spawner == 1:
+				var small_guy_instance = small_guy.instantiate() 
+				$DUNGEON_ROOT/NavigationRegion3D/ENEMIES.add_child(small_guy_instance)
+				small_guy_instance.position = current_spawning_spot.position
+			elif bruh_spawner == 2:
+				var ghost_exploding_instance = ghost_exploding.instantiate() 
+				$DUNGEON_ROOT/NavigationRegion3D/ENEMIES.add_child(ghost_exploding_instance)
+				ghost_exploding_instance.position = current_spawning_spot.position
 
 #
 #		$DUNGEON_ROOT/NavigationRegion3D/ENEMIES.add_child(zombie_instance)
