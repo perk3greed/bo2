@@ -1,0 +1,11 @@
+Model Information:
+* title:	Zombie for Game Unity.
+* source:	https://sketchfab.com/3d-models/zombie-for-game-unity-1df959e0e0b34c04b5c894ad1b415580
+* author:	EliveltonX (https://sketchfab.com/EliveltonX)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Zombie for Game Unity." (https://sketchfab.com/3d-models/zombie-for-game-unity-1df959e0e0b34c04b5c894ad1b415580) by EliveltonX (https://sketchfab.com/EliveltonX) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

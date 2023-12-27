@@ -43,7 +43,7 @@ var current_pb_ammo
 var current_weapon_in_hands 
 var player_money : int = 1200
 
-
+var current_player_position : Vector3
 
 
 

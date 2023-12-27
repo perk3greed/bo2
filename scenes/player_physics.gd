@@ -176,7 +176,9 @@ func generate_target_pos():
 
 
 func _physics_process(delta):
-
+	
+	Events.current_player_position = self.global_position
+	
 	if upgrades_on_screen == true:
 		return 
 	

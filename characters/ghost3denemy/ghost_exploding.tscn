@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://bbryy5k27y414"]
 
-[ext_resource type="Script" path="res://ghost_exploding.gd" id="1_jplbp"]
+[ext_resource type="Script" path="res://characters/ghost3denemy/ghost_exploding.gd" id="1_jplbp"]
 [ext_resource type="Script" path="res://characters/ghost3denemy/gun_body_hitbox.gd" id="2_x3o1b"]
 [ext_resource type="Script" path="res://characters/ghost3denemy/ghost_headshot.gd" id="3_88s3a"]
 
