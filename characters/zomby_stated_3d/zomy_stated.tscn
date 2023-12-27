@@ -352,10 +352,11 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lv8on"]
-radius = 0.301869
-height = 1.50228
+radius = 0.423856
+height = 2.31896
 
 [node name="zomby_body" type="CharacterBody3D"]
+collision_layer = 0
 script = ExtResource("1_ic16s")
 
 [node name="cartoonzombie2" type="Node3D" parent="."]
@@ -556,6 +557,7 @@ bones/26/rotation = Quaternion(0.989348, -0.036425, -0.0573041, 0.12876)
 bones/26/scale = Vector3(1, 1, 1)
 
 [node name="cartoonzombie" type="MeshInstance3D" parent="cartoonzombie2/Armatura/Skeleton3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_h0r7e")
 skin = SubResource("Skin_sch1f")
 
@@ -565,7 +567,7 @@ libraries = {
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00883287, 0.651386, 0.084625)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0291492, 1.19193, -0.267782)
 shape = SubResource("CapsuleShape3D_lv8on")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
