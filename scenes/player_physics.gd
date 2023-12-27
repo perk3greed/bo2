@@ -164,7 +164,8 @@ func do_a_shotgun_shot():
 				if current_hit_object.is_in_group("enemy"):
 					current_hit_object.shot("shotgun")
 			else:
-				print("shot " + str(child) + " missed")
+				return
+				#print("shot " + str(child) + " missed")
 
 
 func generate_target_pos():
@@ -500,7 +501,7 @@ func sword_attack_finished_function():
 	for i in range(hit_bodies_size):
 		if bodies_hit_by_sword[i].is_in_group("enemy"):
 			bodies_hit_by_sword[i].shot("sword")
-			print("enemy hit", i)
+			#print("enemy hit", i)
 #
 
 func _headbob(time) -> Vector3:

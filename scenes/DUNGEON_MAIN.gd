@@ -71,6 +71,7 @@ func _ready():
 	Events.connect("react_to_enemy_death",  react_to_enemy_death_func)
 	
 	Events.connect("upgrade_button_pressed", upgrade_button_pressed_func)
+	Events.connect("skip_button_pressed", skip_button_pressed_func)
 	
 	
 	$"Upgrade Pnale".visible = false
@@ -97,11 +98,19 @@ func iniciate_round_start():
 	print("round starts now!    ", enemies_to_kill_for_round_to_end)
 
 
-func upgrade_button_pressed_func(upgrade_version, upgrade):
+func skip_button_pressed_func():
+	$"Upgrade Pnale".visible = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$start_round_timer.start()
+	$DUNGEON_ROOT/player.upgrades_on_screen = false
+
+
+func upgrade_button_pressed_func(upgrade_version, upgrade, name, cost):
 	$"Upgrade Pnale".visible = false
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$start_round_timer.start()
+	Events.player_money -= cost
 	match upgrade:
 		"ammo":
 			var  upgradeAmmo

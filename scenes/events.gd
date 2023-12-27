@@ -33,8 +33,9 @@ signal reload_pb_start
 
 signal new_location_unlocked
 
-signal upgrade_button_pressed(upgrade_version,upgrade)
-
+signal upgrade_button_pressed(upgrade_version,upgrade, name_s, cost_s)
+signal skip_button_pressed
+signal panel_check(count)
 
 
 var interacted_object 

@@ -1,0 +1,334 @@
+[gd_scene load_steps=4 format=3 uid="uid://bid78wk8ap23o"]
+
+[ext_resource type="Script" path="res://upgrades/upgrades system/upgrade_panel_base.gd" id="1_s24ia"]
+[ext_resource type="Script" path="res://upgrades/upgrades system/generate_upgrade_list.gd" id="2_jurag"]
+[ext_resource type="Script" path="res://upgradik.gd" id="2_nnuui"]
+
+[node name="Upgrade Pnale" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -500.0
+offset_bottom = -650.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel1" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 200.0
+offset_top = 50.0
+offset_right = 1400.0
+offset_bottom = 305.0
+script = ExtResource("1_s24ia")
+
+[node name="CostLabel" type="Label" parent="Panel1"]
+z_index = 2
+layout_mode = 0
+offset_left = 18.0
+offset_top = 155.0
+offset_right = 238.0
+offset_bottom = 236.0
+text = "COST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Panel1/CostLabel"]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 220.0
+offset_bottom = 80.0
+border_color = Color(0, 0.529412, 0.984314, 1)
+border_width = 3.0
+
+[node name="DescriptionLabel" type="Label" parent="Panel1"]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 15.0
+offset_right = 1083.0
+offset_bottom = 236.0
+text = "DESCRIPTION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Panel1/DescriptionLabel"]
+layout_mode = 0
+offset_right = 825.0
+offset_bottom = 220.0
+border_color = Color(0, 0.615686, 0.580392, 1)
+border_width = 5.0
+
+[node name="NameLabel" type="Label" parent="Panel1"]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+offset_left = 18.0
+offset_top = 15.0
+offset_right = 234.0
+offset_bottom = 144.0
+grow_horizontal = 0
+text = "NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Panel1/NameLabel"]
+layout_mode = 0
+offset_right = 220.0
+offset_bottom = 130.0
+border_color = Color(0, 0.647059, 0.12549, 1)
+border_width = 4.0
+
+[node name="Image" type="TextureRect" parent="Panel1"]
+z_index = 1
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 246.0
+offset_bottom = 244.0
+expand_mode = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Panel1/Image"]
+layout_mode = 0
+offset_right = 235.0
+offset_bottom = 235.0
+border_color = Color(0.85098, 0, 0.890196, 1)
+border_width = 2.5
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Panel1"]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 250.0
+border_width = 5.0
+
+[node name="Button" type="Button" parent="Panel1"]
+z_index = -1
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 250.0
+
+[node name="Panel2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 200.0
+offset_top = 325.0
+offset_right = 1400.0
+offset_bottom = 580.0
+script = ExtResource("1_s24ia")
+
+[node name="CostLabel" type="Label" parent="Panel2"]
+z_index = 2
+layout_mode = 0
+offset_left = 18.0
+offset_top = 155.0
+offset_right = 238.0
+offset_bottom = 236.0
+text = "COST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Panel2/CostLabel"]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 220.0
+offset_bottom = 80.0
+border_color = Color(0, 0.529412, 0.984314, 1)
+border_width = 3.0
+
+[node name="DescriptionLabel" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 15.0
+offset_right = 1083.0
+offset_bottom = 236.0
+text = "DESCRIPTION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Panel2/DescriptionLabel"]
+layout_mode = 0
+offset_right = 825.0
+offset_bottom = 220.0
+border_color = Color(0, 0.615686, 0.580392, 1)
+border_width = 5.0
+
+[node name="NameLabel" type="Label" parent="Panel2"]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+offset_left = 18.0
+offset_top = 15.0
+offset_right = 234.0
+offset_bottom = 144.0
+grow_horizontal = 0
+text = "NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Panel2/NameLabel"]
+layout_mode = 0
+offset_right = 220.0
+offset_bottom = 130.0
+border_color = Color(0, 0.647059, 0.12549, 1)
+border_width = 4.0
+
+[node name="Image" type="TextureRect" parent="Panel2"]
+z_index = 1
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 246.0
+offset_bottom = 244.0
+expand_mode = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Panel2/Image"]
+layout_mode = 0
+offset_right = 235.0
+offset_bottom = 235.0
+border_color = Color(0.85098, 0, 0.890196, 1)
+border_width = 2.5
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Panel2"]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 250.0
+border_width = 5.0
+
+[node name="Button" type="Button" parent="Panel2"]
+z_index = -1
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 250.0
+
+[node name="Panel3" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 200.0
+offset_top = 600.0
+offset_right = 1400.0
+offset_bottom = 855.0
+script = ExtResource("1_s24ia")
+
+[node name="CostLabel" type="Label" parent="Panel3"]
+z_index = 2
+layout_mode = 0
+offset_left = 18.0
+offset_top = 155.0
+offset_right = 238.0
+offset_bottom = 236.0
+text = "COST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Panel3/CostLabel"]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 220.0
+offset_bottom = 80.0
+border_color = Color(0, 0.529412, 0.984314, 1)
+border_width = 3.0
+
+[node name="DescriptionLabel" type="Label" parent="Panel3"]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 15.0
+offset_right = 1083.0
+offset_bottom = 236.0
+text = "DESCRIPTION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Panel3/DescriptionLabel"]
+layout_mode = 0
+offset_right = 825.0
+offset_bottom = 220.0
+border_color = Color(0, 0.615686, 0.580392, 1)
+border_width = 5.0
+
+[node name="NameLabel" type="Label" parent="Panel3"]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+offset_left = 18.0
+offset_top = 15.0
+offset_right = 234.0
+offset_bottom = 144.0
+grow_horizontal = 0
+text = "NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Panel3/NameLabel"]
+layout_mode = 0
+offset_right = 220.0
+offset_bottom = 130.0
+border_color = Color(0, 0.647059, 0.12549, 1)
+border_width = 4.0
+
+[node name="Image" type="TextureRect" parent="Panel3"]
+z_index = 1
+layout_mode = 0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 246.0
+offset_bottom = 244.0
+expand_mode = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Panel3/Image"]
+layout_mode = 0
+offset_right = 235.0
+offset_bottom = 235.0
+border_color = Color(0.85098, 0, 0.890196, 1)
+border_width = 2.5
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Panel3"]
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 250.0
+border_width = 5.0
+
+[node name="Button" type="Button" parent="Panel3"]
+z_index = -1
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 250.0
+
+[node name="Upgrades" type="Node" parent="."]
+script = ExtResource("2_jurag")
+
+[node name="upgradik_1" type="Node" parent="Upgrades"]
+script = ExtResource("2_nnuui")
+description = "Я крутой"
+description_name = "сталактити"
+upgrade = "ammo"
+
+[node name="upgradik_2" type="Node" parent="Upgrades"]
+script = ExtResource("2_nnuui")
+description = "old description"
+description_name = "new name"
+upgrade_version = 2
+upgrade = "health"
+
+[node name="upgradik_3" type="Node" parent="Upgrades"]
+script = ExtResource("2_nnuui")
+description = "hehehe"
+description_name = "hahahaha"
+upgrade_version = 3
+
+[node name="upgradik_4" type="Node" parent="Upgrades"]
+script = ExtResource("2_nnuui")
+cost = 590
+description = "upgr 4"
+upgrade = "ammo"
+
+[node name="upgradik_5" type="Node" parent="Upgrades"]
+script = ExtResource("2_nnuui")
+cost = 630
+description = "upgr 5"
+
+[node name="upgradik_6" type="Node" parent="Upgrades"]
+script = ExtResource("2_nnuui")
+cost = -430
+description = "upgr 6 "
+upgrade = "health"
+
+[connection signal="pressed" from="Panel1/Button" to="Panel1" method="_on_button_pressed"]
+[connection signal="pressed" from="Panel2/Button" to="Panel2" method="_on_button_pressed"]
+[connection signal="pressed" from="Panel3/Button" to="Panel3" method="_on_button_pressed"]
