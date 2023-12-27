@@ -1,294 +1,385 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyw23gjt1lseb"]
+[gd_scene load_steps=6 format=3 uid="uid://cyw23gjt1lseb"]
 
+[ext_resource type="Script" path="res://upgrades/upgrades system/upgrade_aaaaaa.gd" id="1_kydaq"]
 [ext_resource type="Script" path="res://upgrades/upgrades system/upgrade_panel_base.gd" id="1_t7o7n"]
 [ext_resource type="Script" path="res://upgrades/upgrades system/generate_upgrade_list.gd" id="2_ha0a5"]
 [ext_resource type="Script" path="res://upgrades/upgrades system/upgradik.gd" id="3_je21k"]
+[ext_resource type="Script" path="res://upgrades/upgrades system/skip_button.gd" id="4_huebc"]
 
 [node name="Upgrade Pnale" type="Control"]
 layout_mode = 3
+anchor_right = 0.812
+anchor_bottom = 0.222
+offset_right = 0.799927
+offset_bottom = 0.199982
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kydaq")
+
+[node name="Panel1" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.154
+anchor_top = 0.25
+anchor_right = 1.077
+anchor_bottom = 1.25
+offset_left = -0.200012
+offset_right = -0.0999756
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t7o7n")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Panel1"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -500.0
-offset_bottom = -650.0
 grow_horizontal = 2
 grow_vertical = 2
+border_width = 5.0
 
-[node name="Panel1" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 200.0
-offset_top = 50.0
-offset_right = 1400.0
-offset_bottom = 305.0
-script = ExtResource("1_t7o7n")
+[node name="Cost" type="ReferenceRect" parent="Panel1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.156
+anchor_top = 0.545
+anchor_right = 0.302
+anchor_bottom = 0.97
+offset_left = 0.199997
+offset_right = 0.399994
+border_color = Color(0, 0.529412, 0.984314, 1)
+border_width = 3.0
 
-[node name="CostLabel" type="Label" parent="Panel1"]
+[node name="CostLabel" type="Label" parent="Panel1/Cost"]
 z_index = 2
 layout_mode = 0
-offset_left = 18.0
-offset_top = 155.0
-offset_right = 238.0
-offset_bottom = 236.0
+offset_right = 220.0
+offset_bottom = 81.0
 text = "COST"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ReferenceRect" type="ReferenceRect" parent="Panel1/CostLabel"]
+[node name="Description" type="ReferenceRect" parent="Panel1"]
 layout_mode = 1
 anchors_preset = -1
-offset_right = 220.0
-offset_bottom = 80.0
-border_color = Color(0, 0.529412, 0.984314, 1)
-border_width = 3.0
+anchor_left = 0.311
+anchor_top = 0.045
+anchor_right = 0.995
+anchor_bottom = 0.965
+offset_left = -0.300018
+offset_right = -0.500122
+grow_horizontal = 0
+border_color = Color(0, 0.615686, 0.580392, 1)
+border_width = 5.0
 
-[node name="DescriptionLabel" type="Label" parent="Panel1"]
-layout_mode = 0
-offset_left = 258.0
-offset_top = 15.0
-offset_right = 1083.0
-offset_bottom = 236.0
+[node name="DescriptionLabel" type="Label" parent="Panel1/Description"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "DESCRIPTION"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ReferenceRect" type="ReferenceRect" parent="Panel1/DescriptionLabel"]
-layout_mode = 0
-offset_right = 825.0
-offset_bottom = 220.0
-border_color = Color(0, 0.615686, 0.580392, 1)
-border_width = 5.0
-
-[node name="NameLabel" type="Label" parent="Panel1"]
-z_index = 2
+[node name="Name" type="ReferenceRect" parent="Panel1"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 18.0
-offset_top = 15.0
-offset_right = 234.0
-offset_bottom = 144.0
-grow_horizontal = 0
+anchor_left = 0.156
+anchor_top = 0.035
+anchor_right = 0.302
+anchor_bottom = 0.51
+offset_left = 0.199997
+offset_right = 0.399994
+border_color = Color(0, 0.647059, 0.12549, 1)
+border_width = 4.0
+
+[node name="NameLabel" type="Label" parent="Panel1/Name"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "NAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ReferenceRect" type="ReferenceRect" parent="Panel1/NameLabel"]
-layout_mode = 0
-offset_right = 220.0
-offset_bottom = 130.0
-border_color = Color(0, 0.647059, 0.12549, 1)
-border_width = 4.0
-
-[node name="Image" type="TextureRect" parent="Panel1"]
-z_index = 1
-layout_mode = 0
-offset_left = 10.0
-offset_top = 8.0
-offset_right = 246.0
-offset_bottom = 244.0
-expand_mode = 1
-
-[node name="ReferenceRect" type="ReferenceRect" parent="Panel1/Image"]
-layout_mode = 0
-offset_right = 235.0
-offset_bottom = 235.0
+[node name="image" type="ReferenceRect" parent="Panel1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.003
+anchor_top = 0.03
+anchor_right = 0.149
+anchor_bottom = 0.975
+offset_left = 0.0999999
+offset_right = 0.299988
 border_color = Color(0.85098, 0, 0.890196, 1)
 border_width = 2.5
 
-[node name="ReferenceRect" type="ReferenceRect" parent="Panel1"]
-layout_mode = 0
-offset_right = 1200.0
-offset_bottom = 250.0
-border_width = 5.0
+[node name="Image" type="TextureRect" parent="Panel1/image"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
 
 [node name="Button" type="Button" parent="Panel1"]
 z_index = -1
-layout_mode = 0
-offset_right = 1200.0
-offset_bottom = 250.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Panel2" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 200.0
-offset_top = 325.0
-offset_right = 1400.0
-offset_bottom = 580.0
+layout_mode = 1
+anchor_left = 0.154
+anchor_top = 1.375
+anchor_right = 1.077
+anchor_bottom = 2.375
+offset_left = -0.200012
+offset_top = -3.05176e-05
+offset_right = -0.0999756
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_t7o7n")
 
-[node name="CostLabel" type="Label" parent="Panel2"]
+[node name="ReferenceRect" type="ReferenceRect" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 5.0
+
+[node name="Cost" type="ReferenceRect" parent="Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.156
+anchor_top = 0.545
+anchor_right = 0.302
+anchor_bottom = 0.97
+offset_left = 0.199997
+offset_right = 0.399994
+border_color = Color(0, 0.529412, 0.984314, 1)
+border_width = 3.0
+
+[node name="CostLabel" type="Label" parent="Panel2/Cost"]
 z_index = 2
 layout_mode = 0
-offset_left = 18.0
-offset_top = 155.0
-offset_right = 238.0
-offset_bottom = 236.0
+offset_right = 220.0
+offset_bottom = 81.0
 text = "COST"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ReferenceRect" type="ReferenceRect" parent="Panel2/CostLabel"]
+[node name="Description" type="ReferenceRect" parent="Panel2"]
 layout_mode = 1
 anchors_preset = -1
-offset_right = 220.0
-offset_bottom = 80.0
-border_color = Color(0, 0.529412, 0.984314, 1)
-border_width = 3.0
+anchor_left = 0.311
+anchor_top = 0.045
+anchor_right = 0.995
+anchor_bottom = 0.965
+offset_left = -0.300018
+offset_right = -0.500122
+grow_horizontal = 0
+border_color = Color(0, 0.615686, 0.580392, 1)
+border_width = 5.0
 
-[node name="DescriptionLabel" type="Label" parent="Panel2"]
-layout_mode = 0
-offset_left = 258.0
-offset_top = 15.0
-offset_right = 1083.0
-offset_bottom = 236.0
+[node name="DescriptionLabel" type="Label" parent="Panel2/Description"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "DESCRIPTION"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ReferenceRect" type="ReferenceRect" parent="Panel2/DescriptionLabel"]
-layout_mode = 0
-offset_right = 825.0
-offset_bottom = 220.0
-border_color = Color(0, 0.615686, 0.580392, 1)
-border_width = 5.0
-
-[node name="NameLabel" type="Label" parent="Panel2"]
-z_index = 2
+[node name="Name" type="ReferenceRect" parent="Panel2"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 18.0
-offset_top = 15.0
-offset_right = 234.0
-offset_bottom = 144.0
-grow_horizontal = 0
+anchor_left = 0.156
+anchor_top = 0.035
+anchor_right = 0.302
+anchor_bottom = 0.51
+offset_left = 0.199997
+offset_right = 0.399994
+border_color = Color(0, 0.647059, 0.12549, 1)
+border_width = 4.0
+
+[node name="NameLabel" type="Label" parent="Panel2/Name"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "NAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ReferenceRect" type="ReferenceRect" parent="Panel2/NameLabel"]
-layout_mode = 0
-offset_right = 220.0
-offset_bottom = 130.0
-border_color = Color(0, 0.647059, 0.12549, 1)
-border_width = 4.0
-
-[node name="Image" type="TextureRect" parent="Panel2"]
-z_index = 1
-layout_mode = 0
-offset_left = 10.0
-offset_top = 8.0
-offset_right = 246.0
-offset_bottom = 244.0
-expand_mode = 1
-
-[node name="ReferenceRect" type="ReferenceRect" parent="Panel2/Image"]
-layout_mode = 0
-offset_right = 235.0
-offset_bottom = 235.0
+[node name="image" type="ReferenceRect" parent="Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.003
+anchor_top = 0.03
+anchor_right = 0.149
+anchor_bottom = 0.975
+offset_left = 0.0999999
+offset_right = 0.299988
 border_color = Color(0.85098, 0, 0.890196, 1)
 border_width = 2.5
 
-[node name="ReferenceRect" type="ReferenceRect" parent="Panel2"]
-layout_mode = 0
-offset_right = 1200.0
-offset_bottom = 250.0
-border_width = 5.0
+[node name="Image" type="TextureRect" parent="Panel2/image"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
 
 [node name="Button" type="Button" parent="Panel2"]
 z_index = -1
-layout_mode = 0
-offset_right = 1200.0
-offset_bottom = 250.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Panel3" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 200.0
-offset_top = 600.0
-offset_right = 1400.0
-offset_bottom = 855.0
+layout_mode = 1
+anchor_left = 0.154
+anchor_top = 2.5
+anchor_right = 1.077
+anchor_bottom = 3.5
+offset_left = -0.200012
+offset_right = -0.0999756
+offset_bottom = -6.10352e-05
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_t7o7n")
 
-[node name="CostLabel" type="Label" parent="Panel3"]
+[node name="ReferenceRect" type="ReferenceRect" parent="Panel3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 5.0
+
+[node name="Cost" type="ReferenceRect" parent="Panel3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.156
+anchor_top = 0.545
+anchor_right = 0.302
+anchor_bottom = 0.97
+offset_left = 0.199997
+offset_right = 0.399994
+border_color = Color(0, 0.529412, 0.984314, 1)
+border_width = 3.0
+
+[node name="CostLabel" type="Label" parent="Panel3/Cost"]
 z_index = 2
 layout_mode = 0
-offset_left = 18.0
-offset_top = 155.0
-offset_right = 238.0
-offset_bottom = 236.0
+offset_right = 220.0
+offset_bottom = 81.0
 text = "COST"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ReferenceRect" type="ReferenceRect" parent="Panel3/CostLabel"]
+[node name="Description" type="ReferenceRect" parent="Panel3"]
 layout_mode = 1
 anchors_preset = -1
-offset_right = 220.0
-offset_bottom = 80.0
-border_color = Color(0, 0.529412, 0.984314, 1)
-border_width = 3.0
+anchor_left = 0.311
+anchor_top = 0.045
+anchor_right = 0.995
+anchor_bottom = 0.965
+offset_left = -0.300018
+offset_right = -0.500122
+grow_horizontal = 0
+border_color = Color(0, 0.615686, 0.580392, 1)
+border_width = 5.0
 
-[node name="DescriptionLabel" type="Label" parent="Panel3"]
-layout_mode = 0
-offset_left = 258.0
-offset_top = 15.0
-offset_right = 1083.0
-offset_bottom = 236.0
+[node name="DescriptionLabel" type="Label" parent="Panel3/Description"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "DESCRIPTION"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ReferenceRect" type="ReferenceRect" parent="Panel3/DescriptionLabel"]
-layout_mode = 0
-offset_right = 825.0
-offset_bottom = 220.0
-border_color = Color(0, 0.615686, 0.580392, 1)
-border_width = 5.0
-
-[node name="NameLabel" type="Label" parent="Panel3"]
-z_index = 2
+[node name="Name" type="ReferenceRect" parent="Panel3"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 18.0
-offset_top = 15.0
-offset_right = 234.0
-offset_bottom = 144.0
-grow_horizontal = 0
+anchor_left = 0.156
+anchor_top = 0.035
+anchor_right = 0.302
+anchor_bottom = 0.51
+offset_left = 0.199997
+offset_right = 0.399994
+border_color = Color(0, 0.647059, 0.12549, 1)
+border_width = 4.0
+
+[node name="NameLabel" type="Label" parent="Panel3/Name"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "NAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ReferenceRect" type="ReferenceRect" parent="Panel3/NameLabel"]
-layout_mode = 0
-offset_right = 220.0
-offset_bottom = 130.0
-border_color = Color(0, 0.647059, 0.12549, 1)
-border_width = 4.0
-
-[node name="Image" type="TextureRect" parent="Panel3"]
-z_index = 1
-layout_mode = 0
-offset_left = 10.0
-offset_top = 8.0
-offset_right = 246.0
-offset_bottom = 244.0
-expand_mode = 1
-
-[node name="ReferenceRect" type="ReferenceRect" parent="Panel3/Image"]
-layout_mode = 0
-offset_right = 235.0
-offset_bottom = 235.0
+[node name="image" type="ReferenceRect" parent="Panel3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.003
+anchor_top = 0.03
+anchor_right = 0.149
+anchor_bottom = 0.975
+offset_left = 0.0999999
+offset_right = 0.299988
 border_color = Color(0.85098, 0, 0.890196, 1)
 border_width = 2.5
 
-[node name="ReferenceRect" type="ReferenceRect" parent="Panel3"]
-layout_mode = 0
-offset_right = 1200.0
-offset_bottom = 250.0
-border_width = 5.0
+[node name="Image" type="TextureRect" parent="Panel3/image"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
 
 [node name="Button" type="Button" parent="Panel3"]
 z_index = -1
-layout_mode = 0
-offset_right = 1200.0
-offset_bottom = 250.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Upgrades" type="Node" parent="."]
 script = ExtResource("2_ha0a5")
@@ -331,6 +422,44 @@ cost = 600
 description = "upgr 6 "
 upgrade = "health"
 
+[node name="skip_button" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 500.0
+offset_top = 750.0
+offset_right = 1100.0
+offset_bottom = 850.0
+script = ExtResource("4_huebc")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="skip_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0.890196, 0.611765, 0, 1)
+
+[node name="Button" type="Button" parent="skip_button/ReferenceRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="skip_button/ReferenceRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "skip
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="Panel1/Button" to="Panel1" method="_on_button_pressed"]
 [connection signal="pressed" from="Panel2/Button" to="Panel2" method="_on_button_pressed"]
 [connection signal="pressed" from="Panel3/Button" to="Panel3" method="_on_button_pressed"]
+[connection signal="pressed" from="skip_button/ReferenceRect/Button" to="skip_button" method="_on_button_pressed"]

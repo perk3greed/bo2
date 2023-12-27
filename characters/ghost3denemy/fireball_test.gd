@@ -12,7 +12,7 @@ var small_dude_explosion = preload("res://characters/small_guy/small_guy_explosi
 signal player_hit_with_fireball
 
 func _ready():
-	print(exploding_fireball)
+	#print(exploding_fireball)
 	if exploding_fireball == true:
 		$MeshInstance3D.mesh.material.albedo_color = Color(255,0,0,0.2) 
 	else :
@@ -32,7 +32,7 @@ func _physics_process(delta):
 	self.position += path_to_follow_normal*delta*8
 	lifetime += 1
 	if lifetime > 420:
-		print("fireball_died")
+		#print("fireball_died")
 		self.queue_free()
 
 
@@ -40,7 +40,7 @@ func _physics_process(delta):
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("player"):
 		Events.emit_signal("player_hit_with_fireball")
-		print("player_hit")
+		#print("player_hit")
 		self.queue_free()
 	elif body.is_in_group("enemy"):
 		pass
