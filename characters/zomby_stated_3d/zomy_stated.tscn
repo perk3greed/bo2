@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxbfbt1pvik8j"]
+[gd_scene load_steps=12 format=3 uid="uid://bxbfbt1pvik8j"]
 
 [ext_resource type="Script" path="res://characters/zomby_stated_3d/zomy_stated.gd" id="1_ic16s"]
 [ext_resource type="Script" path="res://characters/state_machine/finite_state_machine.gd" id="2_w312q"]
@@ -116,6 +116,12 @@ bind/25/pose = Transform3D(-0.947814, -3.72529e-07, 0.318824, 0.303502, 0.30628,
 bind/26/name = &"pole_left_Arm"
 bind/26/bone = -1
 bind/26/pose = Transform3D(-0.955271, -0.125605, 0.267733, -0.263593, -0.0488047, -0.963398, 0.134072, -0.990876, 0.0135128, 3.82526, -1.37858, 7.98964)
+
+[sub_resource type="SphereMesh" id="SphereMesh_2sumr"]
+radius = 1.0
+height = 2.0
+radial_segments = 16
+rings = 16
 
 [sub_resource type="Animation" id="Animation_3n8fi"]
 resource_name = "ArmaturaAction"
@@ -557,9 +563,16 @@ bones/26/rotation = Quaternion(0.989348, -0.036425, -0.0573041, 0.12876)
 bones/26/scale = Vector3(1, 1, 1)
 
 [node name="cartoonzombie" type="MeshInstance3D" parent="cartoonzombie2/Armatura/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_h0r7e")
 skin = SubResource("Skin_sch1f")
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="cartoonzombie2/Armatura/Skeleton3D"]
+transform = Transform3D(-0.430358, 0.0497001, 0.901289, 0.854723, -0.298618, 0.42459, 0.290244, 0.953078, 0.086033, -1.80331, 4.50099, 5.13329)
+bone_name = "Hand.R.001"
+bone_idx = 12
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cartoonzombie2/Armatura/Skeleton3D/BoneAttachment3D"]
+mesh = SubResource("SphereMesh_2sumr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="cartoonzombie2"]
 libraries = {

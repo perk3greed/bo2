@@ -145,7 +145,7 @@ func spawn_a_wave_of_zombies():
 			var zombie_instance = zombie.instantiate() 
 
 			
-			var bruh_spawner = rng.randi()%4
+			var bruh_spawner = rng.randi()%3
 #			var bruh_spawner = 1
 			if bruh_spawner == 0:
 				var ghost_instance = ghost_simple.instantiate()
