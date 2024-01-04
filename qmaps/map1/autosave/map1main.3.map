@@ -1,0 +1,18 @@
+// Game: Qodot
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_textures" "textures/Default size"
+// brush 0
+{
+( -32 -32 16 ) ( -48 -32 -16 ) ( -48 96 -16 ) "Default size/pattern_50" -16 15.999996 0 1 1
+( -48 96 -16 ) ( 80 96 16 ) ( -32 48 16 ) "Default size/pattern_50" -16 95.68627 0 1 1
+( -32 -32 16 ) ( 80 -32 -16 ) ( -48 -32 -16 ) "Default size/pattern_50" -16 -11.294117 0 1 1
+( 80 -32 -16 ) ( 80 96 -16 ) ( -48 96 -16 ) "Default size/pattern_50" -16 32 0 1 1
+( -32 48 16 ) ( 80 96 16 ) ( -32 -32 16 ) "Default size/pattern_50" -16 32 0 1 1
+( 80 96 -16 ) ( 80 96 16 ) ( -48 96 -16 ) "Default size/pattern_50" -16 0 0 1 1
+( -32 -32 16 ) ( 80 96 16 ) ( 80 -32 -16 ) "Default size/pattern_50" -83.76471 29.176472 0 1 1
+( 80 -32 -16 ) ( 80 96 16 ) ( 80 96 -16 ) "Default size/pattern_50" -32 0 0 1 1
+}
+}
