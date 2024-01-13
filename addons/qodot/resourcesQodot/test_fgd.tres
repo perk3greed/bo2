@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="QodotFGDFile" load_steps=4 format=3 uid="uid://caj6rt4dolyqn"]
+
+[ext_resource type="Script" path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_file.gd" id="1_evrr8"]
+[ext_resource type="Resource" uid="uid://udvceqmar6s5" path="res://addons/qodot/resourcesQodot/test.tres" id="1_jyuaa"]
+[ext_resource type="Resource" uid="uid://brobegqx03kpt" path="res://addons/qodot/resourcesQodot/new_tres.tres" id="2_0etht"]
+
+[resource]
+script = ExtResource("1_evrr8")
+export_file = false
+target_folder = ""
+fgd_name = "test_fgd"
+base_fgd_files = Array[Resource]([])
+entity_definitions = Array[Resource]([ExtResource("1_jyuaa"), ExtResource("2_0etht")])
