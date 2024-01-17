@@ -9,8 +9,6 @@ panorama = ExtResource("1_noxot")
 sky_material = SubResource("PanoramaSkyMaterial_mcjew")
 
 [resource]
-background_mode = 2
-background_energy_multiplier = 0.0
 sky = SubResource("Sky_oixau")
 ambient_light_source = 2
-ambient_light_color = Color(0.0862745, 0.0941176, 0.0980392, 1)
+ambient_light_color = Color(0.12549, 0.137255, 0.137255, 1)

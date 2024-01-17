@@ -11823,6 +11823,7 @@ script = ExtResource("1_e63o5")
 
 [node name="uv_HAAANZ" type="Node3D" parent="fps_rig"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.30786e-08, 0.77049, 0.263988)
+visible = false
 
 [node name="Armature" type="Node3D" parent="fps_rig/uv_HAAANZ"]
 

@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://btpsuhqsra32n"]
+
+[ext_resource type="Texture2D" uid="uid://dmxdouo82epo5" path="res://textures/whatiuse/marble_or_pillars/marble_tiles_bw.png" id="1_ycu8j"]
+
+[resource]
+albedo_texture = ExtResource("1_ycu8j")

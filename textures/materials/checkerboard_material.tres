@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://t1r4rycr53rp"]
+
+[ext_resource type="Texture2D" uid="uid://buj1hfe74qmt8" path="res://textures/materials/checkerboard_material.png" id="1_xp18u"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_xp18u")
+emission_enabled = true
