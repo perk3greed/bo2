@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://l6wjgc38pja3"]
+
+[ext_resource type="Texture2D" uid="uid://c6ag3dotw4m63" path="res://textures/whatiuse/floor/dirt_outside.png" id="1_4qyfp"]
+[ext_resource type="Texture2D" uid="uid://cmnidi4474o8s" path="res://textures/whatiuse/fn_or_n_files/dirt_outside_n.png" id="2_0xqdg"]
+
+[resource]
+albedo_texture = ExtResource("1_4qyfp")
+normal_enabled = true
+normal_texture = ExtResource("2_0xqdg")
+texture_filter = 2
