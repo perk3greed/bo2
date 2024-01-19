@@ -1,7 +1,7 @@
 extends Node
 
 # Список всех апгрейдов
-var upgrades = [ "upgradik_4", "upgradik_5", "upgradik_6"]
+var upgrades = [ "upgradik_4", "upgradik_5", "upgradik_6","upgradik_1", "upgradik_2", "upgradik_3" ]
 
 # Список выбранных апгрейдов
 var selectedUpgrades = []

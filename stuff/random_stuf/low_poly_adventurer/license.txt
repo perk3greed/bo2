@@ -1,0 +1,11 @@
+Model Information:
+* title:	low poly adventurer
+* source:	https://sketchfab.com/3d-models/low-poly-adventurer-4374b3f0aff5479fa94cbefb547a8ab0
+* author:	MadTrollStudio (https://sketchfab.com/madtrollstudio)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "low poly adventurer" (https://sketchfab.com/3d-models/low-poly-adventurer-4374b3f0aff5479fa94cbefb547a8ab0) by MadTrollStudio (https://sketchfab.com/madtrollstudio) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

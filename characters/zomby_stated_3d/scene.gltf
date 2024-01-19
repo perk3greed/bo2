@@ -1,0 +1,446 @@
+{
+  "accessors": [
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 458,
+      "max": [
+        1.9997999668121338,
+        0.07980000227689743,
+        3.677299976348877
+      ],
+      "min": [
+        -1.9997999668121338,
+        -0.5029199719429016,
+        -0.018459999933838844
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 5496,
+      "componentType": 5126,
+      "count": 458,
+      "max": [
+        0.9969732761383057,
+        0.9985854029655457,
+        0.992033839225769
+      ],
+      "min": [
+        -0.9969732761383057,
+        -0.9984901547431946,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 1266,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 10992,
+      "componentType": 5126,
+      "count": 140,
+      "max": [
+        0.4136900007724762,
+        0.023970000445842743,
+        2.198309898376465
+      ],
+      "min": [
+        -0.4136900007724762,
+        -0.4445599913597107,
+        1.4649100303649902
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 12672,
+      "componentType": 5126,
+      "count": 140,
+      "max": [
+        0.8265134692192078,
+        0.9184209108352661,
+        0.9902666211128235
+      ],
+      "min": [
+        -0.8265134692192078,
+        -0.9801028966903687,
+        -0.999627947807312
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 5064,
+      "componentType": 5125,
+      "count": 204,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 14352,
+      "componentType": 5126,
+      "count": 184,
+      "max": [
+        0.9697999954223633,
+        0.06796000152826309,
+        3.0042600631713867
+      ],
+      "min": [
+        -0.33750998973846436,
+        -0.46533000469207764,
+        2.0882198810577393
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 16560,
+      "componentType": 5126,
+      "count": 184,
+      "max": [
+        0.9669924378395081,
+        0.9060668349266052,
+        0.9271650314331055
+      ],
+      "min": [
+        -0.969022810459137,
+        -0.9948209524154663,
+        -0.8725401759147644
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 5880,
+      "componentType": 5125,
+      "count": 276,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 18768,
+      "componentType": 5126,
+      "count": 488,
+      "max": [
+        0.8974300026893616,
+        0.040780000388622284,
+        2.9380900859832764
+      ],
+      "min": [
+        -0.025110000744462013,
+        -0.15773999691009521,
+        2.464240074157715
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 24624,
+      "componentType": 5126,
+      "count": 488,
+      "max": [
+        1.0,
+        0.9985055923461914,
+        0.9575077295303345
+      ],
+      "min": [
+        -1.0,
+        -0.9988136887550354,
+        -0.9578046202659607
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 6984,
+      "componentType": 5125,
+      "count": 732,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 30480,
+      "componentType": 5126,
+      "count": 304,
+      "max": [
+        0.02662999927997589,
+        -0.19981999695301056,
+        2.612790107727051
+      ],
+      "min": [
+        -0.2571299970149994,
+        -0.42855000495910645,
+        2.169029951095581
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 34128,
+      "componentType": 5126,
+      "count": 304,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -0.9880412817001343,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 9912,
+      "componentType": 5125,
+      "count": 528,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "EliveltonX (https://sketchfab.com/EliveltonX)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/zombie-for-game-unity-1df959e0e0b34c04b5c894ad1b415580",
+      "title": "Zombie for Game Unity."
+    },
+    "generator": "Sketchfab-12.66.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 12024,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 37776,
+      "byteOffset": 12024,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 49800,
+      "uri": "scene.bin"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Osso",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.800000011920929,
+          0.800000011920929,
+          0.800000011920929,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.6
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "mat_skin",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.1998780369758606,
+          0.38437432050704956,
+          0.18747711181640625,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.6
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "mat_zorba",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.24619382619857788,
+          0.1331898421049118,
+          0.08178301900625229,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.6
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Sangue",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.28829658031463623,
+          0.0035351430997252464,
+          0.004184894263744354,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.6
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "BASE_Low Poly Man_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0
+          },
+          "indices": 2,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "BASE_Low Poly Man_1",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 4,
+            "POSITION": 3
+          },
+          "indices": 5,
+          "material": 2,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "BASE_Low Poly Man_2",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 7,
+            "POSITION": 6
+          },
+          "indices": 8,
+          "material": 3,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "BASE_Low Poly Man_3",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 10,
+            "POSITION": 9
+          },
+          "indices": 11,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "BASE_Low Poly Man.001_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 13,
+            "POSITION": 12
+          },
+          "indices": 14,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2,
+        7
+      ],
+      "name": "Root"
+    },
+    {
+      "children": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "name": "BASE_Low Poly Man"
+    },
+    {
+      "mesh": 0,
+      "name": "BASE_Low Poly Man_0"
+    },
+    {
+      "mesh": 1,
+      "name": "BASE_Low Poly Man_1"
+    },
+    {
+      "mesh": 2,
+      "name": "BASE_Low Poly Man_2"
+    },
+    {
+      "mesh": 3,
+      "name": "BASE_Low Poly Man_3"
+    },
+    {
+      "children": [
+        8
+      ],
+      "name": "BASE_Low Poly Man.001"
+    },
+    {
+      "mesh": 4,
+      "name": "BASE_Low Poly Man.001_0"
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}

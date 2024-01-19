@@ -1,0 +1,11 @@
+Model Information:
+* title:	Rigged low poly male & female figures. (Blender)
+* source:	https://sketchfab.com/3d-models/rigged-low-poly-male-female-figures-blender-ce0604608f96477a875569ff28e15889
+* author:	Drazen (https://sketchfab.com/drazenk)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Rigged low poly male & female figures. (Blender)" (https://sketchfab.com/3d-models/rigged-low-poly-male-female-figures-blender-ce0604608f96477a875569ff28e15889) by Drazen (https://sketchfab.com/drazenk) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

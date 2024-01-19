@@ -1,0 +1,11 @@
+Model Information:
+* title:	Beka - Low-poly character
+* source:	https://sketchfab.com/3d-models/beka-low-poly-character-41f153b386524655998996966d5f68eb
+* author:	Elder Barreto (https://sketchfab.com/vappex)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Beka - Low-poly character" (https://sketchfab.com/3d-models/beka-low-poly-character-41f153b386524655998996966d5f68eb) by Elder Barreto (https://sketchfab.com/vappex) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
