@@ -1,11 +1,11 @@
 extends CharacterBody3D
 
 var speed
-const WALK_SPEED = 3
-const SPRINT_SPEED = 6
-const JUMP_VELOCITY = 5
+const WALK_SPEED = 4
+const SPRINT_SPEED = 8
+const JUMP_VELOCITY = 8
 const SENSITIVITY = 0.01
-const sprint_time :float = 8
+const sprint_time :float = 99
 var current_sprint :float = 0
 var shotgun_ammo :int = 200
 var current_recoil_active_pb : bool = false
@@ -32,7 +32,7 @@ const FOV_CHANGE = 1.0
 
 const raycast_hit_point = preload("res://stuff/raycast_hit.tscn")
 var rng = RandomNumberGenerator.new()
-var gravity = 8
+var gravity = 12
 
 var maxHorizontalOffset = 5
 var maxVerticalOffset = 5

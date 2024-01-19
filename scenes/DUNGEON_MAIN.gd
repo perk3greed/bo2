@@ -102,7 +102,7 @@ func skip_button_pressed_func():
 	$"Upgrade Pnale".visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$start_round_timer.start()
-	$DUNGEON_ROOT/player.upgrades_on_screen = false
+	$player.upgrades_on_screen = false
 
 
 func upgrade_button_pressed_func(upgrade_version, upgrade, name, cost):
@@ -120,7 +120,7 @@ func upgrade_button_pressed_func(upgrade_version, upgrade, name, cost):
 			var upgradeSpeed
 		
 			
-	$DUNGEON_ROOT/player.upgrades_on_screen = false
+	$player.upgrades_on_screen = false
 
 func spawn_a_wave_of_zombies():
 	
@@ -214,8 +214,8 @@ func _process(delta):
 	player_current_magazine_pb = Events.current_pb_magazin
 	
 	
-	player_current_ammo_shotgun = $DUNGEON_ROOT/player.shotgun_ammo
-	player_position = $DUNGEON_ROOT/player.global_position
+	player_current_ammo_shotgun = $player.shotgun_ammo
+	player_position = $player.global_position
 	
 	$Control/score.text = str(Events.player_money)
 	$Control/current_hp.value = player_hp
@@ -285,7 +285,7 @@ func damage_player_by_explosion():
 
 
 func round_ended():
-	$DUNGEON_ROOT/player.upgrades_on_screen = true
+	$player.upgrades_on_screen = true
 	$"Upgrade Pnale".visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
