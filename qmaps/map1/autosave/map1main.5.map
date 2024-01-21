@@ -4670,3 +4670,11 @@
 ( 2480 -416 224 ) ( 2480 -416 225 ) ( 2480 -415 224 ) __TB_empty 0 0 0 1 1
 }
 }
+// entity 4
+{
+"classname" "func_group"
+"_tb_type" "_tb_layer"
+"_tb_name" "3кв адщщк"
+"_tb_id" "4"
+"_tb_layer_sort_index" "3"
+}
