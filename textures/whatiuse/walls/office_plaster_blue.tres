@@ -1,11 +1,11 @@
 [gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bkoom80obsby5"]
 
-[ext_resource type="Texture2D" uid="uid://cecighj51gh8l" path="res://textures/whatiuse/walls/office_plaster_blue.png" id="1_5utlv"]
-[ext_resource type="Texture2D" uid="uid://b7uw82f0v54uv" path="res://textures/whatiuse/fn_or_n_files/office_plaster_blue_fn_n.png" id="2_a6xcq"]
+[ext_resource type="Texture2D" uid="uid://d0bxtqpirxmsq" path="res://textures/whatiuse/plasters/office_plaster_blue_based.png" id="1_2jqhk"]
+[ext_resource type="Texture2D" uid="uid://cu21qq17tvwpb" path="res://textures/whatiuse/fn_or_n_files/office_plaster_blue_based_n.png" id="2_lo8gb"]
 
 [resource]
-albedo_texture = ExtResource("1_5utlv")
+albedo_texture = ExtResource("1_2jqhk")
 normal_enabled = true
 normal_scale = 0.4
-normal_texture = ExtResource("2_a6xcq")
+normal_texture = ExtResource("2_lo8gb")
 texture_filter = 2

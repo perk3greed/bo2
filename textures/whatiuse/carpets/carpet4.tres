@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cp7isle0h8vst"]
+
+[ext_resource type="Texture2D" uid="uid://dletruxu4jlm0" path="res://textures/whatiuse/carpets/carpet4.png" id="1_s20ro"]
+[ext_resource type="Texture2D" uid="uid://dvb53cci3l2qp" path="res://textures/whatiuse/fn_or_n_files/carpet4_n.png" id="2_qn655"]
+
+[resource]
+albedo_texture = ExtResource("1_s20ro")
+metallic_specular = 0.0
+normal_enabled = true
+normal_scale = 0.8
+normal_texture = ExtResource("2_qn655")
+texture_filter = 2
