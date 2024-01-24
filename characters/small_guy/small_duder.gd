@@ -77,7 +77,7 @@ func _physics_process(delta):
 		move_and_slide()
 #
 
-	nav.target_position =  $"../../../player".global_position
+	nav.target_position =  Events.current_player_position
 	Direction = nav.get_next_path_position() - global_position
 	target_pathfinding_position = nav.target_position
 
@@ -85,7 +85,7 @@ func _physics_process(delta):
 	velocity = velocity.lerp(Direction*speed, accel*delta)
 	if target_reached == false:
 		move_and_slide()
-		look_at($"../../../player".global_position)
+		look_at(Events.current_player_position)
 #
 #
 
