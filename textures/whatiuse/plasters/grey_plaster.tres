@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bf11fkw63wsp2"]
+
+[ext_resource type="Texture2D" uid="uid://c3hwe0u33hti7" path="res://textures/whatiuse/plasters/grey_plaster.png" id="1_jag56"]
+[ext_resource type="Texture2D" uid="uid://cjj8adpsnv14m" path="res://textures/whatiuse/fn_or_n_files/cursed_rebblack_plaster_n.png" id="2_y3mjl"]
+
+[resource]
+albedo_texture = ExtResource("1_jag56")
+normal_enabled = true
+normal_texture = ExtResource("2_y3mjl")
+texture_filter = 2

@@ -74,7 +74,7 @@ func _physics_process(delta):
 	
 	
 # new playersnapshot
-	current_player_spot = $"../../../player".global_position
+	current_player_spot = Events.current_player_position
 #You use the function pow(a, b) which is equivalent to a ** b.
 #sqrt( (x1-x2)^2 + (y1-y2)^2 + (z1-z2)^2 )
 	var bruh_x = (current_player_spot.x - target_pathfinding_position.x)
@@ -96,8 +96,8 @@ func _physics_process(delta):
 	Direction = Direction.normalized()
 	velocity = velocity.lerp(Direction*speed, accel*delta)
 	if target_reached == false:
-		var look_at_me = Vector3($"../../../player".global_position.x,
-			self.global_position.y, $"../../../player".global_position.z)
+		var look_at_me = Vector3(Events.current_player_position.x,
+			self.global_position.y, Events.current_player_position.z)
 		if current_mode == "follow_player":
 			move_and_slide()
 			look_at(look_at_me)
@@ -149,7 +149,7 @@ func _physics_process(delta):
 func do_pathfinding():
 	
 	
-	nav.target_position =  $"../../../player".global_position
+	nav.target_position =  Events.current_player_position
 	Direction = nav.get_next_path_position() - global_position
 	target_pathfinding_position = nav.target_position
 	

@@ -208,6 +208,8 @@ func spawn_one_enemy():
 
 func _process(delta):
 	
+	if Input.is_action_just_pressed("g"):
+		$start_round_timer.start()
 	
 	player_current_weapon = Events.current_weapon_in_hands
 	player_current_ammo_pb = Events.current_pb_ammo
