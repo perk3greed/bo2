@@ -6,5 +6,6 @@
 [resource]
 albedo_texture = ExtResource("1_jag56")
 normal_enabled = true
+normal_scale = 0.11
 normal_texture = ExtResource("2_y3mjl")
 texture_filter = 2

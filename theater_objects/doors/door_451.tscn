@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=3 uid="uid://dhex4454d2a0m"]
+
+[ext_resource type="Script" path="res://theater_objects/doors/door_451.gd" id="1_ll5xb"]
+[ext_resource type="Texture2D" uid="uid://nr054gi81xbe" path="res://textures/whatiuse/wood/colored_wood_blackred.png" id="1_voyja"]
+[ext_resource type="Texture2D" uid="uid://cddw7iftnordj" path="res://textures/whatiuse/fn_or_n_files/red_wood_n.png" id="2_8h15o"]
+[ext_resource type="Script" path="res://theater_objects/doors/door_static.gd" id="4_ntkux"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1los4"]
+albedo_texture = ExtResource("1_voyja")
+normal_enabled = true
+normal_texture = ExtResource("2_8h15o")
+texture_filter = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_ftu4s"]
+material = SubResource("StandardMaterial3D_1los4")
+size = Vector3(4, 5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hh1f4"]
+size = Vector3(4, 5, 1)
+
+[node name="door451" type="Node3D"]
+script = ExtResource("1_ll5xb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ftu4s")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["object"]]
+collision_layer = 2
+script = ExtResource("4_ntkux")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_hh1f4")

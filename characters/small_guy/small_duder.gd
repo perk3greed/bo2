@@ -63,7 +63,9 @@ func _physics_process(delta):
 		var position_of_death = position
 		var type_of_enemy = "small_duder_empty"
 		
+		
 		Events.emit_signal("react_to_enemy_death", position_of_death, type_of_enemy)
+		$bomb_run/AnimationPlayer.play("ArmatureAction_004")
 		died = true
 		self.queue_free()
 
@@ -84,6 +86,7 @@ func _physics_process(delta):
 	Direction = Direction.normalized()
 	velocity = velocity.lerp(Direction*speed, accel*delta)
 	if target_reached == false:
+		$bomb_run/AnimationPlayer.play("ArmatureAction_001")
 		move_and_slide()
 		look_at(Events.current_player_position)
 #

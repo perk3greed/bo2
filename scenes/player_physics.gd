@@ -85,8 +85,8 @@ signal shot_bp_ads
 signal reload_pb_start
 
 func _ready():
-	$"../Control/crosshare".visible = false
-	$Head/Camera3D/gun_raycast.add_exception($".")
+	#$"../Control/crosshare".visible = false
+	#$Head/Camera3D/gun_raycast.add_exception($".")
 	Events.emit_signal("change_weapons", current_weapon)
 	Events.connect("shotgun_attack_finished", reload_shotty)
 	Events.connect("sword_attack_finished",sword_attack_finished_function )
@@ -248,6 +248,7 @@ func _physics_process(delta):
 	
 	
 	if hand_touched_what != null:
+		print(hand_touched_what)
 		if hand_touched_what.is_in_group("object"):
 			interact_prompt.visible = true
 		else :

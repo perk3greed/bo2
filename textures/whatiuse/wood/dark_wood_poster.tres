@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cjk7obgsxrshp"]
+
+[ext_resource type="Texture2D" uid="uid://c0bdxkjrr0in0" path="res://textures/whatiuse/wood/dark_wood_poster.png" id="1_8tcdr"]
+[ext_resource type="Texture2D" uid="uid://cgi5sc7knwhm8" path="res://textures/whatiuse/fn_or_n_files/dark_wood_poster_n.png" id="2_1er2t"]
+
+[resource]
+albedo_texture = ExtResource("1_8tcdr")
+normal_enabled = true
+normal_texture = ExtResource("2_1er2t")
+texture_filter = 2

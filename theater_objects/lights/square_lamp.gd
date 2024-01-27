@@ -21,7 +21,12 @@ func _physics_process(delta):
 	
 	var distance_to_player = bruh_x_pow2  + bruh_y_pow2 + bruh_z_pow2
 	
+	
+	var lower_or_higher = current_player_spot.y - self.position.y
+	
+	
 	if distance_to_player > 120:
 		self.visible = false
 	elif distance_to_player < 120:
-		self.visible = true
+		if lower_or_higher < 0:
+			self.visible = true

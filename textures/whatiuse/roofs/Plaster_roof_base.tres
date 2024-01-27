@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dq7jqgsys01ja" path="res://textures/whatiuse/fn_or_n_files/Plaster_roof_base_n.png" id="2_42b06"]
 
 [resource]
-albedo_color = Color(1, 0.686275, 0.752941, 1)
+albedo_color = Color(1, 0.858824, 0.882353, 1)
 albedo_texture = ExtResource("1_id0f0")
 normal_enabled = true
-normal_scale = 0.3
+normal_scale = 0.1
 normal_texture = ExtResource("2_42b06")
 texture_filter = 2
