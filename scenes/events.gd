@@ -37,6 +37,10 @@ signal upgrade_button_pressed(upgrade_version,upgrade, name_s, cost_s)
 signal skip_button_pressed
 signal panel_check(count)
 
+signal change_state
+signal SpawnEnemies
+signal SpawnersCheck(amount_of_enemies_spawning)
+
 
 var interacted_object 
 var current_pb_magazin 

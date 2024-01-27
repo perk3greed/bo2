@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://drhspfruk2pvc"]
+
+[ext_resource type="Script" path="res://spawn_system/Random_spawn_timer.gd" id="1_x848b"]
+
+[node name="Timer" type="Timer"]
+script = ExtResource("1_x848b")
