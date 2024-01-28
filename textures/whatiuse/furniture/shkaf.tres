@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://0ckbixp6a823"]
+
+[ext_resource type="Texture2D" uid="uid://bx243yydmvtew" path="res://textures/whatiuse/furniture/shkaf.png" id="1_1dich"]
+
+[resource]
+albedo_texture = ExtResource("1_1dich")
+normal_enabled = true
+normal_texture = ExtResource("1_1dich")
+texture_filter = 2
