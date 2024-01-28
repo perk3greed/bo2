@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://chf54xbcxfams"]
+
+[ext_resource type="Script" path="res://spawn_system/spawn_point.gd" id="1_45cmt"]
+[ext_resource type="PackedScene" uid="uid://b1psw8o33gfvl" path="res://characters/ghost3denemy/ghost_body.tscn" id="2_tps4w"]
+[ext_resource type="Script" path="res://spawn_system/GayCastForSpawn.gd" id="3_5kldg"]
+[ext_resource type="PackedScene" uid="uid://drhspfruk2pvc" path="res://spawn_system/Random_spawn_timer.tscn" id="3_oen03"]
+
+[node name="Marker3D" type="Marker3D"]
+script = ExtResource("1_45cmt")
+spawling_scene = ExtResource("2_tps4w")
+dist_to_activate_spawner = 7.0
+dist_to_deactivate_spawner = 15.0
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+collision_mask = 4294967295
+hit_from_inside = true
+script = ExtResource("3_5kldg")
+
+[node name="Timer" parent="." instance=ExtResource("3_oen03")]
+min_wait_time = 4
+max_wait_time = 12
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -58,7 +58,6 @@ signal round_ended_signal
 
 func _ready():
 #	Events.connect("change_weapons",check_player_weapons)
-	
 	Events.connect("give_player_money", give_player_money_func)
 	Events.connect("player_damaged_by_small_guy_explosion", damage_player_by_explosion)
 	$"Control/you died".visible = false
@@ -93,6 +92,7 @@ func iniciate_round_start():
 	current_round += 1
 	amount_of_enemies_spawning += 1
 	spawn_a_wave_of_zombies()
+	Events.emit_signal("SpawnersCheck", amount_of_enemies_spawning )
 	enemies_to_kill_for_round_to_end = amount_of_enemies_spawning
 	
 	print("round starts now!    ", enemies_to_kill_for_round_to_end)
