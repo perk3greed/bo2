@@ -48,7 +48,7 @@ logs/
 tests/data/*.translation
 
 
-
+qmaps/map1/autosave/
 qmaps/map1/autosave
 
 
