@@ -19,7 +19,7 @@ var current_pathfinding_turn : int = 1
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 #@onready var animation_tree : AnimationTree = $AnimationTree
 
-@onready var player_body := $"../../../player"
+
 
 @export var patrol_point1 :Vector3
 @export var patrol_point2 :Vector3
@@ -35,7 +35,7 @@ func _ready():
 	var avoid_rng = rng.randf_range(0,1)
 	pathfinding_priority = rng.randi_range(1,5)
 	
-	
+	$bomb_run/AnimationTree["parameters/conditions/start_running"] = true
 	$NavigationAgent3D.avoidance_priority = avoid_rng 
 
 	
@@ -45,7 +45,7 @@ func _physics_process(delta):
 	
 	
 	
-	var current_player_spot = $"../../../player".global_position
+	var current_player_spot = Events.current_player_position
 #You use the function pow(a, b) which is equivalent to a ** b.
 #sqrt( (x1-x2)^2 + (y1-y2)^2 + (z1-z2)^2 )
 	var bruh_x = (current_player_spot.x - self.position.x)
@@ -59,13 +59,12 @@ func _physics_process(delta):
 	
 	
 	
-	if distance_to_player < 4:
+	if distance_to_player < 6:
 		var position_of_death = position
 		var type_of_enemy = "small_duder_empty"
-		
-		
-		Events.emit_signal("react_to_enemy_death", position_of_death, type_of_enemy)
-		$bomb_run/AnimationPlayer.play("ArmatureAction_004")
+		$bomb_run/AnimationTree["parameters/conditions/blow_up"] = true
+		$bomb_run/AnimationTree["parameters/conditions/start_running"] = false
+		Events.emit_signal("react_to_enemy_death", position_of_death, type_of_enemy)ss
 		died = true
 		self.queue_free()
 
@@ -86,11 +85,10 @@ func _physics_process(delta):
 	Direction = Direction.normalized()
 	velocity = velocity.lerp(Direction*speed, accel*delta)
 	if target_reached == false:
-		$bomb_run/AnimationPlayer.play("ArmatureAction_001")
+		
 		move_and_slide()
 		look_at(Events.current_player_position)
-#
-#
+
 
 func shot(gun):
 	if gun == "shotgun":

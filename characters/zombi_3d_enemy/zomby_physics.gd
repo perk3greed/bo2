@@ -52,8 +52,6 @@ func _physics_process(delta):
 	if current_pathfinding_turn == 6:
 		current_pathfinding_turn = 1
 	
-# old pathfinding player snapshot
-	target_pathfinding_position
 # new playersnapshot
 	var current_player_spot = $"../../../player".global_position
 #You use the function pow(a, b) which is equivalent to a ** b.

@@ -411,16 +411,16 @@ cost = 400
 description = "upgr 4"
 upgrade = "ammo"
 
-[node name="upgradik_5" type="Node" parent="Upgrades"]
-script = ExtResource("3_je21k")
-cost = 500
-description = "upgr 5"
-
 [node name="upgradik_6" type="Node" parent="Upgrades"]
 script = ExtResource("3_je21k")
 cost = 600
 description = "upgr 6 "
 upgrade = "health"
+
+[node name="upgradik_5" type="Node" parent="."]
+script = ExtResource("3_je21k")
+cost = 500
+description = "upgr 5"
 
 [node name="skip_button" type="Control" parent="."]
 anchors_preset = 0

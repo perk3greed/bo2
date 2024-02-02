@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dawonmnnpriw8"]
+[gd_scene load_steps=16 format=3 uid="uid://dawonmnnpriw8"]
 
 [ext_resource type="Script" path="res://characters/small_guy/small_duder.gd" id="1_r8ddl"]
 
@@ -574,6 +574,30 @@ _data = {
 "ArmatureAction_004": SubResource("Animation_8v1td")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f5olq"]
+animation = &"ArmatureAction_001"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_56qo7"]
+animation = &"ArmatureAction_004"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xmpjv"]
+advance_mode = 2
+advance_condition = &"start_running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7ebgr"]
+advance_mode = 2
+advance_condition = &"blow_up"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h874x"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8p76f"]
+states/ArmatureAction_001/node = SubResource("AnimationNodeAnimation_f5olq")
+states/ArmatureAction_001/position = Vector2(455, 49)
+states/ArmatureAction_004/node = SubResource("AnimationNodeAnimation_56qo7")
+states/ArmatureAction_004/position = Vector2(532, 172)
+transitions = ["Start", "ArmatureAction_001", SubResource("AnimationNodeStateMachineTransition_xmpjv"), "ArmatureAction_001", "ArmatureAction_004", SubResource("AnimationNodeStateMachineTransition_7ebgr"), "ArmatureAction_004", "End", SubResource("AnimationNodeStateMachineTransition_h874x")]
+
 [node name="small_duder" type="CharacterBody3D" groups=["enemy"]]
 collision_layer = 2
 script = ExtResource("1_r8ddl")
@@ -590,6 +614,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.765166, 0)
 shape = SubResource("SphereShape3D_chtoe")
 
 [node name="bomb_run" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Armature_bomb_run" type="Node3D" parent="bomb_run"]
 transform = Transform3D(0.622614, 0, 0, 0, 0.622614, 0, 0, 0, 0.622614, 0, 0.311373, 0)
@@ -599,64 +624,64 @@ bones/0/name = "Bone"
 bones/0/parent = -1
 bones/0/rest = Transform3D(0.999972, -0.00748011, 0.00017486, 0.00748214, 0.999661, -0.0249331, 1.17016e-05, 0.0249337, 0.999689, -1.11046e-17, 0.0500106, -0.100021)
 bones/0/enabled = true
-bones/0/position = Vector3(-3.29123e-11, -0.0378312, -0.100021)
-bones/0/rotation = Quaternion(-0.0590177, -0.00195685, 0.142463, 0.988037)
+bones/0/position = Vector3(-1.11046e-17, 0.0500106, -0.100021)
+bones/0/rotation = Quaternion(0.0124678, 4.0793e-05, 0.00374088, 0.999915)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Bone.003"
 bones/1/parent = 0
 bones/1/rest = Transform3D(0.990564, 0.132897, 0.033502, -0.13688, 0.971614, 0.192952, -0.00690831, -0.195716, 0.980636, 8.95795e-10, 1.17985, -8.38816e-09)
 bones/1/enabled = true
 bones/1/position = Vector3(8.95795e-10, 1.17985, -8.38816e-09)
-bones/1/rotation = Quaternion(-0.0352156, 0.12924, -0.238078, 0.961965)
+bones/1/rotation = Quaternion(-0.0978689, 0.0101755, -0.0679314, 0.992826)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Bone.004"
 bones/2/parent = 1
 bones/2/rest = Transform3D(0.999713, -0.0142212, -0.0192564, 0.00474069, 0.906094, -0.423051, 0.0234644, 0.422838, 0.905901, -1.31549e-08, 0.296492, 2.99187e-08)
 bones/2/enabled = true
 bones/2/position = Vector3(-1.31549e-08, 0.296492, 2.99187e-08)
-bones/2/rotation = Quaternion(0.219961, -0.0149104, 0.00545225, 0.975379)
+bones/2/rotation = Quaternion(0.216632, -0.0109408, 0.00485615, 0.97618)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Bone.011"
 bones/3/parent = -1
 bones/3/rest = Transform3D(0.992626, 0.113324, -0.0430289, -0.120623, 0.958562, -0.258086, 0.0119986, 0.261373, 0.965163, 0.0499143, 1.73502, -0.119086)
 bones/3/enabled = true
-bones/3/position = Vector3(-0.528985, 1.75332, -0.32039)
+bones/3/position = Vector3(0.0499143, 1.73502, -0.119086)
 bones/3/rotation = Quaternion(0.131244, -0.013903, -0.059108, 0.989489)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "Bone.005"
 bones/4/parent = -1
 bones/4/rest = Transform3D(-0.000808597, -0.00647479, -0.999979, -0.194243, -0.980932, 0.00650854, -0.980953, 0.194244, -0.000464439, -0.288297, 0.0382434, -0.100021)
 bones/4/enabled = true
-bones/4/position = Vector3(-0.288297, 0.0276529, -0.100021)
-bones/4/rotation = Quaternion(-0.684685, 0.176813, 0.687969, -0.163224)
+bones/4/position = Vector3(-0.288297, 0.0382434, -0.100021)
+bones/4/rotation = Quaternion(-0.703667, 0.0713114, 0.703789, -0.0666991)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Bone.007"
 bones/5/parent = 4
 bones/5/rest = Transform3D(0.88045, 0.474138, 0.000808721, -0.474132, 0.88043, 0.0064747, 0.00235788, -0.00608409, 0.999979, 1.75496e-08, 0.181739, 2.18006e-08)
 bones/5/enabled = true
 bones/5/position = Vector3(1.75496e-08, 0.181739, 2.18006e-08)
-bones/5/rotation = Quaternion(0.000325341, -0.00130123, -0.387884, 0.921707)
+bones/5/rotation = Quaternion(-0.00323798, -0.000399416, -0.244488, 0.969647)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "Bone.009"
 bones/6/parent = 5
 bones/6/rest = Transform3D(-0.300809, -0.953684, -2.47931e-07, 0.953684, -0.300809, 2.43489e-07, -3.06791e-07, -1.63204e-07, 1, -1.58413e-08, 0.28009, -1.09498e-09)
 bones/6/enabled = true
 bones/6/position = Vector3(-1.58413e-08, 0.28009, -1.09498e-09)
-bones/6/rotation = Quaternion(-1.7233e-07, 2.52092e-08, 0.806477, 0.591266)
+bones/6/rotation = Quaternion(-1.71958e-07, 2.48874e-08, 0.806477, 0.591266)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/name = "Bone.006"
 bones/7/parent = -1
 bones/7/rest = Transform3D(0.000808656, -0.00647472, 0.999979, 0.194243, -0.980932, -0.00650846, 0.980953, 0.194244, 0.000464559, 0.279471, 0.0382434, -0.100021)
 bones/7/enabled = true
 bones/7/position = Vector3(0.279471, 0.0382434, -0.100021)
-bones/7/rotation = Quaternion(0.616051, -0.308751, 0.62526, -0.36634)
+bones/7/rotation = Quaternion(0.703789, 0.0666991, 0.703667, 0.0713114)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/name = "Bone.008"
 bones/8/parent = 7
 bones/8/rest = Transform3D(0.88045, -0.474138, 0.000808569, 0.474132, 0.88043, -0.00647478, 0.00235805, 0.00608409, 0.999979, -1.38971e-08, 0.181739, 1.32259e-08)
 bones/8/enabled = true
 bones/8/position = Vector3(-1.38971e-08, 0.181739, 1.32259e-08)
-bones/8/rotation = Quaternion(0.0208417, 0.00834628, 0.490353, 0.871235)
+bones/8/rotation = Quaternion(0.003238, -0.000399498, 0.244488, 0.969647)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "Bone.010"
 bones/9/parent = 8
@@ -669,15 +694,15 @@ bones/10/name = "Leg_R_IK"
 bones/10/parent = -1
 bones/10/rest = Transform3D(1.19209e-07, -2.98023e-08, -1, 0.999856, 0.017006, 2.08616e-07, 0.0170061, -0.999856, 0, -0.321907, -0.3961, -0.196211)
 bones/10/enabled = true
-bones/10/position = Vector3(-0.297196, -0.39963, -0.100897)
-bones/10/rotation = Quaternion(0.495589, -0.503172, -0.507096, 0.494027)
+bones/10/position = Vector3(-0.321907, -0.3961, -0.196211)
+bones/10/rotation = Quaternion(-0.49573, -0.504234, 0.49573, 0.504234)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/name = "Leg_L_IK"
 bones/11/parent = -1
 bones/11/rest = Transform3D(0, -2.98023e-08, 1, -0.999855, 0.017006, 2.98023e-08, -0.017006, -0.999855, 0, 0.310728, -0.3961, -0.196211)
 bones/11/enabled = true
-bones/11/position = Vector3(0.310728, 0.0628211, -0.503336)
-bones/11/rotation = Quaternion(-0.672748, 0.0313694, -0.735665, 0.0722715)
+bones/11/position = Vector3(0.310728, -0.3961, -0.196211)
+bones/11/rotation = Quaternion(-0.49573, 0.504234, -0.49573, 0.504234)
 bones/11/scale = Vector3(1, 1, 1)
 
 [node name="Bomb" type="MeshInstance3D" parent="bomb_run/Armature_bomb_run/Skeleton3D"]
@@ -688,6 +713,15 @@ skin = SubResource("Skin_n17vs")
 libraries = {
 "": SubResource("AnimationLibrary_q374j")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="bomb_run"]
+libraries = {
+"": SubResource("AnimationLibrary_q374j")
+}
+tree_root = SubResource("AnimationNodeStateMachine_8p76f")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/blow_up = false
+parameters/conditions/start_running = false
 
 [connection signal="path_changed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_path_changed"]
 [connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]

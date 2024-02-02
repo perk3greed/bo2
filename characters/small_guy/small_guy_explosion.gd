@@ -6,7 +6,7 @@ var player_damaged :bool = false
 signal player_damaged_by_small_guy_explosion
 
 func _ready():
-	self.position.y == 0 
+	pass
 
 func _process(delta):
 

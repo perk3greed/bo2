@@ -26,7 +26,7 @@ func  _ready():
 
 func _process(delta):
 	my_timer += delta
-	if my_timer > 10 and ready_to_spawn and spawn_enemy_count<max_spawn_enemy_count:
+	if my_timer > 3 and ready_to_spawn and spawn_enemy_count<max_spawn_enemy_count:
 		if first_spawn:
 			for i in range(5):
 				spawn()
