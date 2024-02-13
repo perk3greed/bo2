@@ -23,6 +23,9 @@ var rng = RandomNumberGenerator.new()
 
 
 
+
+
+
 #var player_current_money :int = 1000
 var amount_of_enemies_spawning :int = 1
 var current_round : int = 0
@@ -260,6 +263,11 @@ func round_ended():
 	$player.upgrades_on_screen = true
 	$"Upgrade Pnale".visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	$"Upgrade Pnale".visible = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$start_round_timer.start()
+	$player.upgrades_on_screen = false
+
 
 
 

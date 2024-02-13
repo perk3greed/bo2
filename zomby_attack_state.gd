@@ -22,9 +22,9 @@ func _ready():
 func enter_state():
 	animator.play("ArmaturaAction")
 	#$"../../cartoonzombie2/Armatura/Skeleton3D/cartoonzombie".mesh.material.albedo_color = Color(0,100,60,0.5) 
-
-func exit_state():
-	animator.stop()
+#
+#func exit_state():
+	#animator.stop()
 
 
 func _physics_process(delta):

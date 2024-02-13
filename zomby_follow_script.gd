@@ -25,10 +25,10 @@ func enter_state():
 	#mesh_zomby.mesh.material.albedo_color = Color(255,0,0,0.8) 
 	var mesh_surf = mesh_zomby.mesh.surface_get_material(0) 
 	mesh_surf.albedo_color = Color(0.914, 0.876, 0.785,0.8)
-
-
-func exit_state():
-	animator.stop()
+#
+#
+#func exit_state():
+	#animator.stop()
 
 
 func _physics_process(delta):
@@ -81,10 +81,10 @@ func calculate_distance_to_player():
 	var bruh_z_pow2 = pow(bruh_z, 2)
 	
 	var distance_calculated = sqrt(bruh_x_pow2+bruh_y_pow2+bruh_z_pow2)
-	
-	if distance_calculated >2 : 
-		$"..".change_state($"../zomby_attack_state")
-		
+	#
+	#if distance_calculated >2 : 
+		#$"..".change_state($"../zomby_attack_state")
+		#
 	
 
 func _on_navigation_agent_3d_target_reached():

@@ -1,93 +1,37 @@
 extends CharacterBody3D
 
-var speed = 3
-var accel = 2
-
 var health_points :float = 100
-var current_mode := "idle"
 var atack_animation_playing :bool = false
 var rng = RandomNumberGenerator.new()
-var target_reached : bool
-var died : bool = false
-var Direction = Vector3()
-var target_pathfinding_position :Vector3 
-var pathfinding_priority : int 
-var current_pathfinding_turn : int = 1
-
-
-
-@onready var nav: NavigationAgent3D = $NavigationAgent3D
-#@onready var animation_tree : AnimationTree = $AnimationTree
-
-
-
-@export var patrol_point1 :Vector3
-@export var patrol_point2 :Vector3
-@onready var current_patrol_point :Vector3
-
+var died :bool
+enum states {search,attack,jump}
+var speed = 6
+var accel = 1
+@onready var navig = $NavigationAgent3D
+@onready var vision = $RayCast3D
 
 signal player_hit
 
 signal react_to_enemy_death(position_of_death, type_of_enemy)
 
 func _ready():
-
 	var avoid_rng = rng.randf_range(0,1)
-	pathfinding_priority = rng.randi_range(1,5)
-	
-	$bomb_run/AnimationTree["parameters/conditions/start_running"] = true
 	$NavigationAgent3D.avoidance_priority = avoid_rng 
 
-	
 
 func _physics_process(delta):
-	
-	
-	
-	
-	var current_player_spot = Events.current_player_position
-#You use the function pow(a, b) which is equivalent to a ** b.
-#sqrt( (x1-x2)^2 + (y1-y2)^2 + (z1-z2)^2 )
-	var bruh_x = (current_player_spot.x - self.position.x)
-	var bruh_y = (current_player_spot.y - self.position.y)
-	var bruh_z = (current_player_spot.z - self.position.z)
-	var bruh_x_pow2 = pow(bruh_x, 2)
-	var bruh_y_pow2 = pow(bruh_y, 2)
-	var bruh_z_pow2 = pow(bruh_z, 2)
-	
-	var distance_to_player = bruh_x_pow2  + bruh_y_pow2 + bruh_z_pow2
-	
-	
-	
-	if distance_to_player < 6:
-		var position_of_death = position
-		var type_of_enemy = "small_duder_empty"
-		$bomb_run/AnimationTree["parameters/conditions/blow_up"] = true
-		$bomb_run/AnimationTree["parameters/conditions/start_running"] = false
-		Events.emit_signal("react_to_enemy_death", position_of_death, type_of_enemy)ss
-		died = true
-		self.queue_free()
-
-
-	
 	if is_on_floor():
 		velocity.y = 0
 	
 	else :
-		velocity.y -= 0.3
-		move_and_slide()
+		velocity.y -= 6
+		move_and_slide() 
 #
+#func _process(delta):
+	#if states.search : 
+		#search_for_player()
 
-	nav.target_position =  Events.current_player_position
-	Direction = nav.get_next_path_position() - global_position
-	target_pathfinding_position = nav.target_position
 
-	Direction = Direction.normalized()
-	velocity = velocity.lerp(Direction*speed, accel*delta)
-	if target_reached == false:
-		
-		move_and_slide()
-		look_at(Events.current_player_position)
 
 
 func shot(gun):
@@ -95,7 +39,7 @@ func shot(gun):
 		health_points -= 15
 		
 		check_health()
-		
+	
 	elif gun == "sword":
 		health_points -= 15
 		
@@ -105,6 +49,49 @@ func shot(gun):
 		health_points -= 100
 		
 		check_health()
+
+#
+#func search_for_player():
+	#$"../../bomb_run/AnimationTree"["parameters/conditions/start_running"] = true
+	#
+	#var look_at_me = Vector3(Events.current_player_position.x, global_position.y, Events.current_player_position.z)
+	#
+	#
+	#$NavigationAgent3D.target_position =  Events.current_player_position
+	#var Direction = $NavigationAgent3D.get_next_path_position() - global_position
+	#var target_pathfinding_position = $NavigationAgent3D.target_position
+	#
+	#Direction = Direction.normalized()
+	#velocity = velocity.lerp(Direction*speed, accel)
+	#
+	#move_and_slide()
+	#look_at(Events.current_player_position)
+	#
+	#var what_i_see = $"../../RayCast3D".get_collider()
+	#if what_i_see.is_in_group("player"):
+		#$"..".change_state($"../bomb_attack")
+#
+
+
+func _on_navigation_agent_3d_velocity_computed(safe_velocity):
+	if safe_velocity != Vector3.ZERO:
+	
+		$"../..".velocity = safe_velocity
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 func check_health():
@@ -121,18 +108,4 @@ func check_health():
 
 func interact():
 	pass
-
-
-func _on_navigation_agent_3d_target_reached():
-	target_reached = true
-
-
-func _on_navigation_agent_3d_velocity_computed(safe_velocity):
-	if safe_velocity != Vector3.ZERO:
-	
-		velocity = safe_velocity
-
-
-func _on_navigation_agent_3d_path_changed():
-	target_reached = false
 

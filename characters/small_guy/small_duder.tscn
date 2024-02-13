@@ -1,6 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://dawonmnnpriw8"]
+[gd_scene load_steps=21 format=3 uid="uid://dawonmnnpriw8"]
 
 [ext_resource type="Script" path="res://characters/small_guy/small_duder.gd" id="1_r8ddl"]
+[ext_resource type="Script" path="res://characters/state_machine/finite_state_machine.gd" id="2_ndob4"]
+[ext_resource type="Script" path="res://bomb_jump_script.gd" id="3_0wix0"]
+[ext_resource type="Script" path="res://bomb_search_state.gd" id="4_75ixm"]
+[ext_resource type="Script" path="res://bomb_attack.gd" id="5_2hetl"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_chtoe"]
 
@@ -566,12 +570,36 @@ tracks/22/path = NodePath("Armature_bomb_run/Skeleton3D:Leg_L_IK")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = PackedFloat32Array(0, 1, 1, 1, 1, 1.8, 1, 1, 1, 1, 1.83333, 1, 1.28411, 1.28411, 1.28411, 1.86667, 1, 1.15291, 1.15291, 1.15291, 1.9, 1, 0.840059, 0.840059, 0.840059, 1.93333, 1, 0.466651, 0.466651, 0.466651, 1.96667, 1, 0.153796, 0.153796, 0.153796, 2, 1, 0.022599, 0.022599, 0.022599)
+tracks/23/type = "method"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("../Finite_state_machine/bomb_jump")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0.8, 1.2, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"bomb_started_going_up"
+}, {
+"args": [],
+"method": &"bomb_started_going_down"
+}, {
+"args": [],
+"method": &"bomb_explodes"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_1hfec"]
+length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q374j"]
 _data = {
 "ArmatureAction_001": SubResource("Animation_nqvj6"),
 "ArmatureAction_003": SubResource("Animation_sfosm"),
-"ArmatureAction_004": SubResource("Animation_8v1td")
+"ArmatureAction_004": SubResource("Animation_8v1td"),
+"RESET": SubResource("Animation_1hfec")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f5olq"]
@@ -589,7 +617,8 @@ advance_mode = 2
 advance_condition = &"blow_up"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h874x"]
-advance_mode = 2
+switch_mode = 2
+advance_mode = 0
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8p76f"]
 states/ArmatureAction_001/node = SubResource("AnimationNodeAnimation_f5olq")
@@ -603,6 +632,7 @@ collision_layer = 2
 script = ExtResource("1_r8ddl")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 3.0
 path_max_distance = 0.31
 avoidance_enabled = true
 radius = 0.7
@@ -723,6 +753,28 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/blow_up = false
 parameters/conditions/start_running = false
 
-[connection signal="path_changed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_path_changed"]
-[connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
-[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.708522, -0.539117)
+target_position = Vector3(0, 0, -100)
+
+[node name="Finite_state_machine" type="Node" parent="." node_paths=PackedStringArray("state")]
+script = ExtResource("2_ndob4")
+state = NodePath("bomb_attack")
+
+[node name="bomb_jump" type="Node" parent="Finite_state_machine"]
+script = ExtResource("3_0wix0")
+
+[node name="bomb_search" type="Node" parent="Finite_state_machine"]
+script = ExtResource("4_75ixm")
+
+[node name="bomb_attack" type="Node" parent="Finite_state_machine"]
+script = ExtResource("5_2hetl")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45241, 0)
+billboard = 1
+text = "state"
+font_size = 50
+outline_size = 20
+
+[connection signal="velocity_computed" from="NavigationAgent3D" to="Finite_state_machine/bomb_search" method="_on_navigation_agent_3d_velocity_computed"]

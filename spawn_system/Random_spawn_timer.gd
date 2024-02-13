@@ -8,7 +8,7 @@ var spawn_count = 0
 var max_spawn_count = 1
 
 func  _ready():
-	Events.connect("change_state",change_timer_state)
+	Events.connect("change_state_spawner",change_timer_state)
 	if (autostart and ready_to_spawn):
 		random_start()
 

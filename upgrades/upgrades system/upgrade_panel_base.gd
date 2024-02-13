@@ -34,3 +34,4 @@ func updateUI(set_cost,set_description,set_name,set_image, set_upgrade_version, 
 
 func _on_button_pressed():
 	Events.emit_signal("upgrade_button_pressed", upgrade_version, upgrade, name_s, cost_s)
+	print(upgrade)

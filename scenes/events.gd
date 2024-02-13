@@ -37,7 +37,7 @@ signal upgrade_button_pressed(upgrade_version,upgrade, name_s, cost_s)
 signal skip_button_pressed
 signal panel_check(count)
 
-signal change_state
+signal change_state_spawner
 signal SpawnEnemies
 signal SpawnersCheck(amount_of_enemies_spawning)
 

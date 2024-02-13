@@ -1,6 +1,6 @@
 extends Node
 # enum type { ammo, health, speed } 
-@export var path_number = "0"
+var path_number = "1"
 @onready var panel = get_node("../../Panel"+path_number)
 @export var cost = 100
 @export var description = "Новое описание"

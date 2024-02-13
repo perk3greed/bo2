@@ -10,8 +10,13 @@ func _ready():
 	
 
 
-func change_state(new_state):
+func change_state(new_state: State):
 	if state is State:
-		state.exit_state()
-	new_state.enter_state()
-	state = new_state
+		if new_state != state:
+			state.exit_state()
+			new_state.enter_state()
+			state = new_state
+ 
+func _process(delta):
+	$"../Label3D".text = str(state)
+	state.update()

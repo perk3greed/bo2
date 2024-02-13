@@ -39,7 +39,7 @@ func _process(delta):
 		my_timer=0
 
 
-func change_state():
+func change_state_spawner():
 	self.ready_to_spawn = !(self.ready_to_spawn)
 
 func find_and_activate_spawners(enemy_count):
@@ -52,13 +52,13 @@ func find_and_activate_spawners(enemy_count):
 		if self.gaycast.get_collider() == target and self.gaycast.global_position.distance_to(Events.current_player_position)<=dist_to_activate_spawner:
 			if !self.ready_to_spawn:
 				my_timer = 0
-				change_state()
-				Events.emit_signal("change_state")
+				change_state_spawner()
+				Events.emit_signal("change_state_spawner")
 		else :
 			if self.ready_to_spawn and self.gaycast.global_position.distance_to(Events.current_player_position)>=dist_to_deactivate_spawner:
-				change_state()
+				change_state_spawner()
 				my_timer = 0
-				Events.emit_signal("change_state")
+				Events.emit_signal("change_state_spawner")
 	gaycast.enabled = false
 
 

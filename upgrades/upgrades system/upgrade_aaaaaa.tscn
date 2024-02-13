@@ -417,7 +417,7 @@ cost = 600
 description = "upgr 6 "
 upgrade = "health"
 
-[node name="upgradik_5" type="Node" parent="."]
+[node name="upgradik_5" type="Node" parent="Upgrades"]
 script = ExtResource("3_je21k")
 cost = 500
 description = "upgr 5"
