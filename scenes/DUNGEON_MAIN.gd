@@ -19,10 +19,9 @@ var rng = RandomNumberGenerator.new()
 @onready var shotgun_ammo_loot = load("res://loot_itmes/shotgun_ammo_pack.tscn")
 @onready var money_pack_loot = load("res://loot_itmes/money_pack_loot.tscn")
 @onready var zomby_stated = load("res://characters/zomby_stated_3d/zomy_stated.tscn")
-
-
-
-
+@onready var navigation_reg = $"SubViewportContainer2/SubViewport/SubViewportContainer/SubViewport/3dworld/level/NavigationRegion3D"
+@onready var enemies = $"SubViewportContainer2/SubViewport/SubViewportContainer/SubViewport/3dworld/level/NavigationRegion3D/enemies"
+@onready var player = $"SubViewportContainer2/SubViewport/SubViewportContainer/SubViewport/3dworld/player"
 
 
 
@@ -75,7 +74,7 @@ func skip_button_pressed_func():
 	$"Upgrade Pnale".visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$start_round_timer.start()
-	$player.upgrades_on_screen = false
+	player.upgrades_on_screen = false
 
 
 func upgrade_button_pressed_func(upgrade_version, upgrade, name, cost):
@@ -93,7 +92,7 @@ func upgrade_button_pressed_func(upgrade_version, upgrade, name, cost):
 			var upgradeSpeed
 		
 			
-	$player.upgrades_on_screen = false
+	player.upgrades_on_screen = false
 
 func spawn_a_wave_of_zombies():
 	
@@ -122,19 +121,19 @@ func spawn_a_wave_of_zombies():
 #			var bruh_spawner = 1
 			if bruh_spawner == 0:
 				var ghost_instance = ghost_simple.instantiate()
-				$DUNGEON_ROOT/NavigationRegion3D/ENEMIES.add_child(ghost_instance)
+				enemies.add_child(ghost_instance)
 				ghost_instance.position = current_spawning_spot.position
 			elif bruh_spawner == 1:
 				var small_guy_instance = small_guy.instantiate() 
-				$DUNGEON_ROOT/NavigationRegion3D/ENEMIES.add_child(small_guy_instance)
+				enemies.add_child(small_guy_instance)
 				small_guy_instance.position = current_spawning_spot.position
 			elif bruh_spawner == 2:
 				var ghost_exploding_instance = ghost_exploding.instantiate() 
-				$DUNGEON_ROOT/NavigationRegion3D/ENEMIES.add_child(ghost_exploding_instance)
+				enemies.add_child(ghost_exploding_instance)
 				ghost_exploding_instance.position = current_spawning_spot.position
 			elif bruh_spawner == 3:
 				var zomby_stated_instanced = zomby_stated.instantiate()
-				$DUNGEON_ROOT/NavigationRegion3D/ENEMIES.add_child(zomby_stated_instanced)
+				enemies.add_child(zomby_stated_instanced)
 				zomby_stated_instanced.position = current_spawning_spot.position
 #
 #		$DUNGEON_ROOT/NavigationRegion3D/ENEMIES.add_child(zombie_instance)
@@ -168,10 +167,10 @@ func spawn_one_enemy():
 			var bruh_spawner = rng.randi()%2
 #			var bruh_spawner = 1
 			if bruh_spawner == 0:
-				$DUNGEON_ROOT/NavigationRegion3D/ENEMIES.add_child(ghost_instance)
+				enemies.add_child(ghost_instance)
 				ghost_instance.position = current_spawning_spot.position
 			else :
-				$DUNGEON_ROOT/NavigationRegion3D/ENEMIES.add_child(small_guy_inst)
+				enemies.add_child(small_guy_inst)
 				small_guy_inst.position = current_spawning_spot.position
 
 
@@ -189,8 +188,8 @@ func _process(delta):
 	player_current_magazine_pb = Events.current_pb_magazin
 	
 	
-	player_current_ammo_shotgun = $player.shotgun_ammo
-	player_position = $player.global_position
+	player_current_ammo_shotgun = player.shotgun_ammo
+	player_position = player.global_position
 	
 	$Control/score.text = str(Events.player_money)
 	$Control/current_hp.value = player_hp
@@ -260,13 +259,13 @@ func damage_player_by_explosion():
 
 
 func round_ended():
-	$player.upgrades_on_screen = true
+	player.upgrades_on_screen = true
 	$"Upgrade Pnale".visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$"Upgrade Pnale".visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$start_round_timer.start()
-	$player.upgrades_on_screen = false
+	player.upgrades_on_screen = false
 
 
 

@@ -43,20 +43,20 @@ var current_weapon :String
 var upgrades_on_screen :bool = false 
 
 
-@onready var shotgun_raycast1 = $Head/Camera3D/shotgun_raycast/shotgun1
-@onready var shotgun_raycast2 = $Head/Camera3D/shotgun_raycast/shotgun2
-@onready var shotgun_raycast3 = $Head/Camera3D/shotgun_raycast/shotgun3
-@onready var shotgun_raycast4 = $Head/Camera3D/shotgun_raycast/shotgun4
-@onready var shotgun_raycast5 = $Head/Camera3D/shotgun_raycast/shotgun5
-@onready var shotgun_raycast6 = $Head/Camera3D/shotgun_raycast/shotgun6
-@onready var shotgun_raycast7 = $Head/Camera3D/shotgun_raycast/shotgun7
-@onready var shotgun_raycast8 = $Head/Camera3D/shotgun_raycast/shotgun8
-@onready var shotgun_raycast9 = $Head/Camera3D/shotgun_raycast/shotgun9
+@onready var shotgun_raycast1 = $Head/camera_crane/shotgun_raycast/shotgun1
+@onready var shotgun_raycast2 = $Head/camera_crane/shotgun_raycast/shotgun2
+@onready var shotgun_raycast3 = $Head/camera_crane/shotgun_raycast/shotgun3
+@onready var shotgun_raycast4 = $Head/camera_crane/shotgun_raycast/shotgun4
+@onready var shotgun_raycast5 = $Head/camera_crane/shotgun_raycast/shotgun5
+@onready var shotgun_raycast6 = $Head/camera_crane/shotgun_raycast/shotgun6
+@onready var shotgun_raycast7 = $Head/camera_crane/shotgun_raycast/shotgun7
+@onready var shotgun_raycast8 = $Head/camera_crane/shotgun_raycast/shotgun8
+@onready var shotgun_raycast9 = $Head/camera_crane/shotgun_raycast/shotgun9
 
-@onready var crshr_up = $"../Control/crosshare/up"
-@onready var crshr_right = $"../Control/crosshare/right"
-@onready var crshr_left = $"../Control/crosshare/left"
-@onready var crshr_down = $"../Control/crosshare/down"
+@onready var crshr_up = $"../../../../../../Control/crosshare/up"
+@onready var crshr_right = $"../../../../../../Control/crosshare/right"
+@onready var crshr_left = $"../../../../../../Control/crosshare/left"
+@onready var crshr_down = $"../../../../../../Control/crosshare/down"
 
 
 
@@ -66,10 +66,12 @@ shotgun_raycast7, shotgun_raycast8, shotgun_raycast9 ]
 
 
 @onready var head = $Head
-@onready var camera = $Head/Camera3D
-@onready var gun_raycast = $Head/Camera3D/gun_raycast
-@onready var interact_prompt = $"../Control/RichTextLabel"
-@onready var sprint_ui = $"../Control/ProgressBar"
+@onready var camera = $Head/camera_crane
+@onready var gun_raycast = $Head/camera_crane/gun_raycast
+@onready var interact_prompt = $"../../../../../../Control/RichTextLabel"
+@onready var sprint_ui = $"../../../../../../Control/ProgressBar"
+@onready var real_camera =$Head/camera_crane/Camera3D
+@onready var hand_raycast = $Head/camera_crane/hand_raycast
 
 signal action_use_pressed
 signal object_interacted_with(owner_of_node)
@@ -97,7 +99,7 @@ func _ready():
 	Events.connect("give_player_the_shotgun", give_me_the_shotgun)
 	Events.connect("pb_handgun_attack_finished", do_finish_of_pb_shot)
 	Events.connect("pb_reload_finished", do_finish_reload_pb)
-	default_target_pos=gun_raycast.target_position
+	default_target_pos = gun_raycast.target_position
 	target_pos = generate_target_pos()
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -136,7 +138,7 @@ func give_me_the_shotgun():
 	shotgun_owned = true
 	current_weapon = "shotgun" 
 	Events.emit_signal("got_shotgun")
-	$Head/Camera3D/hand_raycast.enabled = false
+	hand_raycast.enabled = false
 
 func reload_shotty():
 	for child in 8:
@@ -214,7 +216,7 @@ func _physics_process(delta):
 	
 	
 	
-	var shot_hit_crsaim = $Head/Camera3D/gun_raycast.get_collider()
+	var shot_hit_crsaim = gun_raycast.get_collider()
 	if shot_hit_crsaim != null:
 		if shot_hit_crsaim.is_in_group("enemy"):
 			crshr_up.color = "red"
@@ -229,8 +231,8 @@ func _physics_process(delta):
 	
 	
 	
-	$Head/Camera3D/hand_raycast.force_raycast_update()
-	var hand_touched_what = $Head/Camera3D/hand_raycast.get_collider()
+	hand_raycast.force_raycast_update()
+	var hand_touched_what = hand_raycast.get_collider()
 	
 	if gun_raycast.target_position.distance_to(target_pos) < 1:
 		target_pos = generate_target_pos()
@@ -255,8 +257,7 @@ func _physics_process(delta):
 			interact_prompt.visible = false
 	else:
 		interact_prompt.visible = false
-	
-	$Head/SubViewportContainer/SubViewport/hands_camera3D.global_transform = camera.global_transform
+		
 
 	
 	if not is_on_floor():
@@ -307,7 +308,7 @@ func _physics_process(delta):
 		Events.emit_signal("stop_ads")
 	
 	if Input.is_action_just_pressed("E"):
-		var hand_touched = $Head/Camera3D/hand_raycast.get_collision_point()
+		var hand_tousched = $Head/camera_crane/Camera3D/hand_raycast.get_collision_point()
 		if hand_touched_what != null:
 #			print(hand_touched_what.get_groups())
 			if hand_touched_what.is_in_group("object"):
@@ -365,8 +366,8 @@ func _physics_process(delta):
 					recoil_count = 3
 
 					pb_shot_active = true
-					var shot_hit_object = $Head/Camera3D/gun_raycast.get_collider()
-					var shot_hit_position = $Head/Camera3D/gun_raycast.get_collision_point()
+					var shot_hit_object = gun_raycast.get_collider()
+					var shot_hit_position = gun_raycast.get_collision_point()
 					if shot_hit_object.is_in_group("enemy"):
 						shot_hit_object.shot("pb")
 					elif shot_hit_object.is_in_group("decor"):
@@ -384,7 +385,7 @@ func _physics_process(delta):
 					recoil_count = 0
 
 					pb_shot_active = true
-					var shot_hit_object = $Head/Camera3D/gun_raycast.get_collider()
+					var shot_hit_object = gun_raycast.get_collider()
 					if shot_hit_object.is_in_group("enemy"):
 						shot_hit_object.shot("pb")
 					elif shot_hit_object.is_in_group("decor"):
@@ -481,7 +482,7 @@ func _physics_process(delta):
 	# FOV
 	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
 	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
-	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
+	real_camera.fov = lerp(real_camera.fov, target_fov, delta * 8.0)
 	
 	move_and_slide()
 	
@@ -497,7 +498,7 @@ func _physics_process(delta):
 
 func sword_attack_finished_function():
 	
-	var bodies_hit_by_sword = $Head/Camera3D/sword_are3d.get_overlapping_bodies()
+	var bodies_hit_by_sword = $Head/camera_crane/Camera3D/sword_are3d.get_overlapping_bodies()
 	var hit_bodies_size = bodies_hit_by_sword.size()
 	for i in range(hit_bodies_size):
 		if bodies_hit_by_sword[i].is_in_group("enemy"):
