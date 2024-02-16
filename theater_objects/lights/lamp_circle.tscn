@@ -1,4 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3f0uvmr21chf"]
+[gd_scene load_steps=10 format=3 uid="uid://c3f0uvmr21chf"]
+
+[ext_resource type="Shader" path="res://theater_objects/lights/ps1_lit.gdshader" id="1_mprgq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mp8qj"]
 size = Vector3(8.56256, 8.2641, 14.1283)
@@ -44,6 +46,18 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_h1yck")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tpr7y"]
+render_priority = 0
+shader = ExtResource("1_mprgq")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e0fsn"]
 emission_enabled = true
@@ -104,6 +118,7 @@ shape = SubResource("BoxShape3D_mp8qj")
 transform = Transform3D(0.06805, 0, 0, 0, 0, -0.06805, 0, 0.06805, 0, 0, 0, 0)
 mesh = SubResource("ArrayMesh_kukmy")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_tpr7y")
 
 [node name="lamp2_light" type="MeshInstance3D" parent="lamp22"]
 transform = Transform3D(0.06805, 0, 0, 0, 0, -0.06805, 0, 0.06805, 0, 0, 0, 0)
