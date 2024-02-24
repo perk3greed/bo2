@@ -50,7 +50,7 @@ shadow_mesh = SubResource("ArrayMesh_h1yck")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tpr7y"]
 render_priority = 0
 shader = ExtResource("1_mprgq")
-shader_parameter/jitter = 0.5
+shader_parameter/jitter = 0.8
 shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true

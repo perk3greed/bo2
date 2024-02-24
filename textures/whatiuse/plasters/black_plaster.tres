@@ -4,8 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cjj8adpsnv14m" path="res://textures/whatiuse/fn_or_n_files/cursed_rebblack_plaster_n.png" id="2_8ej8x"]
 
 [resource]
+albedo_color = Color(0.988235, 0.776471, 0.858824, 1)
 albedo_texture = ExtResource("1_c5d6g")
+emission_enabled = true
+emission = Color(0.32549, 0.329412, 0.333333, 1)
 normal_enabled = true
-normal_scale = 0.2
 normal_texture = ExtResource("2_8ej8x")
 texture_filter = 2

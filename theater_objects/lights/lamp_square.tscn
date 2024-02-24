@@ -54,8 +54,8 @@ shader_parameter/jitter_z_coordinate = true
 shader_parameter/jitter_depth_independent = true
 shader_parameter/affine_texture_mapping = true
 shader_parameter/alpha_scissor = 1.0
-shader_parameter/albedo_color = Color(0.0705882, 0.556863, 0.588235, 1)
-shader_parameter/emission_color = Color(0.678431, 0.435294, 0.690196, 1)
+shader_parameter/albedo_color = Color(0.0431373, 0.14902, 0.231373, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
 shader_parameter/texture_size = Vector2(1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b58tq"]

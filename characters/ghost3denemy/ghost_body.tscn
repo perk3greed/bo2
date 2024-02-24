@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://b1psw8o33gfvl"]
+[gd_scene load_steps=16 format=3 uid="uid://b1psw8o33gfvl"]
 
 [ext_resource type="Script" path="res://characters/ghost3denemy/ghost_normal_fb.gd" id="1_ji80q"]
 [ext_resource type="Script" path="res://characters/ghost3denemy/gun_body_hitbox.gd" id="2_lntmw"]
 [ext_resource type="Script" path="res://characters/ghost3denemy/ghost_headshot.gd" id="2_r1kfm"]
+[ext_resource type="Shader" path="res://theater_objects/lights/ps1_unlit.gdshader" id="3_y6pcu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_erylh"]
 height = 2.56
@@ -88,6 +89,18 @@ bind/15/pose = Transform3D(1.0045, -0.651813, 0.37149, 0.602914, 0.331868, -1.04
 bind/16/name = &"neutral_bone"
 bind/16/bone = -1
 bind/16/pose = Transform3D(1.24482, -0.149341, -2.00653e-08, -2.00653e-08, 1.19932e-09, -1.25375, 0.149341, 1.24482, -1.19932e-09, 0.0495592, 0.0083238, -3.22864)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r15t1"]
+render_priority = 0
+shader = ExtResource("3_y6pcu")
+shader_parameter/jitter = 0.5
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo_color = Color(1, 1, 1, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/texture_size = Vector2(1, 1)
 
 [sub_resource type="Animation" id="Animation_u7g7n"]
 resource_name = "ArmatureAction_Idol"
@@ -841,6 +854,7 @@ bones/16/scale = Vector3(1, 1, 1)
 [node name="ghost" type="MeshInstance3D" parent="ghost 1/ghost_01/Armature_ghost_01/Skeleton3D"]
 mesh = SubResource("ArrayMesh_laot6")
 skin = SubResource("Skin_2s4ra")
+surface_material_override/0 = SubResource("ShaderMaterial_r15t1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ghost 1/ghost_01"]
 libraries = {
