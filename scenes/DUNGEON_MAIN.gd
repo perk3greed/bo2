@@ -32,14 +32,14 @@ var enemies_to_kill_for_round_to_end : int
 var amout_of_spawn_positions : int 
 
 var not_spawned_enemies : int 
-
+var current_camera_floating : bool
 
 var player_current_weapon 
 var spawn_points_number
 
 var spawning_coordinates :Array = []
 signal round_ended_signal
-
+signal change_current_camera
 
 func _ready():
 #	Events.connect("change_weapons",check_player_weapons)
@@ -179,6 +179,12 @@ func spawn_one_enemy():
 
 
 func _process(delta):
+	if Input.is_action_just_pressed("u"):
+		if current_camera_floating == false: 
+			current_camera_floating = true
+		elif current_camera_floating == true :
+			current_camera_floating = false
+		Events.emit_signal("change_current_camera" ,current_camera_floating)
 	
 	if Input.is_action_just_pressed("g"):
 		$start_round_timer.start()

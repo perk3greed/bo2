@@ -40,7 +40,7 @@ signal panel_check(count)
 signal change_state_spawner
 signal SpawnEnemies
 signal SpawnersCheck(amount_of_enemies_spawning)
-
+signal change_current_camera(current_camera_floating)
 
 var interacted_object 
 var current_pb_magazin 
@@ -50,7 +50,7 @@ var player_money : int = 1200
 
 var current_player_position : Vector3
 
-
+var floating_camera_is_active : bool 
 
 
 

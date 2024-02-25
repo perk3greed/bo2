@@ -37,7 +37,6 @@ script = ExtResource("1_pxgo1")
 
 [node name="Camera3D" type="Camera3D" parent="Node3D"]
 transform = Transform3D(-0.994314, 0, 0.10649, 0, 1, 0, -0.10649, 0, -0.994314, 0, 0.405443, -1.93085)
-current = true
 
 [node name="player_cl" type="CollisionShape3D" parent="." groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.386517, 0)
@@ -163,7 +162,7 @@ spot_angle = 30.0
 [node name="Camera3D" type="Camera3D" parent="Head/camera_crane"]
 transform = Transform3D(1, 0, 2.13163e-13, 0, 1, 0, -2.13163e-13, 0, 1, 0, 0.180004, 0)
 rotation_order = 0
-cull_mask = 1048573
+cull_mask = 1048557
 current = true
 
 [node name="laser_pointer" parent="." instance=ExtResource("3_niyui")]

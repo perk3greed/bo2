@@ -41,7 +41,7 @@ var default_target_pos
 
 var current_weapon :String 
 var upgrades_on_screen :bool = false 
-
+var floating_camera_active :bool = false
 
 @onready var shotgun_raycast1 = $Head/camera_crane/shotgun_raycast/shotgun1
 @onready var shotgun_raycast2 = $Head/camera_crane/shotgun_raycast/shotgun2
@@ -91,7 +91,7 @@ func _ready():
 	#$Head/Camera3D/gun_raycast.add_exception($".")
 	Events.emit_signal("change_weapons", current_weapon)
 	Events.connect("shotgun_attack_finished", reload_shotty)
-	Events.connect("sword_attack_finished",sword_attack_finished_function )
+	Events.connect("sword_attack_finished",sword_attack_finished_function)
 	Events.connect("give_player_the_sword", give_me_the_sword)
 	Events.connect("give_player_shotgun_ammo", give_player_ammo)
 	Events.connect("shotgun_attack_happened", do_a_shotgun_shot)
@@ -99,6 +99,9 @@ func _ready():
 	Events.connect("give_player_the_shotgun", give_me_the_shotgun)
 	Events.connect("pb_handgun_attack_finished", do_finish_of_pb_shot)
 	Events.connect("pb_reload_finished", do_finish_reload_pb)
+	Events.connect("change_current_camera", change_camera_to_floating)
+	
+	
 	default_target_pos = gun_raycast.target_position
 	target_pos = generate_target_pos()
 	
@@ -185,6 +188,9 @@ func _physics_process(delta):
 	if upgrades_on_screen == true:
 		return 
 	
+	
+	if Events.floating_camera_is_active == true:
+		return
 	
 	var csrht = shotgun_raycast1.get_collision_point()
 	$laser_pointer_master/laser_pointer2.position = csrht
@@ -503,8 +509,7 @@ func sword_attack_finished_function():
 	for i in range(hit_bodies_size):
 		if bodies_hit_by_sword[i].is_in_group("enemy"):
 			bodies_hit_by_sword[i].shot("sword")
-			#print("enemy hit", i)
-#
+			
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
@@ -521,5 +526,13 @@ func do_finish_reload_pb():
 	pb_ammo -= pb_magazine_difference
 	pb_shot_active = false
 
+func change_camera_to_floating(floating):
+	if floating == true:
+		$Head/camera_crane/Camera3D.current = false
+		Events.floating_camera_is_active = true
+
+	elif floating == false:
+		$Head/camera_crane/Camera3D.current = true
+		Events.floating_camera_is_active = false
 
 

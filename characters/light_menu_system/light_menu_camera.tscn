@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8okcqpg2i0jk"]
+
+[ext_resource type="Script" path="res://characters/light_menu_system/light_menu_camera.gd" id="1_j7llm"]
+
+[node name="light_menu_camera" type="Node3D"]
+script = ExtResource("1_j7llm")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+cull_mask = 16
+fov = 90.0

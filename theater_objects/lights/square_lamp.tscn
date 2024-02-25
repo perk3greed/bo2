@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://di21gf0o1s51a"]
+[gd_scene load_steps=4 format=3 uid="uid://di21gf0o1s51a"]
 
 [ext_resource type="Script" path="res://theater_objects/lights/square_lamp.gd" id="1_dsewe"]
 
@@ -6,6 +6,11 @@
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7auxv"]
+albedo_color = Color(0.756863, 0.196078, 0.333333, 1)
+emission_enabled = true
+emission = Color(0, 0.596078, 0.662745, 1)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_dsewe")
@@ -18,3 +23,9 @@ material = SubResource("StandardMaterial3D_ocpvh")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 omni_range = 10.0
 omni_attenuation = 0.535887
+
+[node name="light_map_menu" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.361328, -0.00793457, -0.00390625)
+layers = 16
+size = Vector3(1.8, 0.1, 1.8)
+material = SubResource("StandardMaterial3D_7auxv")

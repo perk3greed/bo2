@@ -1,8 +1,13 @@
 extends Node3D
 
-func _ready():
-	self.visible= false
 
+@export var lamp_level : int
+
+
+
+func _ready():
+	self.visible= true
+	Events.connect("change_current_camera" ,change_camera)
 
 func _physics_process(delta):
 	
@@ -23,10 +28,23 @@ func _physics_process(delta):
 	
 	
 	var lower_or_higher = current_player_spot.y - self.global_position.y
-	
+	#
 	
 	if distance_to_player > 180:
-		self.visible = false
+		$OmniLight3D.visible = false
 	elif distance_to_player < 180:
 		if lower_or_higher < 0:
-			self.visible = true
+			$OmniLight3D.visible = true
+
+
+func change_camera(current):
+	if current == true:
+		if lamp_level == 2 :
+			$light_map_menu.visible = true
+		else :
+			$light_map_menu.visible = false
+	else :
+		if lamp_level == 2 :
+			$light_map_menu.visible = false
+		else :
+			$light_map_menu.visible = true
