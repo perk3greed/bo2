@@ -1,1 +1,1 @@
-educational project inspired by call of duty zombies, that i used aas a base for my horror game. 
+educational project inspired by call of duty zombies, that i used as a base for my horror game. 
